@@ -1,0 +1,222 @@
+{
+  "$ref": "#/definitions/DeluxeChatConfig",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "DeluxeChatConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "boolean": {
+          "additionalProperties": false,
+          "properties": {
+            "false": {
+              "type": "string"
+            },
+            "true": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "bungeecord": {
+          "additionalProperties": false,
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "join_global": {
+              "type": "boolean"
+            },
+            "server_name": {
+              "type": "string"
+            },
+            "server_prefix": {
+              "type": "string"
+            },
+            "server_whitelist": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "use_server_whitelist": {
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        },
+        "chat_filter": {
+          "additionalProperties": false,
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "ignore_case": {
+              "type": "boolean"
+            },
+            "list": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        },
+        "check_updates": {
+          "type": "boolean"
+        },
+        "formats": {
+          "additionalProperties": {
+            "additionalProperties": false,
+            "properties": {
+              "channel": {
+                "type": "string"
+              },
+              "channel_click_command": {
+                "type": "string"
+              },
+              "channel_tooltip": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "chat_color": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "name_click_command": {
+                "type": "string"
+              },
+              "name_color": {
+                "type": "string"
+              },
+              "name_tooltip": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "prefix": {
+                "type": "string"
+              },
+              "prefix_click_command": {
+                "type": "string"
+              },
+              "prefix_tooltip": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "priority": {
+                "type": "number"
+              },
+              "suffix": {
+                "type": "string"
+              },
+              "suffix_click_command": {
+                "type": "string"
+              },
+              "suffix_tooltip": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "channel",
+              "prefix",
+              "name_color",
+              "name",
+              "suffix",
+              "chat_color"
+            ],
+            "type": "object"
+          },
+          "type": "object"
+        },
+        "ops_use_group_format": {
+          "type": "boolean"
+        },
+        "private_message": {
+          "additionalProperties": false,
+          "properties": {
+            "bungeecord": {
+              "type": "boolean"
+            },
+            "enabled": {
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        },
+        "private_message_formats": {
+          "additionalProperties": false,
+          "properties": {
+            "social_spy": {
+              "type": "string"
+            },
+            "to_recipient": {
+              "additionalProperties": false,
+              "properties": {
+                "chat_color": {
+                  "type": "string"
+                },
+                "click_command": {
+                  "type": "string"
+                },
+                "format": {
+                  "type": "string"
+                },
+                "tooltip": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "to_sender": {
+              "additionalProperties": false,
+              "properties": {
+                "chat_color": {
+                  "type": "string"
+                },
+                "click_command": {
+                  "type": "string"
+                },
+                "format": {
+                  "type": "string"
+                },
+                "tooltip": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "required": [
+            "to_recipient",
+            "to_sender"
+          ],
+          "type": "object"
+        },
+        "relation_placeholders_enabled": {
+          "type": "boolean"
+        },
+        "timestamp_format": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}
