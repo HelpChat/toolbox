@@ -9,7 +9,10 @@ export default function ConvertConfig(yamlconfig: string): string | false {
     const deluxechatConfig = parse(yamlconfig);
     const validate = ajv.compile(schema)
     const valid = validate(deluxechatConfig)
-    if (!valid) console.log(validate.errors)
+    if (!valid) {
+        console.error(validate.errors)
+        return false;
+    }
     const chatchatFormatsConfig: ChatChatFormatsConfig = {
         "default-format": 'default',
         formats: {}
