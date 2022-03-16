@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "es2017"
+  },
+  "ts-node": {
+    "transpileOnly": true,
+    "moduleTypes": {
+      "converterdev.ts": "mjs"
+    }
+  }
+}
