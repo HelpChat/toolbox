@@ -103,7 +103,7 @@ formats:
     prefix: '&7[%vault_group%&7] '
     name_color: '&b'
     name: '%player_name%'
-    suffix: '&7> '
+    suffix: '&#f1Fa3c> '
     chat_color: '&f'
     channel_tooltip:
       - ''

@@ -51,22 +51,44 @@ export default function ConvertConfig(yamlconfig: string): string | false {
 }
 
 function minimessage(input: string): string {
-    const char = "&";
+    const characters = ["&", "§"];
+    const legacyReplacements: Record<string, string> = {
+        '0': "<black>",
+        '1': "<dark_blue>",
+        '2': "<dark_green>",
+        '3': "<dark_aqua>",
+        '4': "<dark_red>",
+        '5': "<dark_purple>",
+        '6': "<gold>",
+        '7': "<gray>",
+        '8': "<dark_gray>",
+        '9': "<blue>",
+        a: "<green>",
+        b: "<aqua>",
+        c: "<red>",
+        d: "<light_purple>",
+        e: "<yellow>",
+        f: "<white>",
+        k: "<obfuscated>",
+        l: "<b>",
+        m: "<st>",
+        n: "<u>",
+        o: "<i>",
+        r: "<reset>",
+        "/&#((?:[a-f0-9]{3}){1,2})": "<#$1>"
+    }
 
-    return input.replaceAll(char + "0", "<black>")
-        .replaceAll(char + "1", "<dark_blue>")
-        .replaceAll(char + "2", "<dark_green>")
-        .replaceAll(char + "3", "<dark_aqua>")
-        .replaceAll(char + "4", "<dark_red>")
-        .replaceAll(char + "5", "<dark_purple>")
-        .replaceAll(char + "6", "<gold>")
-        .replaceAll(char + "7", "<gray>")
-        .replaceAll(char + "8", "<dark_gray>")
-        .replaceAll(char + "9", "<blue>")
-        .replaceAll(char + "a", "<green>")
-        .replaceAll(char + "b", "<aqua>")
-        .replaceAll(char + "c", "<red>")
-        .replaceAll(char + "d", "<light_purple>")
-        .replaceAll(char + "e", "<yellow>")
-        .replaceAll(char + "f", "<white>")
+    let out = input;
+
+    characters.forEach(character => {
+        Object.keys(legacyReplacements).forEach(key => {
+            if (key.startsWith("/")) {
+                out = out.replace(new RegExp(key.slice(1), "gi"), legacyReplacements[key]);
+            } else {
+                out = out.replace(character + key, legacyReplacements[key]);
+            }
+        })
+    });
+
+    return out;
 }
