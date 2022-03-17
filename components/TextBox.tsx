@@ -32,21 +32,26 @@ export const TextBox = ({
         return (
             <div css={tw`flex flex-col h-full w-full pt-1`}>
                 <p css={tw`text-xl font-semibold mx-auto mb-2`}>{title}</p>
-                <Editor
-                    value={code}
-                    onValueChange={editor}
-                    highlight={highlight}
-                    css={css`
-                      ${textBoxStyle}
-                      > pre {
-                        ${tw`h-full`}
-                      }
+                <div css={tw`overflow-auto rounded-md`}>
+                    <Editor
+                        value={code}
+                        onValueChange={editor}
+                        highlight={highlight}
+                        css={css`
+                          width: fit-content;
 
-                      > pre > pre {
-                        ${tw`h-full`}
-                      }
-                    `}
-                />
+                          > pre {
+                            ${tw`h-full w-full`}
+                          }
+
+                          > pre > pre {
+                            ${tw`h-full w-full`}
+                          }
+
+                          ${textBoxStyle}
+                        `}
+                    />
+                </div>
             </div>
         );
     }

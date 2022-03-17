@@ -90,7 +90,7 @@ export default function ConvertConfig(yamlconfig: string): {settings: string, fo
             }
         })
     }
-    return {format: stringify(chatchatFormatsConfig), settings: stringify(chatchatSettingsConfig)}
+    return {format: stringify(chatchatFormatsConfig, {lineWidth: 0}), settings: stringify(chatchatSettingsConfig, {lineWidth: 0})}
 }
 
 function minimessage(input: string): string {
