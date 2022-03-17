@@ -37,23 +37,30 @@ export const TextBox = ({
             <div css={tw`flex flex-col h-full w-full pt-1`}>
                 <p css={tw`text-xl font-semibold mx-auto mb-2`}>{title}</p>
                 <div css={css`${tw`rounded-md overflow-auto h-full`} background-color: #2a2734`}>
-                    <div css={tw` py-2 px-4`}>
+                    <div css={tw`py-2 px-4`}>
                         <Editor
                             value={code}
                             onValueChange={editor}
                             highlight={highlight}
                             css={css`
-                      ${textBoxStyle};
-                      min-width: fit-content;
+                              ${textBoxStyle};
+                              min-width: fit-content;
+                              font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
-                      > pre {
-                        ${tw`h-full w-full`}
-                      }
+                              > pre {
+                                ${tw`h-full w-full`}
+                              }
 
-                      > pre > pre {
-                        ${tw`h-full w-full`}
-                      }
-                    `}
+                              > pre > pre {
+                                ${tw`h-full w-full`}
+                              }
+                              
+                              > textarea {
+                                z-index: 1;
+                                caret-color: whitesmoke;
+                                ${tw`hover:outline-none focus:outline-none`}
+                              }
+                            `}
                         />
                     </div>
                 </div>
