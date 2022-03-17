@@ -11,7 +11,7 @@ export default function ConvertConfig(yamlconfig: string): {settings: string, fo
     try {
         deluxechatConfig = parse(yamlconfig);
     } catch (e) {
-        console.error(e);
+        console.log(e);
         return false;
     }
     const validate = ajv.compile(schema)
@@ -48,7 +48,7 @@ export default function ConvertConfig(yamlconfig: string): {settings: string, fo
             };
 
             (["channel", "prefix", "name", "suffix"] as const).forEach(segment => {
-                let formattedSegment = minimessage(dcFormat[segment]);
+                let formattedSegment = dcFormat[segment];
 
                 // Add in the click command if it exists
                 let segmentClick = dcFormat[segment + "_click_command" as keyof DeluxeChatFormat];
@@ -62,11 +62,10 @@ export default function ConvertConfig(yamlconfig: string): {settings: string, fo
                     formattedSegment = "<hover:show_text:'" + segmentHover.join("<newline>") + "'>" + formattedSegment + "</hover>";
                 }
                 if (formattedSegment !== "") {
-                    console.log(formattedSegment);
-                    ccFormat.parts.push(formattedSegment);
+                    ccFormat.parts.push(minimessage(formattedSegment));
                 }
             })
-            ccFormat.parts.push(minimessage("<message>"));
+            ccFormat.parts.push("<message>");
             chatchatFormatsConfig.formats[name] = ccFormat;
         })
     }
@@ -75,7 +74,7 @@ export default function ConvertConfig(yamlconfig: string): {settings: string, fo
         (["to_sender", "to_recipient"]).forEach(section => {
             const dcFormat: DeluxeChatPrivateMessageFormat = formats[section as keyof DeluxeChatConfig["private_message_formats"]];
             const ccPartsFormat: string[] = []
-            let formattedSegment = minimessage(dcFormat.format ?? "");
+            let formattedSegment = dcFormat.format ?? "";
 
             // Add in the click command if it exists
             let segmentClick = dcFormat.click_command;
@@ -88,7 +87,7 @@ export default function ConvertConfig(yamlconfig: string): {settings: string, fo
             if (segmentHover && segmentHover.length > 0) {
                 formattedSegment = "<hover:show_text:'" + segmentHover.join("<newline>") + "'>" + formattedSegment + "</hover>";
             }
-            ccPartsFormat.push(formattedSegment);
+            ccPartsFormat.push(minimessage(formattedSegment));
             ccPartsFormat.push("<message>");
 
             switch (section) {
@@ -137,10 +136,11 @@ function minimessage(input: string): string {
     characters.forEach(character => {
         Object.keys(legacyReplacements).forEach(key => {
             if (key.startsWith("/")) {
-                out = out.replace(new RegExp(key.slice(1), "gi"), legacyReplacements[key]);
+                out = out.replace(new RegExp(key.slice(1), "ig"), legacyReplacements[key]);
             } else {
-                out = out.replace(character + key, legacyReplacements[key]);
+                out = out.replace(new RegExp(character + key, "ig"), legacyReplacements[key]);
             }
+            console.log(character + key);
         })
     });
 
