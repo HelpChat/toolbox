@@ -5,5 +5,6 @@ import ConvertConfig from "../converter/converter";
 
 const input = fs.readFileSync("./dev/input.yml", "utf8");
 const output = ConvertConfig(input);
-fs.writeFileSync("./dev/output.yml", !output ? "" : output);
+fs.writeFileSync("./dev/output-format.yml", !output ? "" : output.format);
+fs.writeFileSync("./dev/output-settings.yml", !output ? "" : output.settings);
 console.log("Conversion complete");

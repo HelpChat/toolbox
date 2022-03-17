@@ -5,7 +5,15 @@ export interface ChatChatFormatsConfig {
     }
 }
 
-export interface ChatChatFormat {
+export type ChatChatFormat = {
     priority: number
+} & ChatChatParts
+
+export interface ChatChatSettingsConfig {
+    "sender-format": ChatChatParts
+    "recipient-format": ChatChatParts
+}
+
+export interface ChatChatParts {
     parts: string[]
 }

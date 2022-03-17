@@ -1,12 +1,12 @@
 import {parse, stringify} from 'yaml'
-import {ChatChatFormat, ChatChatFormatsConfig} from "./types/chatchat";
+import {ChatChatFormat, ChatChatFormatsConfig, ChatChatSettingsConfig} from "./types/chatchat";
 import Ajv from "ajv"
-import {DeluxeChatConfig, DeluxeChatFormat} from "./types/deluxechat";
+import {DeluxeChatConfig, DeluxeChatFormat, DeluxeChatPrivateMessageFormat} from "./types/deluxechat";
 
 const schema = require('./types/deluxechat.json');
 const ajv = new Ajv()
 
-export default function ConvertConfig(yamlconfig: string): string | false {
+export default function ConvertConfig(yamlconfig: string): {settings: string, format: string} | false {
     let deluxechatConfig: DeluxeChatConfig;
     try {
         deluxechatConfig = parse(yamlconfig);
@@ -21,6 +21,14 @@ export default function ConvertConfig(yamlconfig: string): string | false {
     const chatchatFormatsConfig: ChatChatFormatsConfig = {
         "default-format": 'default',
         formats: {}
+    }
+    const chatchatSettingsConfig: ChatChatSettingsConfig = {
+        "sender-format": {
+            parts: []
+        },
+        "recipient-format": {
+            parts: []
+        },
     }
     if (deluxechatConfig.formats) {
         const formats = deluxechatConfig.formats;
@@ -47,10 +55,42 @@ export default function ConvertConfig(yamlconfig: string): string | false {
                 }
                 ccFormat.parts.push(minimessage(formattedSegment));
             })
+            ccFormat.parts.push(minimessage("<message>"));
             chatchatFormatsConfig.formats[name] = ccFormat;
         })
     }
-    return stringify(chatchatFormatsConfig);
+    if (deluxechatConfig.private_message_formats) {
+        const formats = deluxechatConfig.private_message_formats;
+        (["to_sender", "to_recipient"]).forEach(section => {
+            const dcFormat: DeluxeChatPrivateMessageFormat = formats[section as keyof DeluxeChatConfig["private_message_formats"]];
+            const ccPartsFormat: string[] = []
+            let formattedSegment = dcFormat.format ?? "";
+
+            // Add in the click command if it exists
+            let segmentClick = dcFormat.click_command;
+            if (segmentClick && segmentClick !== "") {
+                formattedSegment = "<click:run_command:'" + segmentClick + "'>" + formattedSegment + "</click>";
+            }
+
+            // Add in the hover if it exists
+            let segmentHover: string[] = (<string[]>dcFormat.tooltip).filter(s => s && s !== "")
+            if (segmentHover && segmentHover.length > 0) {
+                formattedSegment = "<hover:show_text:'" + segmentHover.join("<newline>") + "'>" + formattedSegment + "</hover>";
+            }
+            ccPartsFormat.push(minimessage(formattedSegment));
+            ccPartsFormat.push(minimessage("<message>"));
+
+            switch (section) {
+                case "to_sender":
+                    chatchatSettingsConfig["sender-format"].parts = ccPartsFormat;
+                    break;
+                case "to_recipient":
+                    chatchatSettingsConfig["recipient-format"].parts = ccPartsFormat;
+                    break;
+            }
+        })
+    }
+    return {format: stringify(chatchatFormatsConfig), settings: stringify(chatchatSettingsConfig)}
 }
 
 function minimessage(input: string): string {

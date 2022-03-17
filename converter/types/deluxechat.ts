@@ -24,12 +24,7 @@ export interface DeluxeChatConfig {
         enabled?: boolean;
         bungeecord?: boolean;
     }
-    private_message_formats?: Record<'to_sender' | 'to_recipient', {
-            format?: string,
-            tooltip?: string[],
-            click_command?: string
-            chat_color?: string
-        }
+    private_message_formats?: Record<'to_sender' | 'to_recipient', DeluxeChatPrivateMessageFormat
     > & {
         social_spy?: string
     }
@@ -54,4 +49,11 @@ export interface DeluxeChatFormat {
     prefix_click_command?: string;
     name_click_command?: string;
     suffix_click_command?: string;
+}
+
+export interface DeluxeChatPrivateMessageFormat {
+    format?: string,
+    tooltip?: string[],
+    click_command?: string
+    chat_color?: string
 }

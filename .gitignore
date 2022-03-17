@@ -38,7 +38,7 @@ yarn-error.log*
 *.tsbuildinfo
 
 # deluxechat-converter
-dev/output.yml
+dev/output-*.yml
 
 # webstorm
 .idea

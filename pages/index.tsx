@@ -9,7 +9,7 @@ import ConvertConfig from "../converter/converter";
 const Home: NextPage = () => {
 
     const [config, setConfig] = useState("");
-    const [parsedConfig, setParsedConfig] = useState<false|string>(false);
+    const [parsedConfig, setParsedConfig] = useState<false|{format: string, settings: string}>(false);
 
     useEffect(() => {
         setParsedConfig(ConvertConfig(config));
@@ -48,9 +48,8 @@ const Home: NextPage = () => {
                       height: calc(100vh - ${parsedConfig ? 14 : 16}rem);
                       ${tw`w-full md:w-1/2 p-4 pl-2 pt-1 flex flex-col`}
                     `}>
-                        <TextBox title={"ChatChat formats.yml"} code={parsedConfig || ""}/>
-                        {/*<TextBox title={"ChatChat channels.yml"} code={""}/>*/}
-                        {/*<TextBox title={"ChatChat settings.yml"} code={""}/>*/}
+                        <TextBox title={"ChatChat formats.yml"} code={!parsedConfig ? "" : parsedConfig.format}/>
+                        <TextBox title={"ChatChat settings.yml"} code={!parsedConfig ? "" : parsedConfig.settings}/>
                     </div>
                 </div>
             </main>
