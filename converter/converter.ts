@@ -24,7 +24,7 @@ export default function ConvertConfig(yamlconfig: string): string | false {
             const dcFormat = formats[name];
             const ccFormat: ChatChatFormat = {
                 priority: dcFormat.priority ?? 1,
-                format: []
+                parts: []
             };
 
             (["channel", "prefix", "name", "suffix"] as const).forEach(segment => {
@@ -41,7 +41,7 @@ export default function ConvertConfig(yamlconfig: string): string | false {
                 if (segmentHover && segmentHover.length > 0) {
                     formattedSegment = "<hover:show_text:'" + segmentHover.join("\\n") + "'>" + formattedSegment + "</hover>";
                 }
-                ccFormat.format.push(minimessage(formattedSegment));
+                ccFormat.parts.push(minimessage(formattedSegment));
             })
             chatchatFormatsConfig.formats[name] = ccFormat;
             console.log(dcFormat);

@@ -7,5 +7,5 @@ export interface ChatChatFormatsConfig {
 
 export interface ChatChatFormat {
     priority: number
-    format: string[]
+    parts: string[]
 }
