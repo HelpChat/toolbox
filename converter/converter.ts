@@ -7,7 +7,13 @@ const schema = require('./types/deluxechat.json');
 const ajv = new Ajv()
 
 export default function ConvertConfig(yamlconfig: string): string | false {
-    const deluxechatConfig: DeluxeChatConfig = parse(yamlconfig);
+    let deluxechatConfig: DeluxeChatConfig;
+    try {
+        deluxechatConfig = parse(yamlconfig);
+    } catch (e) {
+        console.error(e);
+        return false;
+    }
     const validate = ajv.compile(schema)
     const valid = validate(deluxechatConfig)
     if (!valid) {
