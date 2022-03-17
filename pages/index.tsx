@@ -48,8 +48,12 @@ const Home: NextPage = () => {
                       height: calc(100vh - ${parsedConfig ? 14 : 16}rem);
                       ${tw`w-full md:w-1/2 p-4 pl-2 pt-1 flex flex-col`}
                     `}>
-                        <TextBox title={"ChatChat formats.yml"} code={!parsedConfig ? "" : parsedConfig.format}/>
+                        <div css={tw`h-1/2`}>
+                            <TextBox title={"ChatChat formats.yml"} code={!parsedConfig ? "" : parsedConfig.format}/>
+                        </div>
+                        <div css={tw`h-1/2`}>
                         <TextBox title={"ChatChat settings.yml"} code={!parsedConfig ? "" : parsedConfig.settings}/>
+                        </div>
                     </div>
                 </div>
             </main>
