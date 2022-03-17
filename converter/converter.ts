@@ -74,7 +74,7 @@ function minimessage(input: string): string {
         n: "<u>",
         o: "<i>",
         r: "<reset>",
-        "/&#((?:[a-f0-9]{3}){1,2})": "<#$1>"
+        "/&?#((?:[a-f0-9]{3}){1,2})": "<#$1>"
     }
 
     let out = input;
