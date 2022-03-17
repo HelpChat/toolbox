@@ -11,13 +11,11 @@ export default function ConvertConfig(yamlconfig: string): string | false {
     try {
         deluxechatConfig = parse(yamlconfig);
     } catch (e) {
-        console.error(e);
         return false;
     }
     const validate = ajv.compile(schema)
     const valid = validate(deluxechatConfig)
     if (!valid) {
-        console.error(validate.errors)
         return false;
     }
     const chatchatFormatsConfig: ChatChatFormatsConfig = {
