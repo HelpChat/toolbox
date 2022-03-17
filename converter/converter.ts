@@ -140,7 +140,6 @@ function minimessage(input: string): string {
             } else {
                 out = out.replace(new RegExp(character + key, "ig"), legacyReplacements[key]);
             }
-            console.log(character + key);
         })
     });
 
