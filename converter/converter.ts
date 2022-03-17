@@ -39,12 +39,11 @@ export default function ConvertConfig(yamlconfig: string): string | false {
                 // Add in the hover if it exists
                 let segmentHover: string[] = (<string[]>dcFormat[segment + "_tooltip" as keyof DeluxeChatFormat]).filter(s => s && s !== "")
                 if (segmentHover && segmentHover.length > 0) {
-                    formattedSegment = "<hover:show_text:'" + segmentHover.join("\\n") + "'>" + formattedSegment + "</hover>";
+                    formattedSegment = "<hover:show_text:'" + segmentHover.join("<newline>") + "'>" + formattedSegment + "</hover>";
                 }
                 ccFormat.parts.push(minimessage(formattedSegment));
             })
             chatchatFormatsConfig.formats[name] = ccFormat;
-            console.log(dcFormat);
         })
     }
     return stringify(chatchatFormatsConfig);
