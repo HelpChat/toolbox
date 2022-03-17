@@ -3,6 +3,7 @@ export interface DeluxeChatConfig {
     bungeecord?: {
         enabled?: boolean;
         server_name?: string;
+        servername?: string; // Seems to exist in certain random configs
         server_prefix?: string;
         join_global?: boolean;
         use_server_whitelist?: boolean;

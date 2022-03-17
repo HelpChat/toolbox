@@ -1,5 +1,4 @@
 {
-  "$ref": "#/definitions/DeluxeChatConfig",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
     "DeluxeChatConfig": {
@@ -38,6 +37,9 @@
               },
               "type": "array"
             },
+            "servername": {
+              "type": "string"
+            },
             "use_server_whitelist": {
               "type": "boolean"
             }
@@ -67,75 +69,7 @@
         },
         "formats": {
           "additionalProperties": {
-            "additionalProperties": false,
-            "properties": {
-              "channel": {
-                "type": "string"
-              },
-              "channel_click_command": {
-                "type": "string"
-              },
-              "channel_tooltip": {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              },
-              "chat_color": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "name_click_command": {
-                "type": "string"
-              },
-              "name_color": {
-                "type": "string"
-              },
-              "name_tooltip": {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              },
-              "prefix": {
-                "type": "string"
-              },
-              "prefix_click_command": {
-                "type": "string"
-              },
-              "prefix_tooltip": {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              },
-              "priority": {
-                "type": "number"
-              },
-              "suffix": {
-                "type": "string"
-              },
-              "suffix_click_command": {
-                "type": "string"
-              },
-              "suffix_tooltip": {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              }
-            },
-            "required": [
-              "channel",
-              "prefix",
-              "name_color",
-              "name",
-              "suffix",
-              "chat_color"
-            ],
-            "type": "object"
+            "$ref": "#/definitions/DeluxeChatFormat"
           },
           "type": "object"
         },
@@ -161,46 +95,10 @@
               "type": "string"
             },
             "to_recipient": {
-              "additionalProperties": false,
-              "properties": {
-                "chat_color": {
-                  "type": "string"
-                },
-                "click_command": {
-                  "type": "string"
-                },
-                "format": {
-                  "type": "string"
-                },
-                "tooltip": {
-                  "items": {
-                    "type": "string"
-                  },
-                  "type": "array"
-                }
-              },
-              "type": "object"
+              "$ref": "#/definitions/DeluxeChatPrivateMessageFormat"
             },
             "to_sender": {
-              "additionalProperties": false,
-              "properties": {
-                "chat_color": {
-                  "type": "string"
-                },
-                "click_command": {
-                  "type": "string"
-                },
-                "format": {
-                  "type": "string"
-                },
-                "tooltip": {
-                  "items": {
-                    "type": "string"
-                  },
-                  "type": "array"
-                }
-              },
-              "type": "object"
+              "$ref": "#/definitions/DeluxeChatPrivateMessageFormat"
             }
           },
           "required": [
@@ -214,6 +112,98 @@
         },
         "timestamp_format": {
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DeluxeChatFormat": {
+      "additionalProperties": false,
+      "properties": {
+        "channel": {
+          "type": "string"
+        },
+        "channel_click_command": {
+          "type": "string"
+        },
+        "channel_tooltip": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "chat_color": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "name_click_command": {
+          "type": "string"
+        },
+        "name_color": {
+          "type": "string"
+        },
+        "name_tooltip": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "prefix": {
+          "type": "string"
+        },
+        "prefix_click_command": {
+          "type": "string"
+        },
+        "prefix_tooltip": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "priority": {
+          "type": "number"
+        },
+        "suffix": {
+          "type": "string"
+        },
+        "suffix_click_command": {
+          "type": "string"
+        },
+        "suffix_tooltip": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "channel",
+        "prefix",
+        "name_color",
+        "name",
+        "suffix",
+        "chat_color"
+      ],
+      "type": "object"
+    },
+    "DeluxeChatPrivateMessageFormat": {
+      "additionalProperties": false,
+      "properties": {
+        "chat_color": {
+          "type": "string"
+        },
+        "click_command": {
+          "type": "string"
+        },
+        "format": {
+          "type": "string"
+        },
+        "tooltip": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         }
       },
       "type": "object"

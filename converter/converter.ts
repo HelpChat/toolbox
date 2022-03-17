@@ -25,6 +25,7 @@ export default function ConvertConfig(yamlconfig: string): {settings: string, fo
         console.log(validate.errors)
         return false;
     }
+    if (!deluxechatConfig) return false;
     const chatchatFormatsConfig: ChatChatFormatsConfig = {
         "default-format": 'default',
         formats: {}
@@ -47,7 +48,7 @@ export default function ConvertConfig(yamlconfig: string): {settings: string, fo
             };
 
             (["channel", "prefix", "name", "suffix"] as const).forEach(segment => {
-                let formattedSegment = dcFormat[segment];
+                let formattedSegment = minimessage(dcFormat[segment]);
 
                 // Add in the click command if it exists
                 let segmentClick = dcFormat[segment + "_click_command" as keyof DeluxeChatFormat];
@@ -60,7 +61,10 @@ export default function ConvertConfig(yamlconfig: string): {settings: string, fo
                 if (segmentHover && segmentHover.length > 0) {
                     formattedSegment = "<hover:show_text:'" + segmentHover.join("<newline>") + "'>" + formattedSegment + "</hover>";
                 }
-                ccFormat.parts.push(minimessage(formattedSegment));
+                if (formattedSegment !== "") {
+                    console.log(formattedSegment);
+                    ccFormat.parts.push(formattedSegment);
+                }
             })
             ccFormat.parts.push(minimessage("<message>"));
             chatchatFormatsConfig.formats[name] = ccFormat;
@@ -71,7 +75,7 @@ export default function ConvertConfig(yamlconfig: string): {settings: string, fo
         (["to_sender", "to_recipient"]).forEach(section => {
             const dcFormat: DeluxeChatPrivateMessageFormat = formats[section as keyof DeluxeChatConfig["private_message_formats"]];
             const ccPartsFormat: string[] = []
-            let formattedSegment = dcFormat.format ?? "";
+            let formattedSegment = minimessage(dcFormat.format ?? "");
 
             // Add in the click command if it exists
             let segmentClick = dcFormat.click_command;
@@ -84,8 +88,8 @@ export default function ConvertConfig(yamlconfig: string): {settings: string, fo
             if (segmentHover && segmentHover.length > 0) {
                 formattedSegment = "<hover:show_text:'" + segmentHover.join("<newline>") + "'>" + formattedSegment + "</hover>";
             }
-            ccPartsFormat.push(minimessage(formattedSegment));
-            ccPartsFormat.push(minimessage("<message>"));
+            ccPartsFormat.push(formattedSegment);
+            ccPartsFormat.push("<message>");
 
             switch (section) {
                 case "to_sender":
