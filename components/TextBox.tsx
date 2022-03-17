@@ -5,7 +5,7 @@ import Editor from 'react-simple-code-editor'
 import {faCopy} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-const textBoxStyle = tw`flex-grow flex-shrink p-2 rounded-md border-none outline-none focus:outline-none overflow-x-auto`;
+const textBoxStyle = tw`flex-grow flex-shrink border-none outline-none focus:outline-none max-h-full`;
 
 export const TextBox = ({
                             title,
@@ -25,32 +25,37 @@ export const TextBox = ({
                         </div>
                     </div>
                 </div>
-                {highlight(code)}
+                <div css={css`${tw`rounded-md overflow-auto h-full`} background-color: #2a2734`}>
+                    <div css={tw` py-2 px-4`}>
+                        {highlight(code)}
+                    </div>
+                </div>
             </div>
         );
     } else {
         return (
             <div css={tw`flex flex-col h-full w-full pt-1`}>
                 <p css={tw`text-xl font-semibold mx-auto mb-2`}>{title}</p>
-                <div css={tw`overflow-auto rounded-md`}>
-                    <Editor
-                        value={code}
-                        onValueChange={editor}
-                        highlight={highlight}
-                        css={css`
-                          width: fit-content;
+                <div css={css`${tw`rounded-md overflow-auto h-full`} background-color: #2a2734`}>
+                    <div css={tw` py-2 px-4`}>
+                        <Editor
+                            value={code}
+                            onValueChange={editor}
+                            highlight={highlight}
+                            css={css`
+                      ${textBoxStyle};
+                      min-width: fit-content;
 
-                          > pre {
-                            ${tw`h-full w-full`}
-                          }
+                      > pre {
+                        ${tw`h-full w-full`}
+                      }
 
-                          > pre > pre {
-                            ${tw`h-full w-full`}
-                          }
-
-                          ${textBoxStyle}
-                        `}
-                    />
+                      > pre > pre {
+                        ${tw`h-full w-full`}
+                      }
+                    `}
+                        />
+                    </div>
                 </div>
             </div>
         );

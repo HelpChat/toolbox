@@ -11,11 +11,18 @@ export default function ConvertConfig(yamlconfig: string): {settings: string, fo
     try {
         deluxechatConfig = parse(yamlconfig);
     } catch (e) {
+        console.error(e);
         return false;
     }
     const validate = ajv.compile(schema)
-    const valid = validate(deluxechatConfig)
-    if (!valid) {
+    try {
+        const valid = validate(deluxechatConfig)
+        if (!valid) {
+            console.log(validate.errors)
+            return false;
+        }
+    } catch (e) {
+        console.log(validate.errors)
         return false;
     }
     const chatchatFormatsConfig: ChatChatFormatsConfig = {
