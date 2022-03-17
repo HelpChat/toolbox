@@ -34,22 +34,24 @@ export interface DeluxeChatConfig {
         social_spy?: string
     }
     formats?: {
-        [key: string]: {
-            priority?: number;
-            channel: string;
-            prefix: string;
-            name_color: string;
-            name: string;
-            suffix: string;
-            chat_color: string;
-            channel_tooltip?: string[];
-            prefix_tooltip?: string[];
-            name_tooltip?: string[];
-            suffix_tooltip?: string[];
-            channel_click_command?: string;
-            prefix_click_command?: string;
-            name_click_command?: string;
-            suffix_click_command?: string;
-        }
+        [key: string]: DeluxeChatFormat
     }
+}
+
+export interface DeluxeChatFormat {
+    priority?: number;
+    channel: string;
+    prefix: string;
+    name_color: string;
+    name: string;
+    suffix: string;
+    chat_color: string;
+    channel_tooltip?: string[];
+    prefix_tooltip?: string[];
+    name_tooltip?: string[];
+    suffix_tooltip?: string[];
+    channel_click_command?: string;
+    prefix_click_command?: string;
+    name_click_command?: string;
+    suffix_click_command?: string;
 }
