@@ -12,6 +12,7 @@ export const TextBox = ({
                             code,
                             editor
                         }: { title: string, code: string, editor?: Dispatch<SetStateAction<string>> }) => {
+
     if (!editor) {
         return (
             <div css={tw`flex flex-col h-full w-full pt-1`}>
@@ -36,14 +37,15 @@ export const TextBox = ({
         return (
             <div css={tw`flex flex-col h-full w-full pt-1`}>
                 <p css={tw`text-xl font-semibold mx-auto mb-2`}>{title}</p>
-                <div css={css`${tw`rounded-md overflow-auto h-full`} background-color: #2a2734`}>
-                    <div css={tw`py-2 px-4`}>
-                        <Editor
-                            value={code}
-                            onValueChange={editor}
-                            highlight={highlight}
-                            css={css`
-                              ${textBoxStyle};
+                <div css={css`${tw`rounded-md overflow-auto h-full flex flex-col`} background-color: #2a2734`}>
+                    <div css={tw`py-2 px-4 flex-grow flex-shrink`}>
+                            <Editor
+                                value={code}
+                                onValueChange={editor}
+                                highlight={highlight}
+                                css={css`
+                              ${textBoxStyle}
+                              ${tw`h-full`}
                               min-width: fit-content;
                               font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
@@ -58,10 +60,10 @@ export const TextBox = ({
                               > textarea {
                                 z-index: 1;
                                 caret-color: whitesmoke;
-                                ${tw`hover:outline-none focus:outline-none`}
+                                ${tw`hover:outline-none focus:outline-none h-full`}
                               }
                             `}
-                        />
+                            />
                     </div>
                 </div>
             </div>
