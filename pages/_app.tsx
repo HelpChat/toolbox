@@ -4,7 +4,7 @@ import tw, {css} from "twin.macro";
 import Link from 'next/link'
 import {ReactNode, useState} from "react";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faChevronDown, faChevronUp} from "@fortawesome/free-solid-svg-icons";
+import {faChevronDown, faChevronRight} from "@fortawesome/free-solid-svg-icons";
 
 function Converter({Component, pageProps}: AppProps) {
     return (
@@ -43,7 +43,7 @@ function Collapsable({children, name}: { children: ReactNode, name: string }) {
             <div css={tw`flex flex-row`}>
                 {name}
                 <div onClick={() => setOpen(!open)} css={tw`ml-auto hover:cursor-pointer`}>
-                    {open ? <FontAwesomeIcon icon={faChevronDown}/> : <FontAwesomeIcon icon={faChevronUp}/>}
+                    {open ? <FontAwesomeIcon icon={faChevronDown}/> : <FontAwesomeIcon icon={faChevronRight}/>}
                 </div>
             </div>
             <div css={css`
