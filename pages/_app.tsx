@@ -18,7 +18,10 @@ function Converter({Component, pageProps}: AppProps) {
                     <Collapsable name={"Config Converters"}>
                         <Collapsable name={"ChatChat"}>
                             <Link href={'/converters/chatchat/deluxechat'}>
-                                DeluxeChat
+                                <p>DeluxeChat</p>
+                            </Link>
+                            <Link href={'/converters/chatchat/essentialschat'}>
+                                <p>EssentialsChat</p>
                             </Link>
                         </Collapsable>
                     </Collapsable>
