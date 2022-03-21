@@ -52,7 +52,7 @@ const Home: NextPage = () => {
                         {
                             error ? (<div css={tw`flex flex-col h-full w-full pt-1`}>
                                 <div css={tw`flex flex-row pl-2`}>
-                                    <p css={tw`text-xl font-semibold mx-auto mb-2`}>Json Object Dump</p>
+                                    <p css={tw`text-xl font-semibold mx-auto mb-2`}>YAML Validation Errors</p>
                                 </div>
                                 <div css={css`${tw`rounded-md overflow-auto h-full`} background-color: #2a2734`}>
                                     <div css={tw` py-2 px-4`}>
