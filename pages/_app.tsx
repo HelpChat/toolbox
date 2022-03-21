@@ -23,6 +23,9 @@ function Converter({Component, pageProps}: AppProps) {
                             <Link href={'/converters/chatchat/essentialschat'}>
                                 <p>EssentialsChat</p>
                             </Link>
+                            <Link href={'/converters/chatchat/venturechat'}>
+                                <p>VentureChat</p>
+                            </Link>
                         </Collapsable>
                     </Collapsable>
                     <Collapsable name={'Validators'}>

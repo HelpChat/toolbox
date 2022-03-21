@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/VentureChatConfig",
+  "definitions": {
+    "VentureChatConfig": {
+      "type": "object",
+      "properties": {
+        "tellformatto": {
+          "type": "string"
+        },
+        "tellformatfrom": {
+          "type": "string"
+        },
+        "jsonformatting": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/VentureChatFormat"
+          }
+        }
+      },
+      "required": [
+        "tellformatto",
+        "tellformatfrom"
+      ],
+      "additionalProperties": false
+    },
+    "VentureChatFormat": {
+      "type": "object",
+      "properties": {
+        "priority": {
+          "type": "number"
+        },
+        "json_attributes": {
+          "type": "object",
+          "properties": {
+            "player_displayname": {
+              "$ref": "#/definitions/VentureChatJsonComponent"
+            },
+            "vault_prefix": {
+              "$ref": "#/definitions/VentureChatJsonComponent"
+            },
+            "venturechat_channel_prefix": {
+              "$ref": "#/definitions/VentureChatJsonComponent"
+            }
+          },
+          "required": [
+            "player_displayname",
+            "vault_prefix",
+            "venturechat_channel_prefix"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "priority",
+        "json_attributes"
+      ],
+      "additionalProperties": false
+    },
+    "VentureChatJsonComponent": {
+      "type": "object",
+      "properties": {
+        "hover_text": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "click_action": {
+          "type": "string"
+        },
+        "click_text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "hover_text",
+        "click_action",
+        "click_text"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
