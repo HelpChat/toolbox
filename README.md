@@ -1,15 +1,31 @@
-# DeluxeChat Converter
+# HelpChat ToolBox
 
-## Usage
-Comming Soon™
+## What is it?
+HelpChat ToolBox is a toolbox of useful tools for HelpChat's Minecraft plugins, configs, and more!
+
+It currently includes the following features:
+ - [DeluxeChat to ChatChat Config Converter](https://toolbox.helpch.at/converters/chatchat/deluxechat)
+ - [Yaml Config Validator](https://toolbox.helpch.at/validators/yaml)
+### Usage
+HelpChat's ToolBox is hosted at [toolbox.helpch.at](https://toolbox.helpch.at/). 
+
 
 ## Development
-### Converter Development Instructions
- - Make changes to the converter
- - Run `yarn converterdev` to test the converter on the file `./dev/input.yml`
- - Preview the output at `./dev/output.yml`
+### Starting Guide
+1) Clone the repository
+2) Install NPM, and NodeJS for your respective platform
+3) Install yarn globally (`npm i -g yarn`)
+4) Install the dependencies of this project (`yarn install`)
+5) Run the dev server (`yarn dev`)
+6) Start making changes! They'll be automatically reloaded @ http://localhost:3000/
 
-### Website Design
- - Make website changes
- - Run `yarn dev` to live preview your changes (also works with converter changes!)
- - Preview the output in your browser at `http://localhost:3000`
+### Generating JSON Schemas for Converter Types
+Run the command `yarn generateschema`, and pass it to the Converter. It will validate types for you at runtime.
+
+### UI Development & Design
+Run `yarn dev`, and it will automatically reload the UI at http://localhost:3000/ as you make changes.
+Pages are generated from the `pages/` directory, so to add a new page simply just create that file in the directory.
+
+### Feature Development
+Converters are currently written in their own folder (`converters/`), directory. 
+To test a newly created one you'll need to create a new page for it to see live updates in your browser, refer to the UI Development & Design section above for more information on developing with live-updates
