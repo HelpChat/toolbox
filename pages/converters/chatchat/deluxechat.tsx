@@ -42,7 +42,7 @@ const Home: NextPage = () => {
                       height: calc(100vh - 14.75em);
                       max-width: calc(50vw - 6rem);
                     `}>
-                        <TextBox title={"DeluxeChat Config"} code={config} editor={setConfig}/>
+                        <TextBox title={"DeluxeChat Config"} code={config} editor={setConfig} language={"yaml"}/>
                     </div>
                     <div css={css`
                       ${tw`w-full md:w-1/2 p-4 pl-2 pt-1 flex flex-col`}
@@ -50,15 +50,30 @@ const Home: NextPage = () => {
                       max-width: calc(50vw - 6rem);
                     `}>
                         {
-                            error ? (<TextBox title={"Conversion Error"} code={error}/>) : (
+                            error ? (<div css={tw`flex flex-col h-full w-full pt-1`}>
+                                <div css={tw`flex flex-row pl-2`}>
+                                    <p css={tw`text-xl font-semibold mx-auto mb-2`}>Json Object Dump</p>
+                                </div>
+                                <div css={css`${tw`rounded-md overflow-auto h-full`} background-color: #2a2734`}>
+                                    <div css={tw` py-2 px-4`}>
+                                    <span css={
+                                        css`
+                                          ${tw`text-base text-white whitespace-pre`}
+                                          font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+                                        `}>{error}</span>
+                                    </div>
+                                </div>
+                            </div>) : (
                                 <>
                                     <div css={tw`h-1/2`}>
                                         <TextBox title={"ChatChat formats.yml"}
-                                                 code={!parsedConfig ? "" : parsedConfig.format}/>
+                                                 code={!parsedConfig ? "" : parsedConfig.format}
+                                                 language={"yaml"}/>
                                     </div>
                                     <div css={tw`h-1/2`}>
                                         <TextBox title={"ChatChat settings.yml"}
-                                                 code={!parsedConfig ? "" : parsedConfig.settings}/>
+                                                 code={!parsedConfig ? "" : parsedConfig.settings}
+                                                 language={"yaml"}/>
                                     </div>
                                 </>
                             )

@@ -52,7 +52,7 @@ const Home: NextPage = () => {
                       height: calc(100vh - 14.75em);
                       ${tw`md:w-1/2 p-4 pt-1 pr-2`}
                     `}>
-                        <TextBox title={"Yaml Config"} code={config} editor={setConfig}/>
+                        <TextBox title={"Yaml Config"} code={config} editor={setConfig} language={"yaml"}/>
                     </div>
                     <div css={css`
                       height: calc(100vh - 14.75em);

@@ -1,5 +1,5 @@
 import tw, {css} from "twin.macro";
-import Highlight, {defaultProps} from "prism-react-renderer";
+import Highlight, {defaultProps, Language} from "prism-react-renderer";
 import {Dispatch, SetStateAction} from "react";
 import Editor from 'react-simple-code-editor'
 import {faCopy} from '@fortawesome/free-solid-svg-icons'
@@ -7,11 +7,20 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const textBoxStyle = tw`flex-grow flex-shrink border-none outline-none focus:outline-none max-h-full`;
 
-export const TextBox = ({
-                            title,
-                            code,
-                            editor
-                        }: { title: string, code: string, editor?: Dispatch<SetStateAction<string>> }) => {
+export const TextBox = (
+    {
+        title,
+        code,
+        editor,
+        language
+    }:
+        {
+            title: string,
+            code: string,
+            editor?: Dispatch<SetStateAction<string>>,
+            language: Language
+        }
+) => {
 
     if (!editor) {
         return (
@@ -28,7 +37,7 @@ export const TextBox = ({
                 </div>
                 <div css={css`${tw`rounded-md overflow-auto h-full`} background-color: #2a2734`}>
                     <div css={tw` py-2 px-4`}>
-                        {highlight(code)}
+                        {highlight(code, language)}
                     </div>
                 </div>
             </div>
@@ -39,11 +48,11 @@ export const TextBox = ({
                 <p css={tw`text-xl font-semibold mx-auto mb-2`}>{title}</p>
                 <div css={css`${tw`rounded-md overflow-auto h-full flex flex-col`} background-color: #2a2734`}>
                     <div css={tw`py-2 px-4 flex-grow flex-shrink`}>
-                            <Editor
-                                value={code}
-                                onValueChange={editor}
-                                highlight={highlight}
-                                css={css`
+                        <Editor
+                            value={code}
+                            onValueChange={editor}
+                            highlight={(v) => highlight(v, language)}
+                            css={css`
                               ${textBoxStyle}
                               ${tw`h-full`}
                               min-width: fit-content;
@@ -56,14 +65,14 @@ export const TextBox = ({
                               > pre > pre {
                                 ${tw`h-full w-full`}
                               }
-                              
+
                               > textarea {
                                 z-index: 1;
                                 caret-color: whitesmoke;
                                 ${tw`hover:outline-none focus:outline-none h-full`}
                               }
                             `}
-                            />
+                        />
                     </div>
                 </div>
             </div>
@@ -71,8 +80,8 @@ export const TextBox = ({
     }
 }
 
-function highlight(code: string) {
-    return (<Highlight {...defaultProps} code={code} language="yaml">
+function highlight(code: string, language: Language) {
+    return (<Highlight {...defaultProps} code={code} language={language}>
         {({className, style, tokens, getLineProps, getTokenProps}) => (
             <pre className={className} style={style} css={textBoxStyle}>
                 {tokens.map((line, i) => (
