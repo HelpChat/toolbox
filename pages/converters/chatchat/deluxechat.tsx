@@ -39,12 +39,14 @@ const Home: NextPage = () => {
                 <div css={tw`flex flex-col md:flex-row flex-grow flex-shrink h-full max-w-full`}>
                     <div css={css`
                       ${tw`w-full md:w-1/2 p-4 pt-1 pr-2`}
+                      height: calc(100vh - 14.75em);
                       max-width: calc(50vw - 6rem);
                     `}>
                         <TextBox title={"DeluxeChat Config"} code={config} editor={setConfig}/>
                     </div>
                     <div css={css`
                       ${tw`w-full md:w-1/2 p-4 pl-2 pt-1 flex flex-col`}
+                      height: calc(100vh - 14.75em);
                       max-width: calc(50vw - 6rem);
                     `}>
                         {
