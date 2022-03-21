@@ -1,0 +1,213 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/DeluxeChatConfig",
+  "definitions": {
+    "DeluxeChatConfig": {
+      "type": "object",
+      "properties": {
+        "check_updates": {
+          "type": "boolean"
+        },
+        "bungeecord": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "server_name": {
+              "type": "string"
+            },
+            "servername": {
+              "type": "string"
+            },
+            "server_prefix": {
+              "type": "string"
+            },
+            "join_global": {
+              "type": "boolean"
+            },
+            "use_server_whitelist": {
+              "type": "boolean"
+            },
+            "server_whitelist": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "relation_placeholders_enabled": {
+          "type": "boolean"
+        },
+        "timestamp_format": {
+          "type": "string"
+        },
+        "boolean": {
+          "type": "object",
+          "properties": {
+            "true": {
+              "type": "string"
+            },
+            "false": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "ops_use_group_format": {
+          "type": "boolean"
+        },
+        "chat_filter": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "ignore_case": {
+              "type": "boolean"
+            },
+            "list": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "private_message": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "bungeecord": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "private_message_formats": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "social_spy": {
+              "type": "string"
+            },
+            "to_sender": {
+              "$ref": "#/definitions/DeluxeChatPrivateMessageFormat"
+            },
+            "to_recipient": {
+              "$ref": "#/definitions/DeluxeChatPrivateMessageFormat"
+            }
+          },
+          "required": [
+            "to_recipient",
+            "to_sender"
+          ]
+        },
+        "formats": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/DeluxeChatFormat"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "DeluxeChatPrivateMessageFormat": {
+      "type": "object",
+      "properties": {
+        "format": {
+          "type": "string"
+        },
+        "tooltip": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "click_command": {
+          "type": "string"
+        },
+        "chat_color": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DeluxeChatFormat": {
+      "type": "object",
+      "properties": {
+        "priority": {
+          "type": "number"
+        },
+        "channel": {
+          "type": "string"
+        },
+        "prefix": {
+          "type": "string"
+        },
+        "name_color": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "suffix": {
+          "type": "string"
+        },
+        "chat_color": {
+          "type": "string"
+        },
+        "channel_tooltip": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "prefix_tooltip": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "name_tooltip": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "suffix_tooltip": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "channel_click_command": {
+          "type": "string"
+        },
+        "prefix_click_command": {
+          "type": "string"
+        },
+        "name_click_command": {
+          "type": "string"
+        },
+        "suffix_click_command": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "channel",
+        "prefix",
+        "name_color",
+        "name",
+        "suffix",
+        "chat_color"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

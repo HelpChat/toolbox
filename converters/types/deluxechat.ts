@@ -1,3 +1,5 @@
+// @ToolBox - DeluxeChatConfig
+
 export interface DeluxeChatConfig {
     check_updates?: boolean;
     bungeecord?: {

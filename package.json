@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "converterdev": "ts-node --project tsnodeconfig.json dev/converterdev.ts",
-    "generateschema": "npx ts-json-schema-generator --path './converter/types/deluxechat.ts'",
+    "generateschema": "ts-node --project tsnodeconfig.json cli/generateschema.ts",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -34,7 +33,6 @@
     "eslint-config-next": "12.1.0",
     "tailwindcss": "^3.0.23",
     "ts-json-schema-generator": "^0.98.0",
-    "ts-node": "^10.7.0",
     "twin.macro": "^2.8.2",
     "typescript": "4.6.2"
   },
