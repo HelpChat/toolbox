@@ -1,7 +1,27 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$ref": "#/definitions/EssentialsChatConfig",
+  "$ref": "#/definitions/EssentialsChatTypes",
   "definitions": {
+    "EssentialsChatTypes": {
+      "type": "object",
+      "properties": {
+        "config": {
+          "$ref": "#/definitions/EssentialsChatConfig"
+        },
+        "language": {
+          "type": "object",
+          "properties": {
+            "msgFormat": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "required": [
+        "config",
+        "language"
+      ]
+    },
     "EssentialsChatConfig": {
       "type": "object",
       "properties": {
@@ -9,13 +29,23 @@
           "type": "object",
           "properties": {
             "format": {
-              "type": "string"
+              "type": [
+                "string",
+                "null"
+              ]
             },
             "group-formats": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              }
+              "anyOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           }
         }

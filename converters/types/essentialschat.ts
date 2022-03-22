@@ -1,17 +1,17 @@
-// @ToolBox - EssentialsChatConfig
+// @ToolBox - EssentialsChatTypes
 
 export interface EssentialsChatConfig {
     chat: {
-        format?: string
+        format?: string | null;
         "group-formats"?: {
             [key: string]: string
-        }
+        } | null
     }
 }
 
 export interface EssentialsChatTypes {
     config: EssentialsChatConfig
     language: {
-        msgFormat: string
+        msgFormat?: string
     }
 }
