@@ -18,10 +18,10 @@ function Converter({Component, pageProps}: AppProps) {
                     <Collapsable name={"Config Converters"}>
                         <Collapsable name={"ChatChat"}>
                             <Link href={'/converters/chatchat/deluxechat'}>
-                                <p>DeluxeChat</p>
+                                <p css={tw`hover:cursor-pointer`}>DeluxeChat</p>
                             </Link>
                             <Link href={'/converters/chatchat/essentialschat'}>
-                                <p>EssentialsChat</p>
+                                <p css={tw`hover:cursor-pointer`}>EssentialsChat</p>
                             </Link>
                             <Link href={'/converters/chatchat/venturechat'}>
                                 <p>VentureChat</p>
@@ -30,7 +30,7 @@ function Converter({Component, pageProps}: AppProps) {
                     </Collapsable>
                     <Collapsable name={'Validators'}>
                         <Link href={'/validators/yaml'}>
-                            Yaml Validator
+                            <p css={tw`hover:cursor-pointer`}>Yaml Validator</p>
                         </Link>
                     </Collapsable>
                 </div>

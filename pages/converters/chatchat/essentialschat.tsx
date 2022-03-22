@@ -5,16 +5,31 @@ import {TextBox} from "../../../components/TextBox";
 import {useEffect, useState} from "react";
 import ChatChatEssentialsChatConverter from "../../../converters/chatchat/essentialschat";
 import {ConversionError} from "../../../converters/converter";
-
+import Properties from "@js.properties/properties";
 
 const Home: NextPage = () => {
 
     const [config, setConfig] = useState("");
+    const [lang, setLang] = useState("");
     const [parsedConfig, setParsedConfig] = useState<false | { format: string, settings: string }>(false);
     const [error, setError] = useState<false | string>(false);
 
     useEffect(() => {
-        const newConfig = ChatChatEssentialsChatConverter.convert(config);
+        let propertiesConfig: any = {};
+        try {
+            const propertiesList = Properties.parseToEntries(lang, {
+                all: false
+            });
+            propertiesList.forEach(properties => {
+                if (!properties.key) return;
+                propertiesConfig[properties.key] = properties.element ? unescape(properties.element) : "";
+            });
+            console.log(propertiesConfig);
+        } catch (e: any) {
+            setError(e?.message ?? "Error parsing properties file");
+            setParsedConfig(false);
+        }
+        const newConfig = ChatChatEssentialsChatConverter.convert({config, language: propertiesConfig});
         if (Object.keys(newConfig).includes("error")) {
             setError((newConfig as ConversionError).message);
             setParsedConfig(false);
@@ -42,7 +57,12 @@ const Home: NextPage = () => {
                       height: calc(100vh - 14.75em);
                       max-width: calc(50vw - 6rem);
                     `}>
+                        <div css={tw`h-1/2`}>
                         <TextBox title={"EssentialsChat Config"} code={config} editor={setConfig} language={"yaml"}/>
+                        </div>
+                        <div css={tw`h-1/2`}>
+                            <TextBox title={"EssentialsChat Language File"} code={lang} editor={setLang} language={"properties"}/>
+                        </div>
                     </div>
                     <div css={css`
                       ${tw`w-full md:w-1/2 p-4 pl-2 pt-1 flex flex-col`}
@@ -65,16 +85,18 @@ const Home: NextPage = () => {
                                 </div>
                             </div>) : (
                                 <>
-                                    <div css={tw`flex flex-col md:flex-row flex-grow flex-shrink h-full max-w-full`}>
-                                        <TextBox title={"ChatChat formats.yml"}
-                                                 code={!parsedConfig ? "" : parsedConfig.format}
-                                                 language={"yaml"}/>
+                                    <div css={tw`flex flex-col flex-grow flex-shrink h-full max-w-full`}>
+                                        <div css={tw`h-1/2`}>
+                                            <TextBox title={"ChatChat formats.yml"}
+                                                     code={!parsedConfig ? "" : parsedConfig.format}
+                                                     language={"yaml"}/>
+                                        </div>
+                                        <div css={tw`h-1/2`}>
+                                            <TextBox title={"ChatChat settings.yml"}
+                                                     code={!parsedConfig ? "" : parsedConfig.settings}
+                                                     language={"yaml"}/>
+                                        </div>
                                     </div>
-                                    {/*<div css={tw`h-1/2`}>*/}
-                                    {/*    <TextBox title={"ChatChat settings.yml"}*/}
-                                    {/*             code={!parsedConfig ? "" : parsedConfig.settings}*/}
-                                    {/*             language={"yaml"}/>*/}
-                                    {/*</div>*/}
                                 </>
                             )
                         }

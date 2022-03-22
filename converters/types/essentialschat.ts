@@ -6,3 +6,10 @@ export interface EssentialsChatConfig {
         [key: string]: string
     }
 }
+
+export interface EssentialsChatTypes {
+    config: EssentialsChatConfig
+    language: {
+        msgFormat: string
+    }
+}

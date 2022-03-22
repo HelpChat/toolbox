@@ -16,7 +16,8 @@ directory.forEach((f: string) => {
     const schema = tsj.createGenerator({
         path: `./converters/types/${f}`,
         tsconfig: './tsconfig.json',
-        type: match[1]
+        type: match[1],
+        additionalProperties: true,
     }).createSchema(match[1])
 
     const schemaString = JSON.stringify(schema, null, 2);

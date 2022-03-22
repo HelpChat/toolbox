@@ -1,12 +1,12 @@
 import Converter from "../converter";
-import {EssentialsChatConfig} from "../types/essentialschat";
+import {EssentialsChatTypes} from "../types/essentialschat";
 import {ChatChatFormat, ChatChatFormatsConfig, ChatChatSettingsConfig} from "../types/chatchat";
 import MiniMessage from "../minimessage";
 import Placeholders from "../placeholders";
 
 const schema = require('../types/essentialschat.json')
 
-const ChatChatEssentialsChatConverter = new Converter<EssentialsChatConfig, { format: ChatChatFormatsConfig, settings: ChatChatSettingsConfig }>({
+const ChatChatEssentialsChatConverter = new Converter<EssentialsChatTypes, { format: ChatChatFormatsConfig, settings: ChatChatSettingsConfig }>({
     Convert(essentialschatConfig) {
         const chatchatFormatsConfig: ChatChatFormatsConfig = {
             "default-format": 'default',
@@ -21,8 +21,15 @@ const ChatChatEssentialsChatConverter = new Converter<EssentialsChatConfig, { fo
             },
         }
 
-        if (essentialschatConfig.format) {
-            const format = essentialschatConfig.format;
+        if (!essentialschatConfig.config) {
+            return {
+                error: true,
+                message: 'EssentialsChat config is missing'
+            }
+        }
+
+        if (essentialschatConfig.config.format) {
+            const format = essentialschatConfig.config.format;
             const ccFormat: ChatChatFormat = {
                 priority: 1,
                 parts: []
@@ -34,8 +41,8 @@ const ChatChatEssentialsChatConverter = new Converter<EssentialsChatConfig, { fo
 
         let formatCount = 1;
 
-        if (essentialschatConfig["group-formats"]) {
-            const formats = essentialschatConfig["group-formats"]
+        if (essentialschatConfig.config["group-formats"]) {
+            const formats = essentialschatConfig.config["group-formats"]
             Object.keys(formats).forEach(name => {
                 const ecFormat = formats[name]
                 const ccFormat: ChatChatFormat = {
@@ -49,6 +56,11 @@ const ChatChatEssentialsChatConverter = new Converter<EssentialsChatConfig, { fo
             });
         }
 
+        if (essentialschatConfig.language.msgFormat) {
+            chatchatSettingsConfig["sender-format"].parts.push(
+                essentialschatConfig.language.msgFormat
+            );
+        }
 
         return {
             format: chatchatFormatsConfig,

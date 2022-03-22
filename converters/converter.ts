@@ -9,12 +9,23 @@ export default class Converter<InputConfig extends object, OutputConfigs extends
         this.conversion = conversion
     }
 
-    convert(input: string): Record<keyof OutputConfigs, string> | ConversionError {
+    convert(input: any): Record<keyof OutputConfigs, string> | ConversionError {
 
-        let untypedInputConfig;
+        let untypedInputConfig: any;
 
         try {
-            untypedInputConfig = parse(input);
+            if (typeof input === 'string') {
+                untypedInputConfig = parse(input)
+            } else {
+                untypedInputConfig = {};
+                for (const key of Object.keys(input)) {
+                    if (typeof input[key] === 'string') {
+                        untypedInputConfig[key] = parse(input[key])
+                    } else {
+                        untypedInputConfig[key] = input[key]
+                    }
+                }
+            }
         } catch (e: any) {
             return {
                 message: e.message ?? "Error parsing input",

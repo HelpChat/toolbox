@@ -1,9 +1,12 @@
 import tw, {css} from "twin.macro";
-import Highlight, {defaultProps, Language} from "prism-react-renderer";
+import Highlight, {defaultProps} from "prism-react-renderer";
+import Prism from 'prismjs';
 import {Dispatch, SetStateAction} from "react";
 import Editor from 'react-simple-code-editor'
 import {faCopy} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import "prismjs/components/prism-yaml"
+import "prismjs/components/prism-properties"
 
 const textBoxStyle = tw`flex-grow flex-shrink border-none outline-none focus:outline-none max-h-full`;
 
@@ -18,7 +21,7 @@ export const TextBox = (
             title: string,
             code: string,
             editor?: Dispatch<SetStateAction<string>>,
-            language: Language
+            language: string
         }
 ) => {
 
@@ -80,8 +83,9 @@ export const TextBox = (
     }
 }
 
-function highlight(code: string, language: Language) {
-    return (<Highlight {...defaultProps} code={code} language={language}>
+function highlight(code: string, language: string) {
+    // @ts-ignore (Prism is odd)
+    return (<Highlight {...defaultProps} Prism={Prism} code={code} language={language}>
         {({className, style, tokens, getLineProps, getTokenProps}) => (
             <pre className={className} style={style} css={textBoxStyle}>
                 {tokens.map((line, i) => (

@@ -35,8 +35,7 @@
                 "type": "string"
               }
             }
-          },
-          "additionalProperties": false
+          }
         },
         "relation_placeholders_enabled": {
           "type": "boolean"
@@ -53,8 +52,7 @@
             "false": {
               "type": "string"
             }
-          },
-          "additionalProperties": false
+          }
         },
         "ops_use_group_format": {
           "type": "boolean"
@@ -74,8 +72,7 @@
                 "type": "string"
               }
             }
-          },
-          "additionalProperties": false
+          }
         },
         "private_message": {
           "type": "object",
@@ -86,12 +83,10 @@
             "bungeecord": {
               "type": "boolean"
             }
-          },
-          "additionalProperties": false
+          }
         },
         "private_message_formats": {
           "type": "object",
-          "additionalProperties": false,
           "properties": {
             "social_spy": {
               "type": "string"
@@ -114,8 +109,7 @@
             "$ref": "#/definitions/DeluxeChatFormat"
           }
         }
-      },
-      "additionalProperties": false
+      }
     },
     "DeluxeChatPrivateMessageFormat": {
       "type": "object",
@@ -135,8 +129,7 @@
         "chat_color": {
           "type": "string"
         }
-      },
-      "additionalProperties": false
+      }
     },
     "DeluxeChatFormat": {
       "type": "object",
@@ -206,8 +199,7 @@
         "name",
         "suffix",
         "chat_color"
-      ],
-      "additionalProperties": false
+      ]
     }
   }
 }

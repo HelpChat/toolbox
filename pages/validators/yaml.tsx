@@ -6,14 +6,28 @@ import {useEffect, useState} from "react";
 import {parse} from 'yaml'
 import dynamic from "next/dynamic";
 import duotoneDark from 'prism-react-renderer/themes/duotoneDark';
+import {useRouter} from "next/router";
 
 const ReactJson = dynamic(import('react-json-view'), {ssr: false});
 
 const Home: NextPage = () => {
 
+    const router = useRouter();
+
     const [config, setConfig] = useState("");
     const [parsedConfig, setParsedConfig] = useState<any>({});
     const [error, setError] = useState<false | string>(false);
+
+    useEffect(() => {
+        if (!router.query.data) return;
+        if (!(typeof router.query.data === 'string')) return;
+        try {
+            const yaml = Buffer.from(router.query.data, 'base64');
+            setConfig(yaml.toString())
+        } catch (e) {
+            return;
+        }
+    }, [router.query.yaml]);
 
     useEffect(() => {
         let configObject;
