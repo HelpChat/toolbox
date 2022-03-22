@@ -33,11 +33,8 @@ const Home: NextPage = () => {
         let configObject;
         try {
             configObject = parse(config);
-            if (!configObject) {
-                setError("Missing Values");
-                setParsedConfig({})
-            } else if (!(configObject instanceof Object)) {
-                setError("Key without value present")
+            if (!configObject || !(configObject instanceof Object)) {
+                setError("must be object");
                 setParsedConfig({})
             } else {
                 setError(false);
