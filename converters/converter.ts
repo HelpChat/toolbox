@@ -35,8 +35,6 @@ export default class Converter<InputConfig extends object, OutputConfigs extends
         const validate = this.ajv.compile(this.conversion.inputSchema)
         try {
             const valid = validate(untypedInputConfig)
-            console.log(untypedInputConfig)
-            console.log(validate.errors)
             if (!valid) {
                 return {
                     message: validate.errors?.map(e => e.message).join("\n") ?? "Error validating input",

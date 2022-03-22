@@ -1,5 +1,6 @@
 export default function MiniMessage(input: string): string {
-    const characters = ["&", "§"];
+    const characters = ["&", "§", "\\\\u00a7"];
+
     const legacyReplacements: Record<string, string> = {
         '0': "<black>",
         '1': "<dark_blue>",
