@@ -12,6 +12,8 @@ It currently includes the following features:
 - [Yaml Config Validator](https://toolbox.helpch.at/validators/yaml)
 - [Properties Config Validator](https://toolbox.helpch.at/validators/properties)
 - [Toml Config Validator](https://toolbox.helpch.at/validators/toml)
+- [Hocon Config Validator](https://toolbox.helpch.at/validators/hocon)
+- [XML Config Validator](https://toolbox.helpch.at/validators/xml)
 
 ### Usage
 

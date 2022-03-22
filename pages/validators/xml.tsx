@@ -1,15 +1,15 @@
 import type { NextPage } from "next";
-import { parse } from "yaml";
+import { xml2json as parse } from "xml-js";
 import Validator from "../../components/Validator";
 
-const YamlValidator: NextPage = () => (
+const XMLValidator: NextPage = () => (
   <Validator
-    language={"Yaml"}
-    lang={"yaml"}
+    language={"XML"}
+    lang={"xml"}
     parser={(config) => {
-      let configObject;
       try {
-        configObject = parse(config);
+        const configObject = JSON.parse(parse(config, { compact: true }));
+        console.log(configObject);
         if (!configObject || !(typeof configObject === "object")) {
           return { error: true, message: "must be object" };
         } else {
@@ -19,10 +19,11 @@ const YamlValidator: NextPage = () => (
           };
         }
       } catch (e: any) {
+        console.log(e);
         return { error: true, message: e.message };
       }
     }}
   />
 );
 
-export default YamlValidator;
+export default XMLValidator;

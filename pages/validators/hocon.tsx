@@ -1,10 +1,10 @@
 import type { NextPage } from "next";
-import { parse } from "yaml";
+import { parseHocon as parse } from "@tkint/hocon-parser";
 import Validator from "../../components/Validator";
 
-const YamlValidator: NextPage = () => (
+const HoconValidator: NextPage = () => (
   <Validator
-    language={"Yaml"}
+    language={"Hocon"}
     lang={"yaml"}
     parser={(config) => {
       let configObject;
@@ -25,4 +25,4 @@ const YamlValidator: NextPage = () => (
   />
 );
 
-export default YamlValidator;
+export default HoconValidator;

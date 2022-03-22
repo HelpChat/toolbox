@@ -114,13 +114,23 @@ function Toolbox({ Component, pageProps }: AppProps) {
                       </p>
                     </Link>
                     <Link href={"/validators/properties"}>
-                      <p css={tw`px-2 mx-1 ml-3 hover:cursor-pointer pb-2`}>
+                      <p css={tw`px-2 mx-1 ml-3 hover:cursor-pointer pb-1`}>
                         Properties
                       </p>
                     </Link>
                     <Link href={"/validators/toml"}>
-                      <p css={tw`px-2 mx-1 ml-3 hover:cursor-pointer pb-2`}>
+                      <p css={tw`px-2 mx-1 ml-3 hover:cursor-pointer pb-1`}>
                         Toml
+                      </p>
+                    </Link>
+                    <Link href={"/validators/hocon"}>
+                      <p css={tw`px-2 mx-1 ml-3 hover:cursor-pointer pb-1`}>
+                        Hocon
+                      </p>
+                    </Link>{" "}
+                    <Link href={"/validators/xml"}>
+                      <p css={tw`px-2 mx-1 ml-3 hover:cursor-pointer pb-1`}>
+                        XML
                       </p>
                     </Link>
                   </div>

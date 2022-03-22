@@ -8,6 +8,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "prismjs/components/prism-yaml";
 import "prismjs/components/prism-toml";
 import "prismjs/components/prism-properties";
+import "prismjs/components/prism-json";
+import "prismjs/components/prism-xml-doc";
 
 const textBoxStyle = tw`flex-grow flex-shrink border-none outline-none focus:outline-none max-h-full`;
 

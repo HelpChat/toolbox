@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Properties from "@js.properties/properties";
 import Validator from "../../components/Validator";
 
-const TomlValidator: NextPage = () => (
+const PropertiesValidator: NextPage = () => (
   <Validator
     language={"Properties"}
     lang={"properties"}
@@ -27,4 +27,4 @@ const TomlValidator: NextPage = () => (
   />
 );
 
-export default TomlValidator;
+export default PropertiesValidator;
