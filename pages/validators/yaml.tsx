@@ -4,8 +4,8 @@ import Validator from "../../components/Validator";
 
 const TomlValidator: NextPage = () => (
   <Validator
-    language={"Toml"}
-    lang={"toml"}
+    language={"Yaml"}
+    lang={"yaml"}
     parser={(config) => {
       let configObject;
       try {
