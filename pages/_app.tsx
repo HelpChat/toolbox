@@ -84,7 +84,7 @@ function Toolbox({ Component, pageProps }: AppProps) {
                           children.push(
                             <Link href={tool.link}>
                               <p
-                                css={tw`px-3 mx-1 pt-3 ml-1 pb-1 hover:cursor-default`}
+                                css={tw`px-3 mx-1 pt-3 ml-1 pb-1 hover:cursor-pointer`}
                               >
                                 {tool.short}
                               </p>
@@ -101,7 +101,7 @@ function Toolbox({ Component, pageProps }: AppProps) {
                               children.push(
                                 <Link href={tool.link}>
                                   <p
-                                    css={tw`px-3 mx-1 pt-3 ml-2 pb-1 hover:cursor-default`}
+                                    css={tw`px-3 mx-1 pt-3 ml-2 pb-1 hover:cursor-pointer`}
                                   >
                                     {tool.short}
                                   </p>
