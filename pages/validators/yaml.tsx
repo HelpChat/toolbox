@@ -56,20 +56,20 @@ const Home: NextPage = () => {
                 <meta name="description" content="Validate Yml Files"/>
             </Head>
 
-            <main css={css`${tw`flex flex-col`} height: calc(100vh - 2.75rem)`}>
+            <main css={css`${tw`flex flex-col`} height: calc(100vh - 3.5rem)`}>
                 <div css={tw`text-white bg-blue-500 w-full md:px-8 p-16 h-48 text-center`}>
                     <p css={tw`text-3xl font-bold`}>HelpChat</p>
                     <p css={tw`text-lg`}>Yaml Validator</p>
                 </div>
                 <div css={tw`flex flex-col md:flex-row flex-grow flex-shrink h-full`}>
                     <div css={css`
-                      height: calc(100vh - 14.75em);
+                      height: calc(100vh - 15.5em);
                       ${tw`md:w-1/2 p-4 pt-1 pr-2`}
                     `}>
                         <TextBox title={"Yaml Config"} code={config} editor={setConfig} language={"yaml"}/>
                     </div>
                     <div css={css`
-                      height: calc(100vh - 14.75em);
+                      height: calc(100vh - 15.5em);
                       ${tw`w-full md:w-1/2 p-4 pl-2 pt-1 flex flex-col`}
                     `}>
                         <div css={tw`flex flex-col h-full w-full pt-1`}>

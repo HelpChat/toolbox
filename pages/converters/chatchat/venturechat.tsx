@@ -31,7 +31,7 @@ const Home: NextPage = () => {
                 <meta name="description" content="Convert VentureChat Configs to ChatChat"/>
             </Head>
 
-            <main css={css`${tw`flex flex-col`} height: calc(100vh - 2.75rem)`}>
+            <main css={css`${tw`flex flex-col`} height: calc(100vh - 3.5rem)`}>
                 <div css={tw`text-white bg-blue-500 w-full md:px-8 p-16 h-48 text-center`}>
                     <p css={tw`text-3xl font-bold`}>HelpChat</p>
                     <p css={tw`text-lg`}>VentureChat Config Converter</p>
@@ -39,15 +39,15 @@ const Home: NextPage = () => {
                 <div css={tw`flex flex-col md:flex-row flex-grow flex-shrink h-full max-w-full`}>
                     <div css={css`
                       ${tw`w-full md:w-1/2 p-4 pt-1 pr-2`}
-                      height: calc(100vh - 14.75em);
-                      max-width: calc(50vw - 6rem);
+                      height: calc(100vh - 15.5em);
+                      max-width: 50vw;
                     `}>
                         <TextBox title={"VentureChat Config"} code={config} editor={setConfig} language={"yaml"}/>
                     </div>
                     <div css={css`
                       ${tw`w-full md:w-1/2 p-4 pl-2 pt-1 flex flex-col`}
-                      height: calc(100vh - 14.75em);
-                      max-width: calc(50vw - 6rem);
+                      height: calc(100vh - 15.55em);
+                      max-width: 50vw;
                     `}>
                         {
                             error || !parsedConfig ? (<div css={tw`flex flex-col h-full w-full pt-1`}>
