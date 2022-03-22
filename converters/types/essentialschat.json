@@ -5,16 +5,24 @@
     "EssentialsChatConfig": {
       "type": "object",
       "properties": {
-        "format": {
-          "type": "string"
-        },
-        "group-formats": {
+        "chat": {
           "type": "object",
-          "additionalProperties": {
-            "type": "string"
+          "properties": {
+            "format": {
+              "type": "string"
+            },
+            "group-formats": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
           }
         }
-      }
+      },
+      "required": [
+        "chat"
+      ]
     }
   }
 }
