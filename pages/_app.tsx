@@ -24,7 +24,7 @@ function Converter({Component, pageProps}: AppProps) {
                                 <p css={tw`hover:cursor-pointer`}>EssentialsChat</p>
                             </Link>
                             <Link href={'/converters/chatchat/venturechat'}>
-                                <p>VentureChat</p>
+                                <p css={tw`hover:cursor-pointer`}>VentureChat</p>
                             </Link>
                         </Collapsable>
                     </Collapsable>

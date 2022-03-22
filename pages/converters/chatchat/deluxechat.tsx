@@ -50,7 +50,7 @@ const Home: NextPage = () => {
                       max-width: calc(50vw - 6rem);
                     `}>
                         {
-                            error ? (<div css={tw`flex flex-col h-full w-full pt-1`}>
+                            error || !parsedConfig ? (<div css={tw`flex flex-col h-full w-full pt-1`}>
                                 <div css={tw`flex flex-row pl-2`}>
                                     <p css={tw`text-xl font-semibold mx-auto mb-2`}>YAML Validation Errors</p>
                                 </div>

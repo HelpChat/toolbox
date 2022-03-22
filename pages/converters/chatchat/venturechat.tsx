@@ -50,7 +50,7 @@ const Home: NextPage = () => {
                       max-width: calc(50vw - 6rem);
                     `}>
                         {
-                            error ? (<div css={tw`flex flex-col h-full w-full pt-1`}>
+                            error || !parsedConfig ? (<div css={tw`flex flex-col h-full w-full pt-1`}>
                                 <div css={tw`flex flex-row pl-2`}>
                                     <p css={tw`text-xl font-semibold mx-auto mb-2`}>YAML Validation Errors</p>
                                 </div>
@@ -65,15 +65,17 @@ const Home: NextPage = () => {
                                 </div>
                             </div>) : (
                                 <>
-                                    <div css={tw`flex flex-col md:flex-row flex-grow flex-shrink h-full max-w-full`}>
-                                        <TextBox title={"ChatChat formats.yml"}
-                                                 code={!parsedConfig ? "" : parsedConfig.format}
-                                                 language={"yaml"}/>
-                                    </div>
-                                    <div css={tw`h-1/2`}>
-                                        <TextBox title={"ChatChat settings.yml"}
-                                                 code={!parsedConfig ? "" : parsedConfig.settings}
-                                                 language={"yaml"}/>
+                                    <div css={tw`flex flex-col flex-grow flex-shrink h-full max-w-full`}>
+                                        <div css={tw`h-1/2`}>
+                                            <TextBox title={"ChatChat formats.yml"}
+                                                     code={!parsedConfig ? "" : parsedConfig.format}
+                                                     language={"yaml"}/>
+                                        </div>
+                                        <div css={tw`h-1/2`}>
+                                            <TextBox title={"ChatChat settings.yml"}
+                                                     code={!parsedConfig ? "" : parsedConfig.settings}
+                                                     language={"yaml"}/>
+                                        </div>
                                     </div>
                                 </>
                             )

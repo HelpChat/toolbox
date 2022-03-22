@@ -22,9 +22,8 @@ const Home: NextPage = () => {
             });
             propertiesList.forEach(properties => {
                 if (!properties.key) return;
-                propertiesConfig[properties.key] = properties.element ? unescape(properties.element) : "";
+                propertiesConfig[properties.key] = properties.element ?? "";
             });
-            console.log(propertiesConfig);
         } catch (e: any) {
             setError(e?.message ?? "Error parsing properties file");
             setParsedConfig(false);
@@ -37,7 +36,7 @@ const Home: NextPage = () => {
             setError(false);
             setParsedConfig(newConfig as { format: string, settings: string });
         }
-    }, [config])
+    }, [config, lang])
 
     return (
         <div>
@@ -70,7 +69,7 @@ const Home: NextPage = () => {
                       max-width: calc(50vw - 6rem);
                     `}>
                         {
-                            error ? (<div css={tw`flex flex-col h-full w-full pt-1`}>
+                            error || !parsedConfig ? (<div css={tw`flex flex-col h-full w-full pt-1`}>
                                 <div css={tw`flex flex-row pl-2`}>
                                     <p css={tw`text-xl font-semibold mx-auto mb-2`}>YAML Validation Errors</p>
                                 </div>

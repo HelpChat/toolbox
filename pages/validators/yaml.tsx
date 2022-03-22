@@ -78,7 +78,7 @@ const Home: NextPage = () => {
                             </div>
                             <div css={css`${tw`rounded-md overflow-auto h-full`} background-color: #2a2734`}>
                                 <div css={tw` py-2 px-4`}>
-                                    {!error ? <ReactJson src={parsedConfig} theme={{
+                                    {!(error || !parsedConfig) ? <ReactJson src={parsedConfig} theme={{
                                             base00: duotoneDark.plain.backgroundColor ?? "",
                                             base01: duotoneDark.styles[2].style.color ?? "",
                                             base02: duotoneDark.styles[1].style.color ?? "",

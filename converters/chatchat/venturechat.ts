@@ -1,11 +1,11 @@
 import Converter from '../converter';
-import {VentureChatConfig, VentureChatFormat, VentureChatJsonComponent} from "../types/venturechat";
+import {VentureChatConfig, VentureChatJsonComponent} from "../types/venturechat";
 import {ChatChatFormat, ChatChatFormatsConfig, ChatChatSettingsConfig} from "../types/chatchat";
 import MiniMessage from "../minimessage";
 
 const schema = require('../types/venturechat.json');
 
-const ChatChatVentureChatConverter = new Converter<VentureChatConfig, {format: ChatChatFormatsConfig, settings: ChatChatSettingsConfig}>({
+const ChatChatVentureChatConverter = new Converter<VentureChatConfig, { format: ChatChatFormatsConfig, settings: ChatChatSettingsConfig }>({
     Convert(venturechatConfig) {
         const chatchatFormatsConfig: ChatChatFormatsConfig = {
             "default-format": 'default',
@@ -29,26 +29,25 @@ const ChatChatVentureChatConverter = new Converter<VentureChatConfig, {format: C
                     parts: []
                 };
 
-                let key = 0;
+                (["venturechat_channel_prefix", "vault_prefix", "player_displayname"]).forEach(key => {
+                    [vcFormat.json_attributes.venturechat_channel_prefix, vcFormat.json_attributes.vault_prefix, vcFormat.json_attributes.player_displayname]
+                    const part = `%${key}%`;
 
-                // todo get the possible key from the object?
-                ([vcFormat.json_attributes.venturechat_channel_prefix, vcFormat.json_attributes.vault_prefix, vcFormat.json_attributes.player_displayname]).forEach(section => {
-                    let part = "";
-                    switch(key) {
-                        case 0:
-                            part = "%venturechat_channel_prefix%";
+                    let section: VentureChatJsonComponent;
+                    switch (key) {
+                        case 'venturechat_channel_prefix':
+                            section = vcFormat.json_attributes.venturechat_channel_prefix
                             break;
-                        case 1:
-                            part = "%vault_prefix%";
+                        case 'vault_prefix':
+                            section = vcFormat.json_attributes.vault_prefix
                             break;
-                        case 2:
-                            part = "%player_displayname%";
+                        default:
+                            section = vcFormat.json_attributes.player_displayname
                             break;
                     }
-                    console.log(key);
-                    key++;
+
                     let formattedSection = part;
-                    switch(section.click_action) {
+                    switch (section.click_action) {
                         case "suggest_command": {
                             formattedSection = "<click:suggest_command:'" + section.click_text + "'>" + formattedSection + "</click>";
                             break;
@@ -62,7 +61,7 @@ const ChatChatVentureChatConverter = new Converter<VentureChatConfig, {format: C
                             break;
                         }
                     }
-                    let hover: string[] = (<string[]>section.hover_text).filter(s => s && s !== "")
+                    let hover = section.hover_text.filter(s => s && s !== "")
                     if (hover && hover.length > 0) {
                         formattedSection = "<hover:show_text:'" + hover.join("<newline>") + "'>" + formattedSection + "</hover>";
                     }

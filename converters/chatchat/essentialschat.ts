@@ -2,7 +2,6 @@ import Converter from "../converter";
 import {EssentialsChatTypes} from "../types/essentialschat";
 import {ChatChatFormat, ChatChatFormatsConfig, ChatChatSettingsConfig} from "../types/chatchat";
 import MiniMessage from "../minimessage";
-import Placeholders from "../placeholders";
 
 const schema = require('../types/essentialschat.json')
 
@@ -21,15 +20,15 @@ const ChatChatEssentialsChatConverter = new Converter<EssentialsChatTypes, { for
             },
         }
 
-        if (!essentialschatConfig.config) {
+        if (!essentialschatConfig.config || !essentialschatConfig.config.chat) {
             return {
                 error: true,
-                message: 'EssentialsChat config is missing'
+                message: 'must be object'
             }
         }
 
-        if (essentialschatConfig.config.format) {
-            const format = essentialschatConfig.config.format;
+        if (essentialschatConfig.config.chat.format) {
+            const format = essentialschatConfig.config.chat.format;
             const ccFormat: ChatChatFormat = {
                 priority: 1,
                 parts: []
@@ -41,8 +40,8 @@ const ChatChatEssentialsChatConverter = new Converter<EssentialsChatTypes, { for
 
         let formatCount = 1;
 
-        if (essentialschatConfig.config["group-formats"]) {
-            const formats = essentialschatConfig.config["group-formats"]
+        if (essentialschatConfig.config.chat["group-formats"]) {
+            const formats = essentialschatConfig.config.chat["group-formats"]
             Object.keys(formats).forEach(name => {
                 const ecFormat = formats[name]
                 const ccFormat: ChatChatFormat = {
@@ -69,5 +68,27 @@ const ChatChatEssentialsChatConverter = new Converter<EssentialsChatTypes, { for
     },
     inputSchema: schema,
 });
+
+function Placeholders(input: string): string {
+    const replacements: Record<string, string> = {
+        '{MESSAGE}': "<message>",
+        '{USERNAME}': "%player_name%",
+        '{DISPLAYNAME}': "%player_display_name%",
+        '{NICKNAME}': "%essentials_nickname%",
+        '{PREFIX}': "%vault_prefix%",
+        '{SUFFIX}': "%vault_suffix%",
+        '{GROUP}': "%vault_groupprefix%",
+        '{WORLDNAME}': "%player_world_name%"
+    }
+
+    let out = input;
+
+    Object.keys(replacements).forEach(key => {
+        out = out.replace(new RegExp(key, "ig"), replacements[key]);
+    });
+
+    return out;
+}
+
 
 export default ChatChatEssentialsChatConverter;
