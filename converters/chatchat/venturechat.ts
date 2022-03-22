@@ -29,50 +29,39 @@ const ChatChatVentureChatConverter = new Converter<VentureChatConfig, { format: 
                     parts: []
                 };
 
-                (["venturechat_channel_prefix", "vault_prefix", "player_displayname"]).forEach(key => {
-                    [vcFormat.json_attributes.venturechat_channel_prefix, vcFormat.json_attributes.vault_prefix, vcFormat.json_attributes.player_displayname]
-                    const part = `%${key}%`;
-
-                    let section: VentureChatJsonComponent;
-                    switch (key) {
-                        case 'venturechat_channel_prefix':
-                            section = vcFormat.json_attributes.venturechat_channel_prefix
-                            break;
-                        case 'vault_prefix':
-                            section = vcFormat.json_attributes.vault_prefix
-                            break;
-                        default:
-                            section = vcFormat.json_attributes.player_displayname
-                            break;
-                    }
-
-                    let formattedSection = part;
-                    switch (section.click_action) {
-                        case "suggest_command": {
-                            formattedSection = "<click:suggest_command:'" + section.click_text + "'>" + formattedSection + "</click>";
-                            break;
+                if (vcFormat.json_attributes) {
+                    const innerFormat = vcFormat.json_attributes;
+                    Object.keys(innerFormat).forEach(key => {
+                        const part = `%${key}%`;
+                        const section = innerFormat[key];
+                        let formattedSection = part;
+                        switch (section.click_action) {
+                            case "suggest_command": {
+                                formattedSection = "<click:suggest_command:'" + section.click_text + "'>" + formattedSection + "</click>";
+                                break;
+                            }
+                            case "run_command": {
+                                formattedSection = "<click:run_command:'" + section.click_text + "'>" + formattedSection + "</click>";
+                                break;
+                            }
+                            case "open_url": {
+                                formattedSection = "<click:open_url:'" + section.click_text + "'>" + formattedSection + "</click>";
+                                break;
+                            }
                         }
-                        case "run_command": {
-                            formattedSection = "<click:run_command:'" + section.click_text + "'>" + formattedSection + "</click>";
-                            break;
+                        let hover = section.hover_text.filter(s => s && s !== "")
+                        if (hover && hover.length > 0) {
+                            formattedSection = "<hover:show_text:'" + hover.join("<newline>") + "'>" + formattedSection + "</hover>";
                         }
-                        case "open_url": {
-                            formattedSection = "<click:open_url:'" + section.click_text + "'>" + formattedSection + "</click>";
-                            break;
-                        }
-                    }
-                    let hover = section.hover_text.filter(s => s && s !== "")
-                    if (hover && hover.length > 0) {
-                        formattedSection = "<hover:show_text:'" + hover.join("<newline>") + "'>" + formattedSection + "</hover>";
-                    }
 
-                    if (formattedSection !== "") {
-                        ccFormat.parts.push(MiniMessage(formattedSection));
-                    }
-                })
-                ccFormat.parts.push("<message>")
-                chatchatFormatsConfig.formats[name] = ccFormat;
-            })
+                        if (formattedSection !== "") {
+                            ccFormat.parts.push(MiniMessage(formattedSection));
+                        }
+                    })
+                    ccFormat.parts.push("<message>")
+                    chatchatFormatsConfig.formats[name] = ccFormat;
+                }
+            });
         }
 
 

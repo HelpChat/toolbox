@@ -10,10 +10,8 @@ export interface VentureChatConfig {
 
 export interface VentureChatFormat {
   priority: number;
-  json_attributes: {
-    player_displayname: VentureChatJsonComponent
-    vault_prefix: VentureChatJsonComponent
-    venturechat_channel_prefix: VentureChatJsonComponent
+  json_attributes?: {
+    [key : string]: VentureChatJsonComponent
   }
 }
 

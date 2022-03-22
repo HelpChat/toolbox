@@ -31,27 +31,13 @@
         },
         "json_attributes": {
           "type": "object",
-          "properties": {
-            "player_displayname": {
-              "$ref": "#/definitions/VentureChatJsonComponent"
-            },
-            "vault_prefix": {
-              "$ref": "#/definitions/VentureChatJsonComponent"
-            },
-            "venturechat_channel_prefix": {
-              "$ref": "#/definitions/VentureChatJsonComponent"
-            }
-          },
-          "required": [
-            "player_displayname",
-            "vault_prefix",
-            "venturechat_channel_prefix"
-          ]
+          "additionalProperties": {
+            "$ref": "#/definitions/VentureChatJsonComponent"
+          }
         }
       },
       "required": [
-        "priority",
-        "json_attributes"
+        "priority"
       ]
     },
     "VentureChatJsonComponent": {
