@@ -35,10 +35,10 @@ function Toolbox({Component, pageProps}: AppProps) {
                                 <Link href={"/"}>
                                     <p css={tw`px-3 mx-1 py-2 my-auto ml-auto hover:cursor-pointer`}>Home</p>
                                 </Link>
-                                <Link href={"https://www.youtube.com/watch?v=dQw4w9WgXcQ"}>
+                                <Link href={"https://www.spigotmc.org/members/helpchat.1491649/"}>
                                     <p css={tw`px-3 mx-1 py-2 my-auto hover:cursor-pointer`}>Spigot</p>
                                 </Link>
-                                <Link href={"https://www.youtube.com/watch?v=dQw4w9WgXcQ"}>
+                                <Link href={"https://github.com/HelpChat"}>
                                     <p css={tw`px-3 mx-1 py-2 my-auto hover:cursor-pointer`}>Github</p>
                                 </Link>
                                 <div css={css`
@@ -73,7 +73,7 @@ function Toolbox({Component, pageProps}: AppProps) {
                                         </Link>
                                     </div>
                                 </div>
-                                <Link href={"https://www.youtube.com/watch?v=dQw4w9WgXcQ"}>
+                                <Link href={"https://discord.gg/helpchat"}>
                                     <p css={tw`px-3 mx-1 py-2 my-auto hover:cursor-pointer bg-white text-black rounded-md`}>Join
                                         our Discord</p>
                                 </Link>
