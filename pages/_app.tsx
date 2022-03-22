@@ -44,14 +44,15 @@ function Toolbox({Component, pageProps}: AppProps) {
                                 <div css={css`
                                   ${tw`my-auto hover:cursor-pointer inline-block relative py-2 rounded-t-md`}
                                   :hover {
-                                  ${tw`bg-gray-800`}
+                                    ${tw`bg-gray-800`}
                                     > .dropdown {
                                       ${tw`block`}
                                     }
                                   }
                                 `}><p css={tw`pl-3 ml-1 inline`}>More Tools</p>
-                                    <div css={tw`ml-1 pr-3 mr-1 inline`}><FontAwesomeIcon icon={faChevronDown}/></div>
-                                    <div css={tw`hidden absolute bg-gray-800 w-full rounded-b-md`} className={"dropdown"}>
+                                    <div css={tw`ml-1 pr-3 mr-1 inline`}><FontAwesomeIcon icon={faChevronDown} size={"1x"}/></div>
+                                    <div css={tw`hidden absolute bg-gray-800 w-full rounded-b-md`}
+                                         className={"dropdown"}>
                                         <p css={tw`px-3 mx-1 pt-3 font-bold pb-1 hover:cursor-default`}>Converters</p>
                                         <p css={tw`px-3 mx-1 ml-2 pb-1 hover:cursor-default`}>ChatChat</p>
                                         <Link href={"/converters/chatchat/deluxechat"}>
