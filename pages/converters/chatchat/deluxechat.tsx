@@ -63,12 +63,12 @@ const Home: NextPage = () => {
                                 </div>
                             </div>) : (
                                 <>
-                                    <div css={tw`h-1/2`}>
+                                    <div css={tw`md:h-1/2`}>
                                         <TextBox title={"ChatChat formats.yml"}
                                                  code={!parsedConfig ? "" : parsedConfig.format}
                                                  language={"yaml"}/>
                                     </div>
-                                    <div css={tw`h-1/2`}>
+                                    <div css={tw`md:h-1/2`}>
                                         <TextBox title={"ChatChat settings.yml"}
                                                  code={!parsedConfig ? "" : parsedConfig.settings}
                                                  language={"yaml"}/>

@@ -55,10 +55,10 @@ const Home: NextPage = () => {
                       ${tw`w-full md:w-1/2 p-4 pt-1 pr-2 md:max-width[50vw]`}
                       height: calc(100vh - 15.5em);
                     `}>
-                        <div css={tw`h-1/2`}>
+                        <div css={tw`md:h-1/2`}>
                         <TextBox title={"EssentialsChat Config"} code={config} editor={setConfig} language={"yaml"}/>
                         </div>
-                        <div css={tw`h-1/2`}>
+                        <div css={tw`md:h-1/2`}>
                             <TextBox title={"EssentialsChat Language File"} code={lang} editor={setLang} language={"properties"}/>
                         </div>
                     </div>
