@@ -82,11 +82,13 @@ function Toolbox({ Component, pageProps }: AppProps) {
                       if (Array.isArray(Tools[key])) {
                         (Tools[key] as ToolboxTool[]).forEach((tool) => {
                           children.push(
-                            <p
-                              css={tw`px-3 mx-1 pt-3 ml-1 pb-1 hover:cursor-default`}
-                            >
-                              {tool.short}
-                            </p>
+                            <Link href={tool.link}>
+                              <p
+                                css={tw`px-3 mx-1 pt-3 ml-1 pb-1 hover:cursor-default`}
+                              >
+                                {tool.short}
+                              </p>
+                            </Link>
                           );
                         });
                       } else {
@@ -97,11 +99,13 @@ function Toolbox({ Component, pageProps }: AppProps) {
                               key1
                             ].forEach((tool) => {
                               children.push(
-                                <p
-                                  css={tw`px-3 mx-1 pt-3 ml-2 pb-1 hover:cursor-default`}
-                                >
-                                  {tool.short}
-                                </p>
+                                <Link href={tool.link}>
+                                  <p
+                                    css={tw`px-3 mx-1 pt-3 ml-2 pb-1 hover:cursor-default`}
+                                  >
+                                    {tool.short}
+                                  </p>
+                                </Link>
                               );
                             });
                             return (
