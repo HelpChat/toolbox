@@ -3,7 +3,7 @@ import Head from 'next/head'
 import tw, {css} from 'twin.macro'
 import {TextBox} from "../../components/TextBox";
 import {useEffect, useState} from "react";
-import {parse} from 'yaml'
+import {parse} from 'toml'
 import dynamic from "next/dynamic";
 import duotoneDark from 'prism-react-renderer/themes/duotoneDark';
 import {useRouter} from "next/router";
@@ -24,8 +24,8 @@ const Home: NextPage = () => {
         if (!router.query.data) return;
         if (!(typeof router.query.data === 'string')) return;
         try {
-            const yaml = Buffer.from(router.query.data, "base64").toString("utf8");
-            setConfig(yaml.toString())
+            const toml = Buffer.from(router.query.data, "base64").toString("utf8");
+            setConfig(toml.toString())
         } catch (e) {
             return;
         }
@@ -40,10 +40,15 @@ const Home: NextPage = () => {
                 setParsedConfig({})
             } else {
                 setError(false);
-                setParsedConfig(configObject);
+                setParsedConfig(JSON.parse(JSON.stringify(configObject)))
             }
         } catch (e: any) {
-            setError(e.message);
+            if (e.line && e.column) {
+                setError("Parsing error on line " + e.line + ", column " + e.column +
+                    ": " + e.message);
+            } else {
+                setError(e.message);
+            }
             setParsedConfig({})
         }
     }, [config])
@@ -51,21 +56,21 @@ const Home: NextPage = () => {
     return (
         <div>
             <Head>
-                <title>Yaml Validator</title>
-                <meta name="description" content="Validate Yml Files"/>
+                <title>Toml Validator</title>
+                <meta name="description" content="Validate Toml Files"/>
             </Head>
 
             <main css={css`${tw`flex flex-col`} height: calc(100vh - 3.5rem)`}>
                 <div css={tw`text-white bg-blue-500 w-full md:px-8 p-16 h-48 text-center`}>
                     <p css={tw`text-3xl font-bold`}>HelpChat</p>
-                    <p css={tw`text-lg`}>Yaml Validator</p>
+                    <p css={tw`text-lg`}>Toml Validator</p>
                 </div>
                 <div css={tw`flex flex-col md:flex-row flex-grow flex-shrink h-full`}>
                     <div css={css`
                       height: calc(100vh - 15.5em);
                       ${tw`md:w-1/2 p-4 pt-1 pr-2 md:max-width[50vw]`}
                     `}>
-                        <TextBox title={"Yaml Config"} code={config} editor={setConfig} language={"yaml"}/>
+                        <TextBox title={"Toml Config"} code={config} editor={setConfig} language={"toml"}/>
                     </div>
                     <div css={css`
                       height: calc(100vh - 15.5em);
@@ -75,10 +80,11 @@ const Home: NextPage = () => {
                             <div css={tw`flex flex-row pl-2`}>
                                 <p css={tw`text-xl font-semibold mx-auto mb-2`}>JSON Object Dumb</p>
                                 <div css={tw`flex flex-row h-8`}>
-                                    <div css={tw`py-1 px-2 bg-green-400 rounded-md hover:cursor-pointer`} onClick={() => {
-                                        router.query.data = Buffer.from(config).toString("base64");
-                                        router.push(router);
-                                    }}>
+                                    <div css={tw`py-1 px-2 bg-green-400 rounded-md hover:cursor-pointer`}
+                                         onClick={() => {
+                                             router.query.data = Buffer.from(config).toString("base64");
+                                             router.push(router);
+                                         }}>
                                         <FontAwesomeIcon icon={faLink} size="1x"/>
                                     </div>
                                 </div>

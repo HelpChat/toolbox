@@ -51,7 +51,7 @@ function Toolbox({Component, pageProps}: AppProps) {
                                   }
                                 `}><p css={tw`pl-3 ml-1 inline`}>More Tools</p>
                                     <div css={tw`ml-1 pr-3 mr-1 inline`}><FontAwesomeIcon icon={faChevronDown} size={"1x"}/></div>
-                                    <div css={tw`hidden absolute bg-gray-800 w-full rounded-b-md`}
+                                    <div css={tw`hidden absolute bg-gray-800 w-full rounded-b-md z-30`}
                                          className={"dropdown"}>
                                         <p css={tw`px-3 mx-1 pt-3 font-bold pb-1 hover:cursor-default`}>Converters</p>
                                         <p css={tw`px-3 mx-1 ml-2 pb-1 hover:cursor-default`}>ChatChat</p>
@@ -70,6 +70,9 @@ function Toolbox({Component, pageProps}: AppProps) {
                                         </Link>
                                         <Link href={"/validators/properties"}>
                                             <p css={tw`px-2 mx-1 ml-3 hover:cursor-pointer pb-2`}>Properties</p>
+                                        </Link>
+                                        <Link href={"/validators/toml"}>
+                                            <p css={tw`px-2 mx-1 ml-3 hover:cursor-pointer pb-2`}>Toml</p>
                                         </Link>
                                     </div>
                                 </div>
