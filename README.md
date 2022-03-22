@@ -9,6 +9,7 @@ It currently includes the following features:
  - [VentureChat to ChatChat Config Converter](https://toolbox.helpch.at/converters/chatchat/venturechat)
  - [Yaml Config Validator](https://toolbox.helpch.at/validators/yaml)
  - [Properties Config Validator](https://toolbox.helpch.at/validators/properties)
+ - [Toml Config Validator](https://toolbox.helpch.at/validators/toml)
 ### Usage
 HelpChat's ToolBox is hosted at [toolbox.helpch.at](https://toolbox.helpch.at/). 
 
