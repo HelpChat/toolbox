@@ -38,16 +38,14 @@ const Home: NextPage = () => {
                 </div>
                 <div css={tw`flex flex-col md:flex-row flex-grow flex-shrink h-full max-w-full`}>
                     <div css={css`
-                      ${tw`w-full md:w-1/2 p-4 pt-1 pr-2`}
+                      ${tw`w-full md:w-1/2 p-4 pt-1 pr-2 md:max-width[50vw]`}
                       height: calc(100vh - 15.5em);
-                      max-width: 50vw;
                     `}>
                         <TextBox title={"VentureChat Config"} code={config} editor={setConfig} language={"yaml"}/>
                     </div>
                     <div css={css`
-                      ${tw`w-full md:w-1/2 p-4 pl-2 pt-1 flex flex-col`}
+                      ${tw`w-full md:w-1/2 p-4 pl-2 pt-1 flex flex-col md:max-width[50vw]`}
                       height: calc(100vh - 15.55em);
-                      max-width: 50vw;
                     `}>
                         {
                             error || !parsedConfig ? (<div css={tw`flex flex-col h-full w-full pt-1`}>

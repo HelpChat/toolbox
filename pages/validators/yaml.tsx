@@ -61,20 +61,20 @@ const Home: NextPage = () => {
                 <div css={tw`flex flex-col md:flex-row flex-grow flex-shrink h-full`}>
                     <div css={css`
                       height: calc(100vh - 15.5em);
-                      ${tw`md:w-1/2 p-4 pt-1 pr-2`}
+                      ${tw`md:w-1/2 p-4 pt-1 pr-2 md:max-width[50vw]`}
                     `}>
                         <TextBox title={"Yaml Config"} code={config} editor={setConfig} language={"yaml"}/>
                     </div>
                     <div css={css`
                       height: calc(100vh - 15.5em);
-                      ${tw`w-full md:w-1/2 p-4 pl-2 pt-1 flex flex-col`}
+                      ${tw`w-full md:w-1/2 p-4 pl-2 pt-1 flex flex-col md:max-width[50vw]`}
                     `}>
                         <div css={tw`flex flex-col h-full w-full pt-1`}>
                             <div css={tw`flex flex-row pl-2`}>
                                 <p css={tw`text-xl font-semibold mx-auto mb-2`}>Json Object Dump</p>
                             </div>
                             <div css={css`${tw`rounded-md overflow-auto h-full`} background-color: #2a2734`}>
-                                <div css={tw` py-2 px-4`}>
+                                <div css={tw`py-2 px-4 text-base`}>
                                     {!(error || !parsedConfig) ? <ReactJson src={parsedConfig} theme={{
                                             base00: duotoneDark.plain.backgroundColor ?? "",
                                             base01: duotoneDark.styles[2].style.color ?? "",
