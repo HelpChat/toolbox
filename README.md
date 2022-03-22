@@ -5,7 +5,10 @@ HelpChat ToolBox is a toolbox of useful tools for HelpChat's Minecraft plugins, 
 
 It currently includes the following features:
  - [DeluxeChat to ChatChat Config Converter](https://toolbox.helpch.at/converters/chatchat/deluxechat)
+ - [EssentialsChat to ChatChat Config Converter](https://toolbox.helpch.at/converters/chatchat/essentialschat)
+ - [VentureChat to ChatChat Config Converter](https://toolbox.helpch.at/converters/chatchat/venturechat)
  - [Yaml Config Validator](https://toolbox.helpch.at/validators/yaml)
+ - [Properties Config Validator](https://toolbox.helpch.at/validators/properties)
 ### Usage
 HelpChat's ToolBox is hosted at [toolbox.helpch.at](https://toolbox.helpch.at/). 
 

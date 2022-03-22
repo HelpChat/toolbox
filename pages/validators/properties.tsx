@@ -3,12 +3,12 @@ import Head from 'next/head'
 import tw, {css} from 'twin.macro'
 import {TextBox} from "../../components/TextBox";
 import {useEffect, useState} from "react";
-import {parse} from 'yaml'
 import dynamic from "next/dynamic";
 import duotoneDark from 'prism-react-renderer/themes/duotoneDark';
 import {useRouter} from "next/router";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faLink} from "@fortawesome/free-solid-svg-icons";
+import Properties from "@js.properties/properties";
 
 const ReactJson = dynamic(import('react-json-view'), {ssr: false});
 
@@ -24,48 +24,50 @@ const Home: NextPage = () => {
         if (!router.query.data) return;
         if (!(typeof router.query.data === 'string')) return;
         try {
-            const yaml = Buffer.from(router.query.data, "base64").toString("utf8");
-            setConfig(yaml.toString())
+            const properties = Buffer.from(router.query.data, "base64").toString("utf8");
+            setConfig(properties.toString())
         } catch (e) {
             return;
         }
     }, [router.query.data]);
 
     useEffect(() => {
-        let configObject;
+        let configObject: any = {};
         try {
-            configObject = parse(config);
-            if (!configObject || !(configObject instanceof Object)) {
-                setError("must be object");
-                setParsedConfig({})
-            } else {
-                setError(false);
-                setParsedConfig(configObject);
-            }
+            const propertiesList = Properties.parseToEntries(config, {
+                all: false
+            });
+            propertiesList.forEach(properties => {
+                if (!properties.key) return;
+                configObject[properties.key] = properties.element;
+            });
+            setParsedConfig(configObject);
+            setError(false);
         } catch (e: any) {
-            setError(e.message);
-            setParsedConfig({})
+            setError(e?.message ?? "Error parsing properties");
+            setParsedConfig(false)
+            return;
         }
     }, [config])
 
     return (
         <div>
             <Head>
-                <title>Yaml Validator</title>
-                <meta name="description" content="Validate Yml Files"/>
+                <title>Properties Validator</title>
+                <meta name="description" content="Validate .properties Files"/>
             </Head>
 
             <main css={css`${tw`flex flex-col`} height: calc(100vh - 3.5rem)`}>
                 <div css={tw`text-white bg-blue-500 w-full md:px-8 p-16 h-48 text-center`}>
                     <p css={tw`text-3xl font-bold`}>HelpChat</p>
-                    <p css={tw`text-lg`}>Yaml Validator</p>
+                    <p css={tw`text-lg`}>Properties Validator</p>
                 </div>
                 <div css={tw`flex flex-col md:flex-row flex-grow flex-shrink h-full`}>
                     <div css={css`
                       height: calc(100vh - 15.5em);
                       ${tw`md:w-1/2 p-4 pt-1 pr-2 md:max-width[50vw]`}
                     `}>
-                        <TextBox title={"Yaml Config"} code={config} editor={setConfig} language={"yaml"}/>
+                        <TextBox title={"Properties Config"} code={config} editor={setConfig} language={"properties"}/>
                     </div>
                     <div css={css`
                       height: calc(100vh - 15.5em);

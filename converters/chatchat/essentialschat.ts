@@ -56,7 +56,6 @@ const ChatChatEssentialsChatConverter = new Converter<EssentialsChatTypes, { for
         }
 
         if (essentialschatConfig.language.msgFormat) {
-            console.log(MiniMessage(essentialschatConfig.language.msgFormat))
             chatchatSettingsConfig["sender-format"].parts.push(
                 MiniMessage(essentialschatConfig.language.msgFormat)
             );

@@ -68,6 +68,9 @@ function Toolbox({Component, pageProps}: AppProps) {
                                         <Link href={"/validators/yaml"}>
                                             <p css={tw`px-2 mx-1 ml-3 hover:cursor-pointer pb-1`}>Yaml</p>
                                         </Link>
+                                        <Link href={"/validators/properties"}>
+                                            <p css={tw`px-2 mx-1 ml-3 hover:cursor-pointer pb-2`}>Properties</p>
+                                        </Link>
                                     </div>
                                 </div>
                                 <Link href={"https://www.youtube.com/watch?v=dQw4w9WgXcQ"}>
