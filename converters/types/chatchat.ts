@@ -1,19 +1,19 @@
 export interface ChatChatFormatsConfig {
-    "default-format": string
-    formats: {
-        [key: string]: ChatChatFormat
-    }
+  "default-format": string;
+  formats: {
+    [key: string]: ChatChatFormat;
+  };
 }
 
 export type ChatChatFormat = {
-    priority: number
-} & ChatChatParts
+  priority: number;
+} & ChatChatParts;
 
 export interface ChatChatSettingsConfig {
-    "sender-format": ChatChatParts
-    "recipient-format": ChatChatParts
+  "sender-format": ChatChatParts;
+  "recipient-format": ChatChatParts;
 }
 
 export interface ChatChatParts {
-    parts: string[]
+  parts: string[];
 }
