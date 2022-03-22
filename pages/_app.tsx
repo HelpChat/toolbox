@@ -4,6 +4,7 @@ import tw, { css } from "twin.macro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faToolbox } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
+import { ToolboxTool, Tools } from "../components/nav";
 
 function Toolbox({ Component, pageProps }: AppProps) {
   return (
@@ -15,31 +16,27 @@ function Toolbox({ Component, pageProps }: AppProps) {
             css={tw`text-white bg-black w-full md:px-8 p-2 h-14 flex flex-row text-white md:px-12`}
           >
             <div css={tw`flex flex-row w-full`}>
-              <div css={tw`flex flex-row hover:cursor-pointer`}>
-                <Link href={"/"}>
-                  <>
-                    <div css={tw`my-auto`}>
-                      <FontAwesomeIcon icon={faToolbox} size={"2x"} />
-                    </div>
-                    <div css={tw`ml-2 my-auto font-bold text-center`}>
-                      <p
-                        css={css`
-                          margin-bottom: -0.2rem;
-                        `}
-                      >
-                        HelpChat
-                      </p>
-                      <p
-                        css={css`
-                          margin-top: -0.2rem;
-                          ${tw`text-xs`}
-                        `}
-                      >
-                        ToolBox
-                      </p>
-                    </div>
-                  </>
-                </Link>
+              <div css={tw`flex flex-row`}>
+                <div css={tw`my-auto`}>
+                  <FontAwesomeIcon icon={faToolbox} size={"2x"} />
+                </div>
+                <div css={tw`ml-2 my-auto font-bold text-center`}>
+                  <p
+                    css={css`
+                      margin-bottom: -0.2rem;
+                    `}
+                  >
+                    HelpChat
+                  </p>
+                  <p
+                    css={css`
+                      margin-top: -0.2rem;
+                      ${tw`text-xs`}
+                    `}
+                  >
+                    ToolBox
+                  </p>
+                </div>
               </div>
               <div css={tw`flex flex-row flex-grow flex-shrink`}>
                 <Link href={"/"}>
@@ -77,62 +74,60 @@ function Toolbox({ Component, pageProps }: AppProps) {
                     <FontAwesomeIcon icon={faChevronDown} size={"1x"} />
                   </div>
                   <div
-                    css={tw`hidden absolute bg-gray-800 w-full rounded-b-md z-30`}
+                    css={tw`hidden absolute bg-gray-800 w-full rounded-b-md z-30 pb-2`}
                     className={"dropdown"}
                   >
-                    <p
-                      css={tw`px-3 mx-1 pt-3 font-bold pb-1 hover:cursor-default`}
-                    >
-                      Converters
-                    </p>
-                    <p css={tw`px-3 mx-1 ml-2 pb-1 hover:cursor-default`}>
-                      ChatChat
-                    </p>
-                    <Link href={"/converters/chatchat/deluxechat"}>
-                      <p css={tw`px-3 mx-1 ml-3 pb-1 hover:cursor-pointer`}>
-                        DeluxeChat
-                      </p>
-                    </Link>
-                    <Link href={"/converters/chatchat/essentialschat"}>
-                      <p css={tw`px-3 mx-1 ml-3 pb-1 hover:cursor-pointer`}>
-                        Essentials
-                      </p>
-                    </Link>
-                    <Link href={"/converters/chatchat/venturechat"}>
-                      <p css={tw`px-3 mx-1 ml-3 hover:cursor-pointer`}>
-                        VentureChat
-                      </p>
-                    </Link>
-                    <p
-                      css={tw`px-3 mx-1 pt-3 font-bold pb-1 hover:cursor-default`}
-                    >
-                      Validators
-                    </p>
-                    <Link href={"/validators/yaml"}>
-                      <p css={tw`px-2 mx-1 ml-3 hover:cursor-pointer pb-1`}>
-                        Yaml
-                      </p>
-                    </Link>
-                    <Link href={"/validators/properties"}>
-                      <p css={tw`px-2 mx-1 ml-3 hover:cursor-pointer pb-1`}>
-                        Properties
-                      </p>
-                    </Link>
-                    <Link href={"/validators/toml"}>
-                      <p css={tw`px-2 mx-1 ml-3 hover:cursor-pointer pb-1`}>
-                        Toml
-                      </p>
-                    </Link>
-                    <Link href={"/validators/hocon"}>
-                      <p css={tw`px-2 mx-1 ml-3 hover:cursor-pointer pb-1`}>
-                        Hocon
-                      </p>
-                    </Link>{" "}
-                    <Link href={"/validators/xml"}>
-                      <p css={tw`px-2 mx-1 ml-3 hover:cursor-pointer pb-1`}>
-                        XML
-                      </p>
-                    </Link>
+                    {Object.keys(Tools).map((key, index) => {
+                      const children: JSX.Element[] = [];
+                      if (Array.isArray(Tools[key])) {
+                        (Tools[key] as ToolboxTool[]).forEach((tool) => {
+                          children.push(
+                            <p
+                              css={tw`px-3 mx-1 pt-3 ml-1 pb-1 hover:cursor-default`}
+                            >
+                              {tool.short}
+                            </p>
+                          );
+                        });
+                      } else {
+                        children.push(
+                          ...Object.keys(Tools[key]).map((key1, index) => {
+                            const children: JSX.Element[] = [];
+                            (Tools[key] as Record<string, ToolboxTool[]>)[
+                              key1
+                            ].forEach((tool) => {
+                              children.push(
+                                <p
+                                  css={tw`px-3 mx-1 pt-3 ml-2 pb-1 hover:cursor-default`}
+                                >
+                                  {tool.short}
+                                </p>
+                              );
+                            });
+                            return (
+                              <div key={index}>
+                                <p
+                                  css={tw`px-3 mx-1 pt-3 font-bold pb-1 hover:cursor-default`}
+                                >
+                                  {key1}
+                                </p>
+                                {children}
+                              </div>
+                            );
+                          })
+                        );
+                      }
+                      return (
+                        <div key={index}>
+                          <p
+                            css={tw`px-3 mx-1 pt-3 font-bold pb-1 hover:cursor-default`}
+                          >
+                            {key}
+                          </p>
+                          {children}
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
                 <Link href={"https://discord.gg/helpchat"}>
