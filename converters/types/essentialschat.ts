@@ -13,5 +13,6 @@ export interface EssentialsChatTypes {
   essentials: EssentialsChatConfig;
   language: {
     msgFormat?: string;
+    socialSpyMsgFormat?: string;
   };
 }

@@ -83,7 +83,7 @@ function ToolboxCard({
   link: string;
 }) {
   return (
-    <Link href={link}>
+    <Link href={link} passHref>
       <div
         css={tw`p-3 rounded-md bg-white/20 text-white hover:cursor-pointer width[13rem] h-48 block grid grid-cols-1 place-items-center`}
       >

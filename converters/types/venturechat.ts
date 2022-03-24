@@ -7,6 +7,7 @@ export interface VentureChat {
 export interface VentureChatConfig {
   tellformatto: string;
   tellformatfrom: string;
+  tellformatspy: string;
   jsonformatting?: {
     [key: string]: VentureChatFormat;
   };

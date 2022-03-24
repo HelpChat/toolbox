@@ -25,6 +25,9 @@ const ChatChatEssentialsChatConverter = new Converter<
       "recipient-format": {
         parts: [],
       },
+      "social-spy-format": {
+        parts: [],
+      },
     };
 
     if (
@@ -68,6 +71,12 @@ const ChatChatEssentialsChatConverter = new Converter<
     if (essentialschatConfig.language.msgFormat) {
       chatchatSettingsConfig["sender-format"].parts.push(
         MiniMessage(essentialschatConfig.language.msgFormat)
+      );
+    }
+
+    if (essentialschatConfig.language.socialSpyMsgFormat) {
+      chatchatSettingsConfig["social-spy-format"].parts.push(
+        MiniMessage(essentialschatConfig.language.socialSpyMsgFormat)
       );
     }
 

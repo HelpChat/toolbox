@@ -12,6 +12,7 @@ export type ChatChatFormat = {
 export interface ChatChatSettingsConfig {
   "sender-format": ChatChatParts;
   "recipient-format": ChatChatParts;
+  "social-spy-format": ChatChatParts;
 }
 
 export interface ChatChatParts {
