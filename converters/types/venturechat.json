@@ -11,6 +11,9 @@
         "tellformatfrom": {
           "type": "string"
         },
+        "tellformatspy": {
+          "type": "string"
+        },
         "jsonformatting": {
           "type": "object",
           "additionalProperties": {
@@ -18,7 +21,11 @@
           }
         }
       },
-      "required": ["tellformatto", "tellformatfrom"]
+      "required": [
+        "tellformatto",
+        "tellformatfrom",
+        "tellformatspy"
+      ]
     },
     "VentureChatFormat": {
       "type": "object",
@@ -33,7 +40,9 @@
           }
         }
       },
-      "required": ["priority"]
+      "required": [
+        "priority"
+      ]
     },
     "VentureChatJsonComponent": {
       "type": "object",
@@ -51,7 +60,11 @@
           "type": "string"
         }
       },
-      "required": ["hover_text", "click_action", "click_text"]
+      "required": [
+        "hover_text",
+        "click_action",
+        "click_text"
+      ]
     }
   }
 }

@@ -29,6 +29,9 @@ const ChatChatDeluxeChatConverter = new Converter<
       "recipient-format": {
         parts: [],
       },
+      "social-spy-format": {
+        parts: [],
+      },
     };
     if (deluxechatConfig.formats) {
       const formats = deluxechatConfig.formats;
@@ -119,6 +122,17 @@ const ChatChatDeluxeChatConverter = new Converter<
             break;
         }
       });
+
+      if (formats.social_spy) {
+        const socialSpyFormat = formats.social_spy;
+        const ccSocialSpyPartsFormat: string[] = [];
+
+        ccSocialSpyPartsFormat.push(MiniMessage(socialSpyFormat));
+        ccSocialSpyPartsFormat.push("<message>");
+
+        chatchatSettingsConfig["social-spy-format"].parts =
+          ccSocialSpyPartsFormat;
+      }
     }
 
     return {

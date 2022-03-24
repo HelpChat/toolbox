@@ -98,7 +98,10 @@
               "$ref": "#/definitions/DeluxeChatPrivateMessageFormat"
             }
           },
-          "required": ["to_recipient", "to_sender"]
+          "required": [
+            "to_recipient",
+            "to_sender"
+          ]
         },
         "formats": {
           "type": "object",

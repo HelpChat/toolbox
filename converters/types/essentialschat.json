@@ -13,11 +13,17 @@
           "properties": {
             "msgFormat": {
               "type": "string"
+            },
+            "socialSpyMsgFormat": {
+              "type": "string"
             }
           }
         }
       },
-      "required": ["config", "language"]
+      "required": [
+        "config",
+        "language"
+      ]
     },
     "EssentialsChatConfig": {
       "type": "object",
@@ -26,7 +32,10 @@
           "type": "object",
           "properties": {
             "format": {
-              "type": ["string", "null"]
+              "type": [
+                "string",
+                "null"
+              ]
             },
             "group-formats": {
               "anyOf": [
@@ -44,7 +53,9 @@
           }
         }
       },
-      "required": ["chat"]
+      "required": [
+        "chat"
+      ]
     }
   }
 }

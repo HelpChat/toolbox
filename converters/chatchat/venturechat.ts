@@ -25,6 +25,9 @@ const ChatChatVentureChatConverter = new Converter<
       "recipient-format": {
         parts: [],
       },
+      "social-spy-format": {
+        parts: [],
+      },
     };
 
     if (venturechatConfig.jsonformatting) {
@@ -93,6 +96,7 @@ const ChatChatVentureChatConverter = new Converter<
 
     const toFormat = venturechatConfig.tellformatto;
     const fromFormat = venturechatConfig.tellformatfrom;
+    const spyFormat = venturechatConfig.tellformatspy;
 
     let ccPartsFormat: string[] = [];
 
@@ -108,6 +112,14 @@ const ChatChatVentureChatConverter = new Converter<
     ccPartsFormat.push(MiniMessage(fromFormat));
     ccPartsFormat.push("<message>");
     chatchatSettingsConfig["recipient-format"].parts = ccPartsFormat;
+
+    // Reset
+    ccPartsFormat = [];
+
+    // The spy format
+    ccPartsFormat.push(MiniMessage(fromFormat));
+    ccPartsFormat.push("<message>");
+    chatchatSettingsConfig["social-spy-format"].parts = ccPartsFormat;
 
     return {
       format: chatchatFormatsConfig,

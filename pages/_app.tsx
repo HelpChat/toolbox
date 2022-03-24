@@ -16,30 +16,32 @@ function Toolbox({ Component, pageProps }: AppProps) {
             css={tw`text-white bg-black w-full md:px-8 p-2 h-14 flex flex-row text-white md:px-12`}
           >
             <div css={tw`flex flex-row w-full`}>
-              <div css={tw`flex flex-row`}>
-                <div css={tw`my-auto`}>
-                  <FontAwesomeIcon icon={faToolbox} size={"2x"} />
+              <Link href={"/"} passHref>
+                <div css={tw`flex flex-row`}>
+                  <div css={tw`my-auto`}>
+                    <FontAwesomeIcon icon={faToolbox} size={"2x"} />
+                  </div>
+                  <div css={tw`ml-2 my-auto font-bold text-center`}>
+                    <p
+                      css={css`
+                        margin-bottom: -0.2rem;
+                      `}
+                    >
+                      HelpChat
+                    </p>
+                    <p
+                      css={css`
+                        margin-top: -0.2rem;
+                        ${tw`text-xs`}
+                      `}
+                    >
+                      ToolBox
+                    </p>
+                  </div>
                 </div>
-                <div css={tw`ml-2 my-auto font-bold text-center`}>
-                  <p
-                    css={css`
-                      margin-bottom: -0.2rem;
-                    `}
-                  >
-                    HelpChat
-                  </p>
-                  <p
-                    css={css`
-                      margin-top: -0.2rem;
-                      ${tw`text-xs`}
-                    `}
-                  >
-                    ToolBox
-                  </p>
-                </div>
-              </div>
+              </Link>
               <div css={tw`flex flex-row flex-grow flex-shrink`}>
-                <Link href={"/"}>
+                <Link href={"/"} passHref>
                   <p
                     css={tw`px-3 mx-1 py-2 my-auto ml-auto hover:cursor-pointer`}
                   >
@@ -48,12 +50,13 @@ function Toolbox({ Component, pageProps }: AppProps) {
                 </Link>
                 <Link
                   href={"https://www.spigotmc.org/members/helpchat.1491649/"}
+                  passHref
                 >
                   <p css={tw`px-3 mx-1 py-2 my-auto hover:cursor-pointer`}>
                     Spigot
                   </p>
                 </Link>
-                <Link href={"https://github.com/HelpChat"}>
+                <Link href={"https://github.com/HelpChat"} passHref>
                   <p css={tw`px-3 mx-1 py-2 my-auto hover:cursor-pointer`}>
                     Github
                   </p>
@@ -82,7 +85,7 @@ function Toolbox({ Component, pageProps }: AppProps) {
                       if (Array.isArray(Tools[key])) {
                         (Tools[key] as ToolboxTool[]).forEach((tool) => {
                           children.push(
-                            <Link href={tool.link}>
+                            <Link href={tool.link} passHref>
                               <p
                                 css={tw`px-3 mx-1 pt-3 ml-1 pb-1 hover:cursor-pointer`}
                               >
@@ -99,7 +102,7 @@ function Toolbox({ Component, pageProps }: AppProps) {
                               key1
                             ].forEach((tool) => {
                               children.push(
-                                <Link href={tool.link}>
+                                <Link href={tool.link} passHref>
                                   <p
                                     css={tw`px-3 mx-1 pt-3 ml-2 pb-1 hover:cursor-pointer`}
                                   >
@@ -134,7 +137,7 @@ function Toolbox({ Component, pageProps }: AppProps) {
                     })}
                   </div>
                 </div>
-                <Link href={"https://discord.gg/helpchat"}>
+                <Link href={"https://discord.gg/helpchat"} passHref>
                   <p
                     css={tw`px-3 mx-1 py-2 my-auto hover:cursor-pointer bg-white text-black rounded-md`}
                   >
