@@ -26,7 +26,7 @@ export const TextBox = ({
 }) => {
   if (!editor) {
     return (
-      <div css={tw`flex flex-col h-full w-full pt-1`}>
+      <div css={tw`flex flex-col h-full w-full pt-1 text-white`}>
         <div css={tw`flex flex-row pl-2`}>
           <p css={tw`text-xl font-semibold mx-auto mb-2`}>{title}</p>
           <div css={tw`flex flex-row h-8`}>
@@ -51,7 +51,7 @@ export const TextBox = ({
     );
   } else {
     return (
-      <div css={tw`flex flex-col h-full w-full pt-1`}>
+      <div css={tw`flex flex-col h-full w-full pt-1 text-white`}>
         <p css={tw`text-xl font-semibold mx-auto mb-2`}>{title}</p>
         <div
           css={css`

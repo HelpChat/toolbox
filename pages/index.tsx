@@ -14,28 +14,25 @@ function Home() {
       </Head>
       <main
         css={css`
-          ${tw`flex flex-col`} height: calc(100vh - 3.5rem)
+          ${tw`flex flex-col md:height[calc(100vh - 3.5rem)]`}
         `}
       >
-        <div
-          css={tw`text-white bg-blue-500 w-full md:px-8 p-16 h-48 text-center`}
-        >
+        <div css={tw`text-white w-full md:px-8 p-16 h-48 text-center`}>
           <p css={tw`text-3xl font-bold`}>HelpChat</p>
           <p css={tw`text-lg`}>Home</p>
         </div>
         <div
           css={css`
             ${tw`h-full flex-grow flex-shrink`}
-            height: calc(100vh - 15.5em);
           `}
         >
           <div
             css={css`
-              ${tw`block mx-auto w-max mt-16`}
+              ${tw`block mx-auto w-max mt-8`}
             `}
           >
             <div
-              css={tw`bg-gray-200 rounded-lg grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-6 sm:p-8 md:p-12 md:px-16 w-full`}
+              css={tw`bg-white/20 backdrop-blur-sm drop-shadow-lg rounded-lg grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-6 sm:p-8 md:p-12 md:px-16 w-full`}
             >
               {(() => {
                 const tools: JSX.Element[] = [];
@@ -63,9 +60,9 @@ function Home() {
 }
 
 function toolsToCard(tools: ToolboxTool[]) {
-  return tools.map((tool, index) => (
+  return tools.map((tool) => (
     <ToolboxCard
-      key={index}
+      key={tool.short}
       name={tool.name}
       icon={tool.icon}
       description={tool.description}
@@ -88,7 +85,7 @@ function ToolboxCard({
   return (
     <Link href={link}>
       <div
-        css={tw`p-3 rounded-md bg-gray-300 hover:cursor-pointer width[13rem] h-48 block grid grid-cols-1 place-items-center`}
+        css={tw`p-3 rounded-md bg-white/20 text-white hover:cursor-pointer width[13rem] h-48 block grid grid-cols-1 place-items-center`}
       >
         <FontAwesomeIcon icon={icon} size={"3x"} />
         <p css={tw`font-bold text-lg margin-bottom[-1rem]`}>{name}</p>
