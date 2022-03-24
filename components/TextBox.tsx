@@ -21,15 +21,15 @@ export const TextBox = ({
 }: {
   title: string;
   code: string;
-  editor?: Dispatch<SetStateAction<string>> | ((config: string) => void);
+  editor?: Dispatch<SetStateAction<string>>;
   language: string;
 }) => {
   if (!editor) {
     return (
       <div css={tw`flex flex-col h-full w-full pt-1 text-white`}>
-        <div css={tw`flex flex-row pl-8`}>
+        <div css={tw`flex flex-row pl-2`}>
           <p css={tw`text-xl font-semibold mx-auto mb-2`}>{title}</p>
-          <div css={tw`flex flex-row h-8 w-8`}>
+          <div css={tw`flex flex-row h-8`}>
             <div
               css={tw`py-1 px-2 bg-green-400 rounded-md hover:cursor-pointer`}
               onClick={() => {
