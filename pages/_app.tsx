@@ -9,7 +9,7 @@ import { ToolboxTool, Tools } from "../components/nav";
 function Toolbox({ Component, pageProps }: AppProps) {
   return (
     <div css={tw`bg-dark text-white`}>
-      <div css={tw`bg-dark absolute h-full`}>
+      <div css={tw`bg-dark absolute h-full z-10`}>
         {(
           [
             {
@@ -61,7 +61,7 @@ function Toolbox({ Component, pageProps }: AppProps) {
         ))}
       </div>
       <GlobalStyles />
-      <div css={tw`backdrop-blur-sm z-10`}>
+      <div css={tw`backdrop-blur-sm relative z-20`}>
         <div
           css={tw`text-white w-full md:px-8 p-2 h-14 flex flex-row text-white md:px-12`}
         >
