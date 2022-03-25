@@ -2,11 +2,18 @@ import type { AppProps } from "next/app";
 import GlobalStyles from "../components/GlobalStyles";
 import tw, { css } from "twin.macro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown, faToolbox } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBars,
+  faChevronDown,
+  faToolbox,
+} from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import { ToolboxTool, Tools } from "../components/nav";
+import { useState } from "react";
 
 function Toolbox({ Component, pageProps }: AppProps) {
+  const [navOpen, setNavOpen] = useState(false);
+
   return (
     <div css={tw`bg-dark text-white`}>
       <div css={tw`bg-dark absolute h-full z-10`}>
@@ -63,11 +70,11 @@ function Toolbox({ Component, pageProps }: AppProps) {
       <GlobalStyles />
       <div css={tw`backdrop-blur-sm relative z-20`}>
         <div
-          css={tw`text-white w-full md:px-8 p-2 h-14 flex flex-row text-white md:px-12`}
+          css={tw`text-white w-full md:px-8 p-2 md:h-14 flex flex-row text-white md:px-12`}
         >
-          <div css={tw`flex flex-row w-full`}>
+          <div css={tw`flex flex-col md:flex-row w-full`}>
             <Link href={"/"} passHref>
-              <div css={tw`flex flex-row hover:cursor-pointer`}>
+              <div css={tw`flex flex-row hover:cursor-pointer m-4 md:m-0`}>
                 <div css={tw`my-auto`}>
                   <FontAwesomeIcon icon={faToolbox} size={"2x"} />
                 </div>
@@ -88,12 +95,24 @@ function Toolbox({ Component, pageProps }: AppProps) {
                     ToolBox
                   </p>
                 </div>
+                <div
+                  css={tw`block md:hidden ml-auto hover:cursor-pointer`}
+                  onClick={() => setNavOpen(!navOpen)}
+                >
+                  <FontAwesomeIcon icon={faBars} size={"2x"} />
+                </div>
               </div>
             </Link>
-            <div css={tw`flex flex-row flex-grow flex-shrink`}>
+            <div
+              css={css`
+                height: ${navOpen ? "max-content" : 0};
+                ${tw`flex flex-col md:flex-row flex-grow flex-shrink`}
+                ${!navOpen && tw`overflow-hidden md:overflow-visible`}
+              `}
+            >
               <Link href={"/"} passHref>
                 <p
-                  css={tw`px-3 mx-1 py-2 my-auto ml-auto hover:cursor-pointer`}
+                  css={tw`px-3 mx-1 py-2 my-auto md:ml-auto hover:cursor-pointer`}
                 >
                   Home
                 </p>
