@@ -98,7 +98,10 @@ function Toolbox({ Component, pageProps }: AppProps) {
                   Home
                 </p>
               </Link>
-              <Link href={"https://www.spigotmc.org/members/helpchat.1491649/"} passHref>
+              <Link
+                href={"https://www.spigotmc.org/members/helpchat.1491649/"}
+                passHref
+              >
                 <p css={tw`px-3 mx-1 py-2 my-auto hover:cursor-pointer`}>
                   Spigot
                 </p>
@@ -199,5 +202,12 @@ function Toolbox({ Component, pageProps }: AppProps) {
     </div>
   );
 }
+
+type ColorSplotch = {
+  color: string;
+  size: number;
+  x: number;
+  y: number;
+};
 
 export default Toolbox;
