@@ -1,13 +1,14 @@
 import { createGlobalStyle } from "styled-components";
-import tw, { theme, GlobalStyles as BaseStyles } from "twin.macro";
+import tw, { GlobalStyles as BaseStyles } from "twin.macro";
 
-const CustomStyles = createGlobalStyle({
-  body: {
-    WebkitTapHighlightColor: theme`colors.purple.500`,
-    ...tw`antialiased`,
-  },
-});
-
+const CustomStyles = createGlobalStyle`
+  body {
+    ${tw`antialiased`}
+  }
+  .hero-section-content-intro {
+    width: revert !important;
+  }
+`;
 const GlobalStyles = () => (
   <>
     <BaseStyles />
