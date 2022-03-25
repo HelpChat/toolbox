@@ -6,29 +6,36 @@
       "type": "object",
       "properties": {
         "venturechat": {
-          "type": "object",
-          "properties": {
-            "tellformatto": {
-              "type": "string"
-            },
-            "tellformatfrom": {
-              "type": "string"
-            },
-            "jsonformatting": {
-              "type": "object",
-              "additionalProperties": {
-                "$ref": "#/definitions/VentureChatFormat"
-              }
-            }
-          },
-          "required": [
-            "tellformatto",
-            "tellformatfrom"
-          ]
+          "$ref": "#/definitions/VentureChatConfig"
         }
       },
       "required": [
         "venturechat"
+      ]
+    },
+    "VentureChatConfig": {
+      "type": "object",
+      "properties": {
+        "tellformatto": {
+          "type": "string"
+        },
+        "tellformatfrom": {
+          "type": "string"
+        },
+        "tellformatspy": {
+          "type": "string"
+        },
+        "jsonformatting": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/VentureChatFormat"
+          }
+        }
+      },
+      "required": [
+        "tellformatto",
+        "tellformatfrom",
+        "tellformatspy"
       ]
     },
     "VentureChatFormat": {

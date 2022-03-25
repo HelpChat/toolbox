@@ -13,6 +13,9 @@
           "properties": {
             "msgFormat": {
               "type": "string"
+            },
+            "socialSpyMsgFormat": {
+              "type": "string"
             }
           }
         }
