@@ -5,8 +5,8 @@ const CustomStyles = createGlobalStyle`
   body {
     ${tw`antialiased`}
   }
-  .hero-section-content-intro {
-    width: revert !important;
+  .svg-inline--fa {
+    height: 1em;
   }
 `;
 const GlobalStyles = () => (
