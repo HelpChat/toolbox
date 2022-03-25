@@ -71,7 +71,7 @@ const ChatChatVentureChatConverter = new Converter<
                 break;
               }
             }
-            let hover = section.hover_text.filter((s) => s && s !== "");
+            let hover = section.hover_text.filter((s: string) => s && s !== "");
             if (hover && hover.length > 0) {
               formattedSection =
                 "<hover:show_text:'" +

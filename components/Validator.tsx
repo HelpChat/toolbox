@@ -7,6 +7,7 @@ import duotoneDark from "prism-react-renderer/themes/duotoneDark";
 import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
+import { ConversionError } from "../converters/converter";
 
 const ReactJson = dynamic(import("react-json-view"), { ssr: false });
 
@@ -17,9 +18,7 @@ const Validator = ({
 }: {
   language: string;
   lang: string;
-  parser: (
-    data: string
-  ) => { error: true; message: string } | { error: false; data: any };
+  parser: (data: string) => ConversionError | { error: false; data: any };
 }) => {
   const router = useRouter();
 

@@ -1,5 +1,6 @@
 import Converter from "../converter";
 import {
+  DeluxeChat,
   DeluxeChatConfig,
   DeluxeChatFormat,
   DeluxeChatPrivateMessageFormat,
@@ -14,10 +15,11 @@ import MiniMessage from "../minimessage";
 const schema = require("../types/deluxechat.json");
 
 const ChatChatDeluxeChatConverter = new Converter<
-  DeluxeChatConfig,
+  DeluxeChat,
   { format: ChatChatFormatsConfig; settings: ChatChatSettingsConfig }
 >({
-  Convert(deluxechatConfig) {
+  Convert(deluxechat) {
+    const deluxechatConfig = deluxechat.deluxechat;
     const chatchatFormatsConfig: ChatChatFormatsConfig = {
       "default-format": "default",
       formats: {},

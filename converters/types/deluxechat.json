@@ -1,7 +1,18 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$ref": "#/definitions/DeluxeChatConfig",
+  "$ref": "#/definitions/DeluxeChat",
   "definitions": {
+    "DeluxeChat": {
+      "type": "object",
+      "properties": {
+        "deluxechat": {
+          "$ref": "#/definitions/DeluxeChatConfig"
+        }
+      },
+      "required": [
+        "deluxechat"
+      ]
+    },
     "DeluxeChatConfig": {
       "type": "object",
       "properties": {
@@ -98,7 +109,10 @@
               "$ref": "#/definitions/DeluxeChatPrivateMessageFormat"
             }
           },
-          "required": ["to_recipient", "to_sender"]
+          "required": [
+            "to_recipient",
+            "to_sender"
+          ]
         },
         "formats": {
           "type": "object",

@@ -1,4 +1,8 @@
-// @ToolBox - DeluxeChatConfig
+// @ToolBox - DeluxeChat
+
+export interface DeluxeChat {
+  deluxechat: DeluxeChatConfig;
+}
 
 export interface DeluxeChatConfig {
   check_updates?: boolean;

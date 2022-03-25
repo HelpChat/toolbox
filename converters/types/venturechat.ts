@@ -1,4 +1,8 @@
-// @ToolBox - VentureChatConfig
+// @ToolBox - VentureChat
+
+export interface VentureChat {
+  venturechat: VentureChatConfig;
+}
 
 export interface VentureChatConfig {
   tellformatto: string;

@@ -27,7 +27,7 @@ export default function MiniMessage(input: string): string {
     "/&?#((?:[a-f0-9]{3}){1,2})": "<#$1>",
   };
 
-  let out = input;
+  let out = input ?? "";
 
   Object.keys(legacyReplacements).forEach((key) => {
     if (key.startsWith("/")) {

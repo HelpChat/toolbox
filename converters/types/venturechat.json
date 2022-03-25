@@ -1,24 +1,35 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$ref": "#/definitions/VentureChatConfig",
+  "$ref": "#/definitions/VentureChat",
   "definitions": {
-    "VentureChatConfig": {
+    "VentureChat": {
       "type": "object",
       "properties": {
-        "tellformatto": {
-          "type": "string"
-        },
-        "tellformatfrom": {
-          "type": "string"
-        },
-        "jsonformatting": {
+        "venturechat": {
           "type": "object",
-          "additionalProperties": {
-            "$ref": "#/definitions/VentureChatFormat"
-          }
+          "properties": {
+            "tellformatto": {
+              "type": "string"
+            },
+            "tellformatfrom": {
+              "type": "string"
+            },
+            "jsonformatting": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/VentureChatFormat"
+              }
+            }
+          },
+          "required": [
+            "tellformatto",
+            "tellformatfrom"
+          ]
         }
       },
-      "required": ["tellformatto", "tellformatfrom"]
+      "required": [
+        "venturechat"
+      ]
     },
     "VentureChatFormat": {
       "type": "object",
@@ -33,7 +44,9 @@
           }
         }
       },
-      "required": ["priority"]
+      "required": [
+        "priority"
+      ]
     },
     "VentureChatJsonComponent": {
       "type": "object",
@@ -51,7 +64,11 @@
           "type": "string"
         }
       },
-      "required": ["hover_text", "click_action", "click_text"]
+      "required": [
+        "hover_text",
+        "click_action",
+        "click_text"
+      ]
     }
   }
 }

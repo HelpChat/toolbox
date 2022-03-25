@@ -10,7 +10,7 @@ export interface EssentialsChatConfig {
 }
 
 export interface EssentialsChatTypes {
-  config: EssentialsChatConfig;
+  essentials: EssentialsChatConfig;
   language: {
     msgFormat?: string;
   };
