@@ -20,31 +20,43 @@ function Toolbox({ Component, pageProps }: AppProps) {
         {(
           [
             {
-              color: "#224b4b", // green
-              x: 47,
-              y: 42,
+              color: "#1c5e45", // green
+              x: 37,
+              y: 50,
               size: 9,
             },
             {
-              color: "#224b4b",
-              x: 54,
-              y: 74,
+              color: "#0f284c", // blue
+              x: 26,
+              y: 70,
               size: 7,
             },
             {
-              color: "#224b4b",
+              color: "#0f284c", // blue
+              x: 50,
+              y: 50,
+              size: 7,
+            },
+            {
+              color: "#1c5e45", // green
               x: 18,
-              y: 20,
+              y: 30,
               size: 6,
             },
             {
-              color: "#571b60", // purple
-              x: 23,
-              y: 65,
-              size: 11,
+              color: "#69137e", // purple
+              x: 1,
+              y: 110,
+              size: 13,
             },
             {
-              color: "#571b60",
+              color: "#69137e", // purple
+              x: 110,
+              y: 100,
+              size: 13,
+            },
+            {
+              color: "#69137e",
               x: 83,
               y: 50,
               size: 10,
@@ -57,6 +69,7 @@ function Toolbox({ Component, pageProps }: AppProps) {
               ${tw`fixed`}
               left: ${splotch.x}vw;
               top: ${splotch.y}vh;
+              filter: blur(100px);
               width: 1px;
               height: 1px;
               border-radius: 50%;
@@ -68,7 +81,7 @@ function Toolbox({ Component, pageProps }: AppProps) {
         ))}
       </div>
       <GlobalStyles />
-      <div css={tw`backdrop-blur-sm relative z-20`}>
+      <div css={tw`backdrop-blur-xl relative z-20`}>
         <div
           css={tw`text-white w-full md:px-8 p-2 md:h-14 flex flex-row text-white md:px-12`}
         >
@@ -112,7 +125,7 @@ function Toolbox({ Component, pageProps }: AppProps) {
             >
               <Link href={"/"} passHref>
                 <p
-                  css={tw`px-3 mx-1 py-2 my-auto md:ml-auto hover:cursor-pointer`}
+                  css={tw`px-3 mx-4 py-2 my-auto md:ml-auto hover:cursor-pointer`}
                 >
                   Home
                 </p>
@@ -121,12 +134,12 @@ function Toolbox({ Component, pageProps }: AppProps) {
                 href={"https://www.spigotmc.org/members/helpchat.1491649/"}
                 passHref
               >
-                <p css={tw`px-3 mx-1 py-2 my-auto hover:cursor-pointer`}>
+                <p css={tw`px-3 mx-4 py-2 my-auto hover:cursor-pointer`}>
                   Spigot
                 </p>
               </Link>
               <Link href={"https://github.com/HelpChat"} passHref>
-                <p css={tw`px-3 mx-1 py-2 my-auto hover:cursor-pointer`}>
+                <p css={tw`px-3 mx-4 py-2 my-auto hover:cursor-pointer`}>
                   Github
                 </p>
               </Link>
@@ -142,7 +155,7 @@ function Toolbox({ Component, pageProps }: AppProps) {
                 `}
               >
                 <p css={tw`pl-3 ml-1 inline`}>More Tools</p>
-                <div css={tw`ml-1 pr-3 mr-1 inline`}>
+                <div css={tw`ml-5 pr-3 mr-1 inline`}>
                   <FontAwesomeIcon icon={faChevronDown} size={"1x"} />
                 </div>
                 <div
@@ -156,7 +169,7 @@ function Toolbox({ Component, pageProps }: AppProps) {
                         children.push(
                           <Link href={tool.link} key={tool.short} passHref>
                             <p
-                              css={tw`px-3 ml-2 pt-3 pb-1 hover:cursor-pointer`}
+                              css={tw`px-3 ml-2 pt-3 pb-1 hover:cursor-pointer hover:bg-gray-600`}
                             >
                               {tool.short}
                             </p>
@@ -173,7 +186,7 @@ function Toolbox({ Component, pageProps }: AppProps) {
                             children.push(
                               <Link href={tool.link} key={tool.short} passHref>
                                 <p
-                                  css={tw`px-3 ml-3 pt-3 pb-1 hover:cursor-pointer`}
+                                  css={tw`px-3 ml-3 pt-3 pb-1 hover:cursor-pointer hover:bg-gray-600`}
                                 >
                                   {tool.short}
                                 </p>
@@ -208,7 +221,7 @@ function Toolbox({ Component, pageProps }: AppProps) {
               </div>
               <Link href={"https://discord.gg/helpchat"} passHref>
                 <p
-                  css={tw`px-3 mx-1 py-2 my-auto hover:cursor-pointer bg-white text-black rounded-md`}
+                  css={tw`px-3 mx-1 py-2 my-auto hover:cursor-pointer hover:bg-gray-800 hover:text-white bg-white text-black rounded-md`}
                 >
                   Join our Discord
                 </p>

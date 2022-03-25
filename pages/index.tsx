@@ -10,16 +10,19 @@ function Home() {
     <div>
       <Head>
         <title>HelpChat Tools</title>
-        <meta name="description" content="HelpChat Tools" />
+        <meta name="description" content="HelpChat ToolBox" />
       </Head>
       <main
         css={css`
           ${tw`flex flex-col md:height[calc(100vh - 3.5rem)]`}
         `}
       >
-        <div css={tw`text-white w-full md:px-8 p-16 h-48 text-center`}>
-          <p css={tw`text-3xl font-bold`}>HelpChat</p>
-          <p css={tw`text-lg`}>Home</p>
+        <div css={tw`text-white w-full md:px-8 p-16 h-64 text-center`}>
+          <p css={tw`text-lg text-brightblue`}>Introducing the all new</p>
+          <br></br>
+          <p css={tw`text-5xl font-bold`}>HelpChat ToolBox</p>
+          <br></br><br></br>
+          <p css={tw`text-base text-lightgray`}>A collection of tools and solutions you might find useful<br></br> for you and your server.</p>
         </div>
         <div
           css={css`
@@ -32,7 +35,7 @@ function Home() {
             `}
           >
             <div
-              css={tw`bg-white/20 backdrop-blur-sm drop-shadow-lg rounded-lg grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-6 sm:p-8 md:p-12 md:px-16 w-full`}
+              css={tw`bg-white/10 backdrop-blur-sm drop-shadow-lg rounded-2xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-6 sm:p-8 md:p-6 md:px-6 w-full`}
             >
               {(() => {
                 const tools: JSX.Element[] = [];
@@ -85,7 +88,7 @@ function ToolboxCard({
   return (
     <Link href={link} passHref>
       <div
-        css={tw`p-3 rounded-md bg-white/20 text-white hover:cursor-pointer width[13rem] h-48 block grid grid-cols-1 place-items-center`}
+        css={tw`p-3 rounded-2xl bg-white/10 hover:bg-white/20 text-white hover:cursor-pointer width[13rem] h-48 block grid grid-cols-1 place-items-center mix-blend-multiply`}
       >
         <FontAwesomeIcon icon={icon} size={"3x"} />
         <p css={tw`font-bold text-lg margin-bottom[-1rem]`}>{name}</p>
