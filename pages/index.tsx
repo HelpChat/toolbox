@@ -17,12 +17,12 @@ function Home() {
           ${tw`flex flex-col md:height[calc(100vh - 3.5rem)]`}
         `}
       >
-        <div css={tw`text-white w-full md:px-8 p-16 h-64 text-center`}>
+        <div css={tw`text-white w-full md:px-8 p-16 h-64 text-center space-y-7`}>
           <p css={tw`text-lg text-brightblue`}>Introducing the all new</p>
-          <br></br>
-          <p css={tw`text-5xl font-bold`}>HelpChat ToolBox</p>
-          <br></br><br></br>
-          <p css={tw`text-base text-lightgray`}>A collection of tools and solutions you might find useful<br></br> for you and your server.</p>
+          <div css={tw`text-white text-center space-y-12`}>
+            <p css={tw`text-5xl font-bold`}>HelpChat ToolBox</p>
+            <p css={tw`text-base text-lightgray `}>A collection of tools and solutions you might find useful for you and your server.</p>
+          </div>
         </div>
         <div
           css={css`
