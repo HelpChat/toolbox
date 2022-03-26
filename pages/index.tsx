@@ -9,8 +9,8 @@ function Home() {
   return (
     <div>
       <Head>
-        <title>HelpChat Tools</title>
-        <meta name="description" content="HelpChat ToolBox" />
+        <title>HelpChat ToolBox</title>
+        <meta name="description" content="A collection of tools and solutions you might find useful for you and your server." />
       </Head>
       <main
         css={css`
