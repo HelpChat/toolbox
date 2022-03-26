@@ -88,7 +88,7 @@ function ToolboxCard({
   return (
     <Link href={link} passHref>
       <div
-        css={tw`p-3 rounded-2xl bg-white/10 hover:bg-white/20 text-white hover:cursor-pointer width[13rem] h-48 block grid grid-cols-1 place-items-center mix-blend-multiply`}
+        css={tw`p-3 rounded-2xl bg-white/10 hover:bg-white/20 text-white hover:cursor-pointer width[15rem] h-48 block grid grid-cols-1 place-items-center mix-blend-multiply`}
       >
         <FontAwesomeIcon icon={icon} size={"3x"} />
         <p css={tw`font-bold text-lg margin-bottom[-1rem]`}>{name}</p>
