@@ -10,18 +10,26 @@ function Home() {
     <div>
       <Head>
         <title>HelpChat ToolBox</title>
-        <meta name="description" content="A collection of tools and solutions you might find useful for you and your server." />
+        <meta
+          name="description"
+          content="A collection of tools and solutions you might find useful for you and your server."
+        />
       </Head>
       <main
         css={css`
           ${tw`flex flex-col md:height[calc(100vh - 3.5rem)]`}
         `}
       >
-        <div css={tw`text-white w-full md:px-8 p-16 h-64 text-center space-y-7`}>
+        <div
+          css={tw`text-white w-full md:px-8 p-16 md:h-64 text-center space-y-7`}
+        >
           <p css={tw`text-lg text-brightblue`}>Introducing the all new</p>
           <div css={tw`text-white text-center space-y-12`}>
             <p css={tw`text-5xl font-bold`}>HelpChat ToolBox</p>
-            <p css={tw`text-base text-lightgray `}>A collection of tools and solutions you might find useful for you and your server.</p>
+            <p css={tw`text-base text-lightgray`}>
+              A collection of tools and solutions you might find useful for you
+              and your server.
+            </p>
           </div>
         </div>
         <div
@@ -31,7 +39,7 @@ function Home() {
         >
           <div
             css={css`
-              ${tw`block mx-auto w-max mt-8`}
+              ${tw`block mx-auto w-max mt-8 mb-8 md:mb-0`}
             `}
           >
             <div
@@ -88,7 +96,7 @@ function ToolboxCard({
   return (
     <Link href={link} passHref>
       <div
-        css={tw`p-3 rounded-2xl bg-white/10 hover:bg-white/20 text-white hover:cursor-pointer width[15rem] h-48 block grid grid-cols-1 place-items-center mix-blend-multiply`}
+        css={tw`p-3 rounded-2xl bg-white/10 hover:bg-white/20 text-white hover:cursor-pointer width[15rem] min-height[12rem] w-56 block grid grid-cols-1 place-items-center mix-blend-multiply`}
       >
         <FontAwesomeIcon icon={icon} size={"3x"} />
         <p css={tw`font-bold text-lg margin-bottom[-1rem]`}>{name}</p>
