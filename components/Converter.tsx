@@ -76,7 +76,7 @@ const Converter = ({
             <div
               css={css`
                 height: calc(100vh - 18.5em);
-                ${tw`md:w-1/2 p-4 pt-1 pr-2 md:max-width[50vw] flex flex-col`}
+                ${tw`md:w-1/2 p-4 pt-1 md:pr-2 md:max-width[50vw] flex flex-col`}
               `}
             >
               {Object.keys(inputConfigs).map((key) => {
@@ -85,6 +85,7 @@ const Converter = ({
                   <div
                     key={key}
                     css={css`
+                      ${tw`h-full`};
                       @media (min-width: 768px) {
                         height: ${Math.floor(
                           100 / Object.keys(inputConfigs).length
@@ -110,12 +111,12 @@ const Converter = ({
             <div
               css={css`
                 height: calc(100vh - 18.5em);
-                ${tw`md:w-1/2 p-4 pt-1 pr-2 md:max-width[50vw] flex flex-col`}
+                ${tw`md:w-1/2 p-4 pt-1 md:pr-2 md:max-width[50vw] flex flex-col`}
               `}
             >
               {error || !parsedConfigs ? (
                 <div css={tw`flex flex-col h-full w-full pt-1`}>
-                  <div css={tw`flex flex-row pl-2`}>
+                  <div css={tw`flex flex-row md:pl-2`}>
                     <p css={tw`text-xl font-semibold mx-auto mb-2`}>
                       Validation Errors
                     </p>
@@ -144,6 +145,7 @@ const Converter = ({
                     <div
                       key={key}
                       css={css`
+                        ${tw`h-full`};
                         @media (min-width: 768px) {
                           height: ${Math.floor(
                             100 / Object.keys(outputConfigs).length

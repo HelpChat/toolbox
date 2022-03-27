@@ -71,7 +71,7 @@ const Validator = ({
             <div
               css={css`
                 height: calc(100vh - 18.5em);
-                ${tw`md:w-1/2 p-4 pt-1 pr-2 md:max-width[50vw]`}
+                ${tw`md:w-1/2 p-4 pt-1 md:pr-2 md:max-width[50vw]`}
               `}
             >
               <TextBox
@@ -84,11 +84,11 @@ const Validator = ({
             <div
               css={css`
                 height: calc(100vh - 18.5em);
-                ${tw`w-full md:w-1/2 p-4 pl-2 pt-1 flex flex-col md:max-width[50vw]`}
+                ${tw`w-full md:w-1/2 p-4 md:pl-2 pt-1 flex flex-col md:max-width[50vw]`}
               `}
             >
               <div css={tw`flex flex-col h-full w-full pt-1`}>
-                <div css={tw`flex flex-row pl-2`}>
+                <div css={tw`flex flex-row md:pl-2`}>
                   <p css={tw`text-xl font-semibold mx-auto mb-2`}>
                     JSON Object Dump
                   </p>
