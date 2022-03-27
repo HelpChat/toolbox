@@ -57,7 +57,7 @@ const Validator = ({
 
       <main
         css={css`
-          ${tw`flex flex-col md:min-height[calc(100vh - 3.5rem)]`}
+          ${tw`flex flex-col min-height[calc(100vh - 3.5rem)]`}
         `}
       >
         <div css={tw`w-full md:px-8 p-16 h-48 text-center`}>
