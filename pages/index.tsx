@@ -25,7 +25,9 @@ function Home() {
         >
           <p css={tw`text-lg text-brightblue`}>Introducing the all new</p>
           <div css={tw`text-white text-center space-y-12`}>
-            <p css={tw`text-5xl font-bold`}>HelpChat ToolBox</p>
+            <p css={tw`text-5xl font-bold overflow-hidden break-all`}>
+              HelpChat ToolBox
+            </p>
             <p css={tw`text-base text-lightgray`}>
               A collection of tools and solutions you might find useful for you
               and your server.
@@ -43,7 +45,7 @@ function Home() {
             `}
           >
             <div
-              css={tw`bg-white/10 backdrop-blur-sm drop-shadow-lg rounded-2xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-6 sm:p-8 md:p-6 md:px-6 w-full`}
+              css={tw`bg-white/10 backdrop-blur-sm drop-shadow-lg rounded-2xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-6 sm:p-8 md:p-6 md:px-6 w-full max-width[90vw] overflow-hidden`}
             >
               {(() => {
                 const tools: JSX.Element[] = [];
@@ -96,7 +98,7 @@ function ToolboxCard({
   return (
     <Link href={link} passHref>
       <div
-        css={tw`p-3 rounded-2xl bg-white/10 hover:bg-white/20 text-white hover:cursor-pointer width[15rem] min-height[12rem] w-56 block grid grid-cols-1 place-items-center mix-blend-multiply`}
+        css={tw`p-3 rounded-2xl bg-white/10 hover:bg-white/20 text-white hover:cursor-pointer width[15rem] max-w-full break-words min-height[12rem] w-56 block grid grid-cols-1 place-items-center mix-blend-multiply`}
       >
         <FontAwesomeIcon icon={icon} size={"3x"} />
         <p css={tw`font-bold text-lg margin-bottom[-1rem]`}>{name}</p>
