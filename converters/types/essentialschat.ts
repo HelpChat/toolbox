@@ -1,4 +1,4 @@
-// @ToolBox - EssentialsChatTypes
+// @Toolbox - EssentialsChatTypes
 
 export interface EssentialsChatConfig {
   chat: {

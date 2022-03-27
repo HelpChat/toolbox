@@ -10,7 +10,7 @@ const directory = fs
 directory.forEach((f: string) => {
   const file = fs.readFileSync(`./converters/types/${f}`, "utf8");
 
-  const regex = /\/\/ @ToolBox - ([a-zA-Z]{1,30})/;
+  const regex = /\/\/ @Toolbox - ([a-zA-Z]{1,30})/;
   const match = file.match(regex);
 
   if (!match || match.length < 2) return;

@@ -1,4 +1,4 @@
-// @ToolBox - DeluxeChat
+// @Toolbox - DeluxeChat
 
 export interface DeluxeChat {
   deluxechat: DeluxeChatConfig;

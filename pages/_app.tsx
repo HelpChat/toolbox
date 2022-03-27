@@ -105,7 +105,7 @@ function Toolbox({ Component, pageProps }: AppProps) {
                       ${tw`text-xs`}
                     `}
                   >
-                    ToolBox
+                    Toolbox
                   </p>
                 </div>
                 <div

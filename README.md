@@ -1,8 +1,8 @@
-# HelpChat ToolBox
+# HelpChat Toolbox
 
 ## What is it?
 
-HelpChat ToolBox is a toolbox of useful tools for HelpChat's Minecraft plugins, configs, and more!
+HelpChat Toolbox is a toolbox of useful tools for HelpChat's Minecraft plugins, configs, and more!
 
 It currently includes the following features:
 
@@ -17,7 +17,7 @@ It currently includes the following features:
 
 ### Usage
 
-HelpChat's ToolBox is hosted at [toolbox.helpch.at](https://toolbox.helpch.at/).
+HelpChat's Toolbox is hosted at [toolbox.helpch.at](https://toolbox.helpch.at/).
 
 ## Development
 

@@ -1,4 +1,4 @@
-// @ToolBox - VentureChat
+// @Toolbox - VentureChat
 
 export interface VentureChat {
   venturechat: VentureChatConfig;
