@@ -17,7 +17,7 @@ function Home() {
       </Head>
       <main
         css={css`
-          ${tw`flex flex-col md:height[calc(100vh - 3.5rem)]`}
+          ${tw`flex flex-col md:min-height[calc(100vh - 3.5rem)]`}
         `}
       >
         <div
