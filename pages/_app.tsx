@@ -83,7 +83,7 @@ function Toolbox({ Component, pageProps }: AppProps) {
       <GlobalStyles />
       <div css={tw`backdrop-blur-xl relative z-20`}>
         <div
-          css={tw`text-white w-full md:px-8 p-2 md:h-14 flex flex-row text-white md:px-12`}
+          css={tw`text-white w-full md:px-8 p-2 md:h-14 flex flex-row text-white md:px-8 lg:px-12`}
         >
           <div css={tw`flex flex-col md:flex-row w-full`}>
             <Link href={"/"} passHref>
@@ -125,7 +125,7 @@ function Toolbox({ Component, pageProps }: AppProps) {
             >
               <Link href={"/"} passHref>
                 <p
-                  css={tw`px-3 mx-4 py-2 my-auto md:ml-auto hover:cursor-pointer`}
+                  css={tw`px-3 mx-2 py-2 my-auto md:ml-auto hover:cursor-pointer`}
                 >
                   Home
                 </p>
@@ -134,18 +134,18 @@ function Toolbox({ Component, pageProps }: AppProps) {
                 href={"https://www.spigotmc.org/members/helpchat.1491649/"}
                 passHref
               >
-                <p css={tw`px-3 mx-4 py-2 my-auto hover:cursor-pointer`}>
+                <p css={tw`px-3 mx-2 py-2 my-auto hover:cursor-pointer`}>
                   Spigot
                 </p>
               </Link>
               <Link href={"https://github.com/HelpChat"} passHref>
-                <p css={tw`px-3 mx-4 py-2 my-auto hover:cursor-pointer`}>
+                <p css={tw`px-3 mx-2 py-2 my-auto hover:cursor-pointer`}>
                   Github
                 </p>
               </Link>
               <div
                 css={css`
-                  ${tw`my-auto hover:cursor-pointer inline-block relative py-2 rounded-t-md`}
+                  ${tw`my-auto hover:cursor-pointer inline-block relative mx-2 py-2 rounded-t-md`}
                   :hover {
                     ${tw`bg-gray-800`}
                     > .dropdown {
@@ -154,8 +154,8 @@ function Toolbox({ Component, pageProps }: AppProps) {
                   }
                 `}
               >
-                <p css={tw`pl-3 ml-1 inline`}>More Tools</p>
-                <div css={tw`ml-5 pr-3 mr-1 inline`}>
+                <p css={tw`pl-3 mr-2 inline`}>More Tools</p>
+                <div css={tw`ml-0 pr-3 mr-1 inline`}>
                   <FontAwesomeIcon icon={faChevronDown} size={"1x"} />
                 </div>
                 <div
@@ -221,7 +221,7 @@ function Toolbox({ Component, pageProps }: AppProps) {
               </div>
               <Link href={"https://discord.gg/helpchat"} passHref>
                 <p
-                  css={tw`px-3 mx-1 py-2 my-auto hover:cursor-pointer hover:bg-gray-800 hover:text-white bg-white text-black rounded-md`}
+                  css={tw`px-3 mx-2 py-2 my-auto hover:cursor-pointer hover:bg-gray-800 hover:text-white bg-white text-black rounded-md`}
                 >
                   Join our Discord
                 </p>
