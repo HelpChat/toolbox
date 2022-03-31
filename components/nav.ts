@@ -29,6 +29,15 @@ export const Tools: Record<
         link: "/converters/chatchat/venturechat",
       },
     ],
+    Legacy: [
+      {
+        name: "Legacy -> MiniMessage Convert",
+        short: "Legacy -> MM",
+        icon: faCommentDots,
+        description: "Convert Legacy Strings to MiniMessage Strings",
+        link: "/converters/legacy/minimessage",
+      }
+    ],
   },
   Validators: [
     {
