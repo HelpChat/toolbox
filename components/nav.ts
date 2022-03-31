@@ -31,8 +31,8 @@ export const Tools: Record<
     ],
     Legacy: [
       {
-        name: "Legacy -> MiniMessage Convert",
-        short: "Legacy -> MM",
+        name: "Legacy Text Convert",
+        short: "Legacy",
         icon: faCommentDots,
         description: "Convert Legacy Strings to MiniMessage Strings",
         link: "/converters/legacy/minimessage",

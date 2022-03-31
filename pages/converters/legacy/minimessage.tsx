@@ -8,13 +8,13 @@ const LegacyToMiniMessage: NextPage = () => (
     <Converter
         inputConfigs={{
             legacy: {
-                name: "Legacy Strings",
+                name: "Legacy Input",
                 language: "txt",
             }
         }}
         outputConfigs={{
             formatted: {
-                name: "MiniMessage Formatted Strings",
+                name: "MiniMessage Output",
             }
         }}
         title={"MiniMessage String Converter"}
