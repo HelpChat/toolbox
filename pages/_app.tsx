@@ -86,7 +86,7 @@ function Toolbox({ Component, pageProps }: AppProps) {
           css={tw`text-white w-full md:px-8 p-2 md:h-14 flex flex-row text-white md:px-8 lg:px-12`}
         >
           <div css={tw`flex flex-col md:flex-row w-full`}>
-            <Link href={"/"} passHref>
+            <Link href={"/"} prefetch={false} passHref>
               <div css={tw`flex flex-row hover:cursor-pointer m-4 md:m-0`}>
                 <div css={tw`my-auto`}>
                   <FontAwesomeIcon icon={faToolbox} size={"2x"} />
@@ -123,7 +123,7 @@ function Toolbox({ Component, pageProps }: AppProps) {
                 ${!navOpen && tw`overflow-hidden md:overflow-visible`}
               `}
             >
-              <Link href={"/"} passHref>
+              <Link href={"/"} prefetch={false} passHref>
                 <p
                   css={tw`px-3 mx-2 py-2 my-auto md:ml-auto hover:cursor-pointer`}
                 >
@@ -132,13 +132,18 @@ function Toolbox({ Component, pageProps }: AppProps) {
               </Link>
               <Link
                 href={"https://www.spigotmc.org/members/helpchat.1491649/"}
+                prefetch={false}
                 passHref
               >
                 <p css={tw`px-3 mx-2 py-2 my-auto hover:cursor-pointer`}>
                   Spigot
                 </p>
               </Link>
-              <Link href={"https://github.com/HelpChat"} passHref>
+              <Link
+                href={"https://github.com/HelpChat"}
+                prefetch={false}
+                passHref
+              >
                 <p css={tw`px-3 mx-2 py-2 my-auto hover:cursor-pointer`}>
                   Github
                 </p>
@@ -167,7 +172,12 @@ function Toolbox({ Component, pageProps }: AppProps) {
                     if (Array.isArray(Tools[key])) {
                       (Tools[key] as ToolboxTool[]).forEach((tool) => {
                         children.push(
-                          <Link href={tool.link} key={tool.short} passHref>
+                          <Link
+                            href={tool.link}
+                            prefetch={false}
+                            key={tool.short}
+                            passHref
+                          >
                             <p
                               css={tw`px-3 ml-2 pt-3 pb-1 hover:cursor-pointer hover:bg-gray-600`}
                             >
@@ -184,7 +194,12 @@ function Toolbox({ Component, pageProps }: AppProps) {
                             key1
                           ].forEach((tool) => {
                             children.push(
-                              <Link href={tool.link} key={tool.short} passHref>
+                              <Link
+                                href={tool.link}
+                                prefetch={false}
+                                key={tool.short}
+                                passHref
+                              >
                                 <p
                                   css={tw`px-3 ml-3 pt-3 pb-1 hover:cursor-pointer hover:bg-gray-600`}
                                 >
@@ -219,7 +234,11 @@ function Toolbox({ Component, pageProps }: AppProps) {
                   })}
                 </div>
               </div>
-              <Link href={"https://discord.gg/helpchat"} passHref>
+              <Link
+                href={"https://discord.gg/helpchat"}
+                prefetch={false}
+                passHref
+              >
                 <p
                   css={tw`px-3 mx-2 py-2 my-auto hover:cursor-pointer hover:bg-gray-800 hover:text-white bg-white text-black rounded-md`}
                 >

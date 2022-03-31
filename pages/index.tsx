@@ -94,7 +94,7 @@ function ToolboxCard({
   link: string;
 }) {
   return (
-    <Link href={link} passHref>
+    <Link href={link} prefetch={false} passHref>
       <div
         css={tw`gap-0.5 p-3 rounded-2xl bg-white/10 hover:bg-white/20 text-white hover:cursor-pointer width[15rem] max-w-full break-words min-height[12rem] w-56 block grid grid-cols-1 place-items-center mix-blend-multiply`}
       >
