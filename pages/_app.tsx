@@ -136,7 +136,7 @@ function Toolbox({ Component, pageProps }: AppProps) {
                 passHref
               >
                 <p css={tw`px-3 mx-2 py-2 my-auto hover:cursor-pointer`}>
-                  Spigot
+                  SpigotMC
                 </p>
               </Link>
               <Link
@@ -145,7 +145,7 @@ function Toolbox({ Component, pageProps }: AppProps) {
                 passHref
               >
                 <p css={tw`px-3 mx-2 py-2 my-auto hover:cursor-pointer`}>
-                  Github
+                  GitHub
                 </p>
               </Link>
               <div
