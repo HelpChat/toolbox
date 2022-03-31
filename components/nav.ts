@@ -32,7 +32,7 @@ export const Tools: Record<
     Legacy: [
       {
         name: "Legacy Text Convert",
-        short: "Legacy",
+        short: "MiniMessage",
         icon: faCommentDots,
         description: "Convert Legacy Strings to MiniMessage Strings",
         link: "/converters/legacy/minimessage",
