@@ -22,7 +22,7 @@ const LegacyToMiniMessage: NextPage = () => (
         parser={(config) => {
             return {
                 error: false,
-                data: MiniMessage(config.legacy),
+                data: { formatted: MiniMessage(config.legacy) },
             }
         }}
     />
