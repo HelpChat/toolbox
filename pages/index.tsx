@@ -25,7 +25,7 @@ function Home() {
         >
           <p css={tw`text-lg text-brightblue`}>Introducing the all new</p>
           <div css={tw`text-white text-center space-y-12`}>
-            <p css={tw`text-5xl font-bold overflow-hidden`}>HelpChat Toolbox</p>
+            <p css={tw`text-5xl font-bold overflow-hidden`}>HelpChat Toolbox Beta™</p>
             <p css={tw`text-base text-lightgray`}>
               A collection of tools and solutions you might find useful for you
               and your server.
