@@ -1,4 +1,4 @@
-// @ToolBox - EssentialsChatTypes
+// @Toolbox - EssentialsChatTypes
 
 export interface EssentialsChatConfig {
   chat: {
@@ -10,7 +10,7 @@ export interface EssentialsChatConfig {
 }
 
 export interface EssentialsChatTypes {
-  config: EssentialsChatConfig;
+  essentials: EssentialsChatConfig;
   language: {
     msgFormat?: string;
     socialSpyMsgFormat?: string;

@@ -12,20 +12,20 @@ export default class Converter<
     this.conversion = conversion;
   }
 
-  convert(input: any): Record<keyof OutputConfigs, string> | ConversionError {
+  convert(
+    input: Record<string, any>
+  ):
+    | { error: false; data: Record<keyof OutputConfigs, string> }
+    | ConversionError {
     let untypedInputConfig: any;
 
     try {
-      if (typeof input === "string") {
-        untypedInputConfig = parse(input);
-      } else {
-        untypedInputConfig = {};
-        for (const key of Object.keys(input)) {
-          if (typeof input[key] === "string") {
-            untypedInputConfig[key] = parse(input[key]);
-          } else {
-            untypedInputConfig[key] = input[key];
-          }
+      untypedInputConfig = {};
+      for (const key of Object.keys(input)) {
+        if (typeof input[key] === "string") {
+          untypedInputConfig[key] = parse(input[key]);
+        } else {
+          untypedInputConfig[key] = input[key];
         }
       }
     } catch (e: any) {
@@ -70,7 +70,10 @@ export default class Converter<
       });
     });
 
-    return returnValue as Record<keyof OutputConfigs, string>;
+    return {
+      error: false,
+      data: <Record<keyof OutputConfigs, string>>returnValue,
+    };
   }
 }
 

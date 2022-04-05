@@ -30,15 +30,18 @@ const ChatChatEssentialsChatConverter = new Converter<
       },
     };
 
-    if (!essentialschatConfig.config || !essentialschatConfig.config.chat) {
+    if (
+      !essentialschatConfig.essentials ||
+      !essentialschatConfig.essentials.chat
+    ) {
       return {
         error: true,
         message: "must be object",
       };
     }
 
-    if (essentialschatConfig.config.chat.format) {
-      const format = essentialschatConfig.config.chat.format;
+    if (essentialschatConfig.essentials.chat.format) {
+      const format = essentialschatConfig.essentials.chat.format;
       const ccFormat: ChatChatFormat = {
         priority: 1,
         parts: [],
@@ -50,8 +53,8 @@ const ChatChatEssentialsChatConverter = new Converter<
 
     let formatCount = 1;
 
-    if (essentialschatConfig.config.chat["group-formats"]) {
-      const formats = essentialschatConfig.config.chat["group-formats"];
+    if (essentialschatConfig.essentials.chat["group-formats"]) {
+      const formats = essentialschatConfig.essentials.chat["group-formats"];
       Object.keys(formats).forEach((name) => {
         const ecFormat = formats[name];
         const ccFormat: ChatChatFormat = {

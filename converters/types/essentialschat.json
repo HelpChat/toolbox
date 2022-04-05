@@ -5,7 +5,7 @@
     "EssentialsChatTypes": {
       "type": "object",
       "properties": {
-        "config": {
+        "essentials": {
           "$ref": "#/definitions/EssentialsChatConfig"
         },
         "language": {
@@ -21,7 +21,7 @@
         }
       },
       "required": [
-        "config",
+        "essentials",
         "language"
       ]
     },

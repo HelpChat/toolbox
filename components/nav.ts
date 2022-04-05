@@ -1,5 +1,5 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { faCommentDots, faFile } from "@fortawesome/free-solid-svg-icons";
+import { faCommentDots, faFile, faFileCode } from "@fortawesome/free-solid-svg-icons";
 
 export const Tools: Record<
   string,
@@ -29,40 +29,49 @@ export const Tools: Record<
         link: "/converters/chatchat/venturechat",
       },
     ],
+    Legacy: [
+      {
+        name: "Legacy Text Convert",
+        short: "MiniMessage",
+        icon: faCommentDots,
+        description: "Convert Legacy Strings to MiniMessage Strings",
+        link: "/converters/legacy/minimessage",
+      }
+    ],
   },
   Validators: [
     {
       name: "Yaml Validator",
       short: "Yaml",
-      icon: faFile,
-      description: "Validate Yaml Files",
+      icon: faFileCode,
+      description: "Check your config before you wreck your config",
       link: "/validators/yaml",
     },
     {
       name: "Properties Validator",
       short: "Properties",
-      icon: faFile,
+      icon: faFileCode,
       description: "Validate Properties Files",
       link: "/validators/properties",
     },
     {
       name: "Toml Validator",
       short: "Toml",
-      icon: faFile,
+      icon: faFileCode,
       description: "Validate Toml Files",
       link: "/validators/toml",
     },
     {
       name: "Hocon Validator",
       short: "Hocon",
-      icon: faFile,
+      icon: faFileCode,
       description: "Validate Hocon Files",
       link: "/validators/hocon",
     },
     {
       name: "XML Validator",
       short: "XML",
-      icon: faFile,
+      icon: faFileCode,
       description: "Validate XML Files",
       link: "/validators/xml",
     },

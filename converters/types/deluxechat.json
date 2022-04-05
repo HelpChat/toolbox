@@ -1,7 +1,18 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$ref": "#/definitions/DeluxeChatConfig",
+  "$ref": "#/definitions/DeluxeChat",
   "definitions": {
+    "DeluxeChat": {
+      "type": "object",
+      "properties": {
+        "deluxechat": {
+          "$ref": "#/definitions/DeluxeChatConfig"
+        }
+      },
+      "required": [
+        "deluxechat"
+      ]
+    },
     "DeluxeChatConfig": {
       "type": "object",
       "properties": {
