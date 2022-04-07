@@ -1,5 +1,15 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { faCommentDots, faFile, faFileCode } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCommentDots,
+  faFileCode,
+  faFileCircleCheck,
+  faFilePen,
+  faPaste,
+  faFileCircleQuestion,
+  faHouseCircleCheck,
+  faComment,
+  faTurnUp,
+} from "@fortawesome/free-solid-svg-icons";
 
 export const Tools: Record<
   string,
@@ -17,14 +27,14 @@ export const Tools: Record<
       {
         name: "Essentials Convert",
         short: "Essentials",
-        icon: faCommentDots,
+        icon: faHouseCircleCheck,
         description: "Convert EssentialsChat Configs to ChatChat Configs",
         link: "/converters/chatchat/essentialschat",
       },
       {
         name: "VentureChat Convert",
         short: "VentureChat",
-        icon: faCommentDots,
+        icon: faComment,
         description: "Convert VentureChat Configs to ChatChat Configs",
         link: "/converters/chatchat/venturechat",
       },
@@ -33,10 +43,10 @@ export const Tools: Record<
       {
         name: "Legacy Text Convert",
         short: "MiniMessage",
-        icon: faCommentDots,
+        icon: faTurnUp,
         description: "Convert Legacy Strings to MiniMessage Strings",
         link: "/converters/legacy/minimessage",
-      }
+      },
     ],
   },
   Validators: [
@@ -50,28 +60,28 @@ export const Tools: Record<
     {
       name: "Properties Validator",
       short: "Properties",
-      icon: faFileCode,
+      icon: faFileCircleCheck,
       description: "Validate Properties Files",
       link: "/validators/properties",
     },
     {
       name: "Toml Validator",
       short: "Toml",
-      icon: faFileCode,
+      icon: faFilePen,
       description: "Validate Toml Files",
       link: "/validators/toml",
     },
     {
       name: "Hocon Validator",
       short: "Hocon",
-      icon: faFileCode,
+      icon: faPaste,
       description: "Validate Hocon Files",
       link: "/validators/hocon",
     },
     {
       name: "XML Validator",
       short: "XML",
-      icon: faFileCode,
+      icon: faFileCircleQuestion,
       description: "Validate XML Files",
       link: "/validators/xml",
     },
