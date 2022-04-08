@@ -34,7 +34,7 @@ function Home() {
         </div>
         <div
           css={css`
-            ${tw`h-full flex-grow flex-shrink`}
+            ${tw`h-full min-h-screen flex-grow flex-shrink`}
           `}
         >
           <div
