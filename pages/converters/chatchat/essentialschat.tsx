@@ -45,7 +45,7 @@ const Home: NextPage = () => (
         };
       }
       return ChatChatEssentialsChatConverter.convert({
-        essentials: config.config ?? {},
+        essentials: config.essentials ?? {},
         language: propertiesConfig ?? {},
       });
     }}
