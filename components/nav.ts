@@ -9,6 +9,7 @@ import {
   faHouseCircleCheck,
   faComment,
   faTurnUp,
+  faCommentAlt
 } from "@fortawesome/free-solid-svg-icons";
 
 export const Tools: Record<
@@ -37,6 +38,13 @@ export const Tools: Record<
         icon: faComment,
         description: "Convert VentureChat Configs to ChatChat Configs",
         link: "/converters/chatchat/venturechat",
+      },
+      {
+        name: "LPC Convert",
+        short: "LPC",
+        icon: faCommentAlt,
+        description: "Convert LPC Configs to ChatChat Configs",
+        link: "/converters/chatchat/lpc",
       },
     ],
     Legacy: [

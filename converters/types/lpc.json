@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/LPCConfig",
+  "definitions": {
+    "LPCConfig": {
+      "type": "object",
+      "properties": {
+        "chat-format": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "group-formats": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

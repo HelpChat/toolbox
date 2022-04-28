@@ -3,7 +3,7 @@ import ChatChatEssentialsChatConverter from "../../../converters/chatchat/essent
 import Properties from "@js.properties/properties";
 import Converter from "../../../components/Converter";
 
-const Home: NextPage = () => (
+const EssentialsChatConverter: NextPage = () => (
   <Converter
     inputConfigs={{
       essentials: {
@@ -52,4 +52,4 @@ const Home: NextPage = () => (
   />
 );
 
-export default Home;
+export default EssentialsChatConverter;

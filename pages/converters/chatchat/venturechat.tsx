@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Converter from "../../../components/Converter";
 import ChatChatVentureChatConverter from "../../../converters/chatchat/venturechat";
 
-const DeluxeChatConverter: NextPage = () => (
+const VentureChatConverter: NextPage = () => (
   <Converter
     inputConfigs={{
       venturechat: {
@@ -28,4 +28,4 @@ const DeluxeChatConverter: NextPage = () => (
   />
 );
 
-export default DeluxeChatConverter;
+export default VentureChatConverter;
