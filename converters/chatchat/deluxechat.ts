@@ -46,29 +46,33 @@ const ChatChatDeluxeChatConverter = new Converter<DeluxeChat,
                     (segment) => {
                         let formattedSegment = dcFormat[segment];
 
-                        // Add in the click command if it exists
-                        let segmentClick =
-                            dcFormat[(segment + "_click_command") as keyof DeluxeChatFormat];
-                        if (segmentClick && segmentClick !== "") {
-                            formattedSegment =
-                                "<click:run_command:'" +
-                                segmentClick +
-                                "'>" +
-                                formattedSegment +
-                                "</click>";
+                        if (formattedSegment) {
+                            // Add in the click command if it exists
+                            let segmentClick =
+                                dcFormat[(segment + "_click_command") as keyof DeluxeChatFormat];
+                            if (segmentClick && segmentClick !== "") {
+                                formattedSegment =
+                                    "<click:run_command:'" +
+                                    segmentClick +
+                                    "'>" +
+                                    formattedSegment +
+                                    "</click>";
+                            }
                         }
 
-                        // Add in the hover if it exists
-                        let segmentHover: string[] = (<string[]>(
-                            dcFormat[(segment + "_tooltip") as keyof DeluxeChatFormat]
-                        )).filter((s) => s && s !== "");
-                        if (segmentHover && segmentHover.length > 0) {
-                            formattedSegment =
-                                "<hover:show_text:'" +
-                                segmentHover.join("<newline>") +
-                                "'>" +
-                                formattedSegment +
-                                "</hover>";
+                        if (dcFormat[(segment + "_tooltip") as keyof DeluxeChatFormat]) {
+                            // Add in the hover if it exists
+                            let segmentHover: string[] = (<string[]>(
+                                dcFormat[(segment + "_tooltip") as keyof DeluxeChatFormat]
+                            )).filter((s) => s && s !== "");
+                            if (segmentHover && segmentHover.length > 0) {
+                                formattedSegment =
+                                    "<hover:show_text:'" +
+                                    segmentHover.join("<newline>") +
+                                    "'>" +
+                                    formattedSegment +
+                                    "</hover>";
+                            }
                         }
                         if (formattedSegment !== "") {
                             ccFormat.parts[segment] = [MiniMessage(formattedSegment)];
