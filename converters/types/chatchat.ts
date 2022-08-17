@@ -1,20 +1,22 @@
 export interface ChatChatFormatsConfig {
-  "default-format": string;
-  formats: {
-    [key: string]: ChatChatFormat;
-  };
+    "default-format": string;
+    formats: {
+        [key: string]: ChatChatFormat;
+    };
 }
 
 export type ChatChatFormat = {
-  priority: number;
+    priority: number;
 } & ChatChatParts;
 
 export interface ChatChatSettingsConfig {
-  "sender-format": ChatChatParts;
-  "recipient-format": ChatChatParts;
-  "social-spy-format": ChatChatParts;
+    "sender-format": ChatChatParts;
+    "recipient-format": ChatChatParts;
+    "social-spy-format": ChatChatParts;
 }
 
 export interface ChatChatParts {
-  parts: string[];
+    parts: {
+        [key: string]: string[];
+    };
 }
