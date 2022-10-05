@@ -140,7 +140,7 @@ function Toolbox({ Component, pageProps }: AppProps) {
                 </p>
               </Link>
               <Link
-                href={"https://github.com/HelpChat"}
+                href={"https://github.com/HelpChat/toolbox"}
                 prefetch={false}
                 passHref
               >
