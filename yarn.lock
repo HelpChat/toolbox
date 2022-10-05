@@ -2446,10 +2446,10 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-react-simple-code-editor@0.13.0:
-  version "0.13.0"
-  resolved "https://registry.yarnpkg.com/react-simple-code-editor/-/react-simple-code-editor-0.13.0.tgz#4d919a7deb396362d9d610ad101317b178be6105"
-  integrity sha512-v49lVlDv6dlda92Hm+7PorN9V8k+Ech7Y52dPZ3QYClJXaciiYW42Ja/j6MPb5ZPfU6w34ZMi2HRsLhxUjBF8A==
+react-simple-code-editor@0.13.1:
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/react-simple-code-editor/-/react-simple-code-editor-0.13.1.tgz#4514553fa132dcaffec33a6612c58f1613c52416"
+  integrity sha512-XYeVwRZwgyKtjNIYcAEgg2FaQcCZwhbarnkJIV20U2wkCU9q/CPFBo8nRXrK4GXUz3AvbqZFsZRrpUTkqqEYyQ==
 
 react-textarea-autosize@^8.3.2:
   version "8.3.4"
