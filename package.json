@@ -24,7 +24,7 @@
     "react-dom": "18.2.0",
     "react-json-view": "1.21.3",
     "react-simple-code-editor": "0.13.0",
-    "styled-components": "5.3.5",
+    "styled-components": "5.3.6",
     "toml": "3.0.0",
     "x2js": "3.4.3",
     "xml-js": "1.6.11",
