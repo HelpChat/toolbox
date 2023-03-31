@@ -39,7 +39,7 @@
     "eslint": "8.24.0",
     "eslint-config-next": "12.3.1",
     "prettier": "2.7.1",
-    "tailwindcss": "3.1.8",
+    "tailwindcss": "3.3.1",
     "ts-json-schema-generator": "1.1.2",
     "ts-node": "10.9.1",
     "twin.macro": "2.8.2",
