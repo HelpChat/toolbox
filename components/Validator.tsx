@@ -57,7 +57,7 @@ const Validator = ({
 
       <main
         css={css`
-          ${tw`flex flex-col min-height[calc(100vh - 3.5rem)]`}
+          ${tw`flex flex-col [min-height:calc(100vh - 3.5rem)]`}
         `}
       >
         <div css={tw`w-full md:px-8 p-16 h-48 text-center`}>
@@ -71,7 +71,7 @@ const Validator = ({
             <div
               css={css`
                 height: calc(100vh - 18.5em);
-                ${tw`md:w-1/2 p-4 pt-1 md:pr-2 md:max-width[50vw]`}
+                ${tw`md:w-1/2 p-4 pt-1 md:pr-2 md:[max-width:50vw]`}
               `}
             >
               <TextBox
@@ -84,7 +84,7 @@ const Validator = ({
             <div
               css={css`
                 height: calc(100vh - 18.5em);
-                ${tw`w-full md:w-1/2 p-4 md:pl-2 pt-1 flex flex-col md:max-width[50vw]`}
+                ${tw`w-full md:w-1/2 p-4 md:pl-2 pt-1 flex flex-col md:[max-width:50vw]`}
               `}
             >
               <div css={tw`flex flex-col h-full w-full pt-1`}>

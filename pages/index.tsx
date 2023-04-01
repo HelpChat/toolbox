@@ -17,7 +17,7 @@ function Home() {
       </Head>
       <main
         css={css`
-          ${tw`flex flex-col min-height[calc(100vh - 3.5rem)]`}
+          ${tw`flex flex-col [min-height:calc(100vh - 3.5rem)]`}
         `}
       >
         <div
@@ -43,7 +43,7 @@ function Home() {
             `}
           >
             <div
-              css={tw`bg-white/10 backdrop-blur-sm drop-shadow-lg rounded-2xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-6 sm:p-8 md:p-6 md:px-6 w-full max-width[90vw] overflow-hidden`}
+              css={tw`bg-white/10 backdrop-blur-sm drop-shadow-lg rounded-2xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-6 sm:p-8 md:p-6 md:px-6 w-full [max-width:90vw] overflow-hidden`}
             >
               {(() => {
                 const tools: JSX.Element[] = [];
@@ -96,7 +96,7 @@ function ToolboxCard({
   return (
     <Link href={link} prefetch={false} passHref>
       <div
-        css={tw`gap-0.5 p-3 rounded-2xl bg-white/10 hover:bg-white/20 text-white hover:cursor-pointer width[15rem] max-w-full break-words min-height[12rem] w-56 block grid grid-cols-1 place-items-center mix-blend-multiply`}
+        css={tw`gap-0.5 p-3 rounded-2xl bg-white/10 hover:bg-white/20 text-white hover:cursor-pointer [width:15rem] max-w-full break-words [min-height:12rem] w-56 block grid grid-cols-1 place-items-center mix-blend-multiply`}
       >
         <FontAwesomeIcon icon={icon} size={"3x"} />
         <p css={tw`font-bold text-lg md:text-base`}>{name}</p>

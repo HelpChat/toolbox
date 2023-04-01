@@ -62,7 +62,7 @@ const Converter = ({
 
       <main
         css={css`
-          ${tw`flex flex-col min-height[calc(100vh - 3.5rem)]`}
+          ${tw`flex flex-col [min-height:calc(100vh - 3.5rem)]`}
         `}
       >
         <div css={tw`w-full md:px-8 p-16 h-48 text-center`}>
@@ -76,7 +76,7 @@ const Converter = ({
             <div
               css={css`
                 height: calc(100vh - 18.5em);
-                ${tw`md:w-1/2 p-4 pt-1 md:pr-2 md:max-width[50vw] flex flex-col`}
+                ${tw`md:w-1/2 p-4 pt-1 md:pr-2 md:[max-width:50vw] flex flex-col`}
               `}
             >
               {Object.keys(inputConfigs).map((key) => {
@@ -111,7 +111,7 @@ const Converter = ({
             <div
               css={css`
                 height: calc(100vh - 18.5em);
-                ${tw`md:w-1/2 p-4 pt-1 md:pr-2 md:max-width[50vw] flex flex-col`}
+                ${tw`md:w-1/2 p-4 pt-1 md:pr-2 md:[max-width:50vw] flex flex-col`}
               `}
             >
               {error || !parsedConfigs ? (
