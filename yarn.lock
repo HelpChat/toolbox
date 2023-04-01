@@ -518,10 +518,10 @@
     "@typescript-eslint/types" "5.57.0"
     eslint-visitor-keys "^3.3.0"
 
-"@xmldom/xmldom@^0.7.4":
-  version "0.7.10"
-  resolved "https://registry.yarnpkg.com/@xmldom/xmldom/-/xmldom-0.7.10.tgz#b1f4a7dc63ac35b2750847644d5dacf5b4ead12f"
-  integrity sha512-hb9QhOg5MGmpVkFcoZ9XJMe1em5gd0e2eqqjK87O1dwULedXsnY/Zg/Ju6lcohA+t6jVkmKpe7I1etqhvdRdrQ==
+"@xmldom/xmldom@^0.8.3":
+  version "0.8.7"
+  resolved "https://registry.yarnpkg.com/@xmldom/xmldom/-/xmldom-0.8.7.tgz#8b1e39c547013941974d83ad5e9cf5042071a9a0"
+  integrity sha512-sI1Ly2cODlWStkINzqGrZ8K6n+MTSbAeQnAipGyL+KZCXuHaRlj2gyyy8B/9MvsFFqN7XHryQnB2QwhzvJXovg==
 
 acorn-jsx@^5.3.2:
   version "5.3.2"
@@ -3297,12 +3297,12 @@ wrappy@1:
   resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
   integrity sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==
 
-x2js@3.4.3:
-  version "3.4.3"
-  resolved "https://registry.yarnpkg.com/x2js/-/x2js-3.4.3.tgz#3f57537302ff269ad7043078188bb07bc8088af9"
-  integrity sha512-+65+WHCaQ9E0Gb2FDz/tYRSRBGGvFsSMiWDGn8KbgJOLkJhZBMCU1lxuRMLyTcx/54IopT0rDQWCUz2f7FTsyQ==
+x2js@3.4.4:
+  version "3.4.4"
+  resolved "https://registry.yarnpkg.com/x2js/-/x2js-3.4.4.tgz#42f8b82667dbfdf7c5375ca06d2a81c0ea8e4c00"
+  integrity sha512-yG/ThaBCgnsa3aoMPAe7QwDpcyU4D70hjXC4Y1lZSfD/Tgd0MpE19FnZZRAjekryw0c8cffpOt9zsPEiqktO6Q==
   dependencies:
-    "@xmldom/xmldom" "^0.7.4"
+    "@xmldom/xmldom" "^0.8.3"
 
 xml-js@1.6.11:
   version "1.6.11"
