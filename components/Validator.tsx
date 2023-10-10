@@ -2,14 +2,16 @@ import Head from "next/head";
 import tw, { css } from "twin.macro";
 import { TextBox } from "./TextBox";
 import { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
 import duotoneDark from "prism-react-renderer/themes/duotoneDark";
 import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { ConversionError } from "../converters/converter";
+import dynamic from "next/dynamic";
 
-const ReactJson = dynamic(import("react-json-view"), { ssr: false });
+const JsonView = dynamic(() => import("@microlink/react-json-view"), {
+  ssr: false
+});
 
 const Validator = ({
   language,
@@ -112,7 +114,7 @@ const Validator = ({
                 >
                   <div css={tw`py-2 px-4 text-base`}>
                     {!(error || !parsedConfig) ? (
-                      <ReactJson
+                      <JsonView
                         src={parsedConfig}
                         theme={{
                           base00: duotoneDark.plain.backgroundColor ?? "",
