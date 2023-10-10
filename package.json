@@ -27,7 +27,7 @@
     "toml": "3.0.0",
     "x2js": "3.4.4",
     "xml-js": "1.6.11",
-    "yaml": "2.2.1"
+    "yaml": "2.2.2"
   },
   "devDependencies": {
     "@types/node": "18.15.11",
