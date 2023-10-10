@@ -1,0 +1,36 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://helpch.at/json-schemas/deluxemenus/config",
+    "title": "DeluxeMenus Config",
+    "description": "JSON validation schema for DeluxeMenus' config",
+    "type": "object",
+    "required": ["debug", "check_updates", "gui_menus"],
+    "properties": {
+        "debug": {
+            "description": "Set debug level in DeluxeMenus. Available debug modes: HIGHEST, HIGH, MEDIUM, LOW, LOWEST.",
+            "type": "string",
+            "enum": ["HIGHEST", "HIGH", "MEDIUM", "LOW", "LOWEST"]
+        },
+        "check_updates": {
+            "description": "Enable or disable automated checks for DeluxeMenus updates.",
+            "type": "boolean"
+        },
+        "gui_menus": {
+            "description": "A list of menus with their name and file location.",
+            "type": "object",
+            "additionalProperties": false,
+            "patternProperties": {
+                "^.+$": {
+                    "description": "Menu name.",
+                    "type": "object",
+                    "properties": {
+                        "file": {
+                            "description": "File location of the menu.",
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

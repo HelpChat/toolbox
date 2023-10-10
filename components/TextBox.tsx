@@ -92,7 +92,7 @@ export const TextBox = ({
   }
 };
 
-function highlight(code: string, language: string) {
+export function highlight(code: string, language: string) {
   return (
     <Highlight
       {...defaultProps}
