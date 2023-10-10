@@ -6,8 +6,7 @@
     "generateschema": "ts-node --project tsnodeconfig.json cli/generateschema.ts",
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "format": "yarn prettier --write ."
+    "start": "next start"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "6.4.0",

@@ -1,8 +1,6 @@
 import type {NextPage} from "next";
 import Converter from "../../../components/Converter";
 import MiniMessage from "../../../converters/minimessage";
-import {ConversionError} from "../../../converters/converter";
-import {string} from "prop-types";
 
 const LegacyToMiniMessage: NextPage = () => (
     <Converter
