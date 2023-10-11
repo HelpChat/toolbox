@@ -42,7 +42,7 @@
     "ts-json-schema-generator": "1.3.0",
     "ts-node": "10.9.1",
     "twin.macro": "3.4.0",
-    "typescript": "4.8.4"
+    "typescript": "4.9.5"
   },
   "babelMacros": {
     "twin": {
