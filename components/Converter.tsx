@@ -154,7 +154,6 @@ const Converter = ({
                       `}
                     >
                       <TextBox
-                        key={config.name}
                         title={config.name}
                         language={"yaml"}
                         code={parsedConfigs ? parsedConfigs[key] ?? "" : ""}
