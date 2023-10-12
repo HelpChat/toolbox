@@ -59,7 +59,6 @@ function toolsToCard(tools: ToolboxTool[]) {
   return tools.map((tool) => (
     // eslint-disable-next-line react/jsx-key
     <ToolboxCard
-      key={tool.name}
       name={tool.name}
       icon={tool.icon}
       description={tool.description}
@@ -81,7 +80,7 @@ function ToolboxCard({
 }) {
   return (
     <Link href={link} prefetch={false} passHref>
-      <div className="gap-0.5 p-3 rounded-2xl bg-white/10 hover:bg-white/20 text-white hover:cursor-pointer [width:15rem] max-w-full break-words [min-height:12rem] w-56 block grid grid-cols-1 place-items-center mix-blend-multiply">
+      <div className="gap-0.5 p-3 rounded-2xl bg-white/10 hover:bg-white/20 text-white hover:cursor-pointer max-w-full break-words [min-height:12rem] w-56 grid grid-cols-1 place-items-center mix-blend-multiply">
         <FontAwesomeIcon icon={icon} size={"3x"} />
         <p className="font-bold text-lg md:text-base">{name}</p>
         <p className="text-center text-sm">{description}</p>
