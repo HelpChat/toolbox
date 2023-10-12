@@ -1,4 +1,3 @@
-import tw, { css } from "twin.macro";
 import Highlight, { defaultProps, Language } from "prism-react-renderer";
 import Prism from "prismjs";
 import { Dispatch, SetStateAction } from "react";
@@ -11,7 +10,8 @@ import "prismjs/components/prism-properties";
 import "prismjs/components/prism-json";
 import "prismjs/components/prism-xml-doc";
 
-const textBoxStyle = tw`flex-grow flex-shrink border-none outline-none focus:outline-none max-h-full`;
+const textBoxStyle =
+  "flex-grow flex-shrink border-none outline-none focus:outline-none max-h-full";
 
 export const TextBox = ({
   title,
@@ -26,12 +26,12 @@ export const TextBox = ({
 }) => {
   if (!editor) {
     return (
-      <div css={tw`flex flex-col h-full w-full pt-1 text-white`}>
-        <div css={tw`flex flex-row pl-8`}>
-          <p css={tw`text-xl font-semibold mx-auto mb-2`}>{title}</p>
-          <div css={tw`flex flex-row h-8 w-8`}>
+      <div className="flex flex-col h-full w-full pt-1 text-white">
+        <div className="flex flex-row pl-8">
+          <p className="text-xl font-semibold mx-auto mb-2">{title}</p>
+          <div className="flex flex-row h-8 w-8">
             <div
-              css={tw`py-1 px-2 bg-green-400 rounded-md hover:cursor-pointer`}
+              className="py-1 px-2 bg-green-400 rounded-md hover:cursor-pointer"
               onClick={() => {
                 navigator.clipboard.writeText(code);
               }}
@@ -41,50 +41,48 @@ export const TextBox = ({
           </div>
         </div>
         <div
-          css={css`
-            ${tw`rounded-md overflow-auto h-full`} background-color: #2a2734
-          `}
+          style={{
+            backgroundColor: "#2a2734",
+          }}
+          className="rounded-md overflow-auto h-full"
         >
-          <div css={tw` py-2 px-4`}>{highlight(code, language)}</div>
+          <div className="py-2 px-4">{highlight(code, language)}</div>
         </div>
       </div>
     );
   } else {
     return (
-      <div css={tw`flex flex-col h-full w-full pt-1 text-white`}>
-        <p css={tw`text-xl font-semibold mx-auto mb-2`}>{title}</p>
+      <div className="flex flex-col h-full w-full pt-1 text-white">
+        <p className="text-xl font-semibold mx-auto mb-2">{title}</p>
         <div
-          css={css`
-            ${tw`rounded-md overflow-auto h-full flex flex-col`} background-color: #2a2734
-          `}
+          style={{
+            backgroundColor: "#2a2734",
+          }}
+          className="rounded-md overflow-auto h-full flex flex-col"
         >
-          <div css={tw`py-2 px-4 flex-grow flex-shrink`}>
+          <div className="py-2 px-4 flex-grow flex-shrink">
             <Editor
               value={code}
               onValueChange={editor}
               highlight={(v) => highlight(v, language)}
-              css={css`
-                ${textBoxStyle}
-                ${tw`h-full`}
-                              min-width: fit-content;
-                font-family: ui-monospace, SFMono-Regular, Menlo, Monaco,
-                  Consolas, "Liberation Mono", "Courier New", monospace;
-
-                > pre {
-                  ${tw`h-full w-full`}
-                }
-
-                > pre > pre {
-                  ${tw`h-full w-full`}
-                }
-
-                > textarea {
-                  z-index: 1;
-                  caret-color: whitesmoke;
-                  ${tw`hover:outline-none focus:outline-none h-full`}
-                }
-              `}
-            />
+              className={`h-full ${textBoxStyle}`}
+              style={{
+                fontFamily:
+                  'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+              }}
+            >
+              <pre className="h-full w-full">
+                <pre className="h-full w-full">
+                  <textarea
+                    style={{
+                      zIndex: 1,
+                      caretColor: "whitesmoke",
+                    }}
+                    className="hover:outline-none focus:outline-none h-full"
+                  />
+                </pre>
+              </pre>
+            </Editor>
           </div>
         </div>
       </div>

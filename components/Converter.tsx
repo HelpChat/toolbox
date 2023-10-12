@@ -1,5 +1,4 @@
 import Head from "next/head";
-import tw, { css } from "twin.macro";
 import { TextBox } from "./TextBox";
 import { useEffect, useState } from "react";
 import { ConversionError } from "../converters/converter";
@@ -60,38 +59,28 @@ const Converter = ({
         <meta name="description" content={description} />
       </Head>
 
-      <main
-        css={css`
-          ${tw`flex flex-col [min-height:calc(100vh - 3.5rem)]`}
-        `}
-      >
-        <div css={tw`w-full md:px-8 p-16 h-48 text-center`}>
-          <p css={tw`text-3xl font-bold`}>HelpChat</p>
-          <p css={tw`text-lg`}>{title}</p>
+      <main className="flex flex-col [min-height:calc(100vh - 3.5rem)]">
+        <div className="w-full md:px-8 p-16 h-48 text-center">
+          <p className="text-3xl font-bold">HelpChat</p>
+          <p className="text-lg">{title}</p>
         </div>
-        <div
-          css={tw`p-4 m-2 md:mx-6 lg:mx-12 bg-white/20 backdrop-blur-sm drop-shadow-lg rounded-lg`}
-        >
-          <div css={tw`flex flex-col md:flex-row flex-grow flex-shrink h-full`}>
+        <div className="p-4 m-2 md:mx-6 lg:mx-12 bg-white/20 backdrop-blur-sm drop-shadow-lg rounded-lg">
+          <div className="flex flex-col md:flex-row flex-grow flex-shrink h-full">
             <div
-              css={css`
-                height: calc(100vh - 18.5em);
-                ${tw`md:w-1/2 p-4 pt-1 md:pr-2 md:[max-width:50vw] flex flex-col`}
-              `}
+              style={{
+                height: "calc(100vh - 18.5em)",
+              }}
+              className="md:w-1/2 p-4 pt-1 md:pr-2 md:max-w-[50vw] flex flex-col"
             >
               {Object.keys(inputConfigs).map((key) => {
                 const config = inputConfigs[key];
                 return (
                   <div
                     key={key}
-                    css={css`
-                      ${tw`h-full`};
-                      @media (min-width: 768px) {
-                        height: ${Math.floor(
-                          100 / Object.keys(inputConfigs).length
-                        )}%;
-                      }
-                    `}
+                    style={{
+                      height: "100%",
+                    }}
+                    className="h-full md:h-[calc(100%/4)]" // TODO fix?
                   >
                     <TextBox
                       title={config.name}
@@ -109,29 +98,31 @@ const Converter = ({
               })}
             </div>
             <div
-              css={css`
-                height: calc(100vh - 18.5em);
-                ${tw`md:w-1/2 p-4 pt-1 md:pr-2 md:[max-width:50vw] flex flex-col`}
-              `}
+              style={{
+                height: "calc(100vh - 18.5em)",
+              }}
+              className="md:w-1/2 p-4 pt-1 md:pr-2 md:max-w-[50vw] flex flex-col"
             >
               {error || !parsedConfigs ? (
-                <div css={tw`flex flex-col h-full w-full pt-1`}>
-                  <div css={tw`flex flex-row md:pl-2`}>
-                    <p css={tw`text-xl font-semibold mx-auto mb-2`}>
+                <div className="flex flex-col h-full w-full pt-1">
+                  <div className="flex flex-row md:pl-2">
+                    <p className="text-xl font-semibold mx-auto mb-2">
                       Validation Errors
                     </p>
                   </div>
                   <div
-                    css={css`
-                      ${tw`rounded-md overflow-auto h-full`} background-color: #2a2734
-                    `}
+                    style={{
+                      backgroundColor: "#2a2734",
+                    }}
+                    className="rounded-md overflow-auto h-full"
                   >
-                    <div css={tw`py-2 px-4 text-base`}>
+                    <div className="py-2 px-4 text-base">
                       <span
-                        css={css`
-                          ${tw`text-base whitespace-pre`}
-                          font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-                        `}
+                        style={{
+                          fontFamily:
+                            'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+                        }}
+                        className="text-base whitespace-pre"
                       >
                         {error}
                       </span>
@@ -144,14 +135,10 @@ const Converter = ({
                   return (
                     <div
                       key={key}
-                      css={css`
-                        ${tw`h-full`};
-                        @media (min-width: 768px) {
-                          height: ${Math.floor(
-                            100 / Object.keys(outputConfigs).length
-                          )}%;
-                        }
-                      `}
+                      style={{
+                        height: "100%",
+                      }}
+                      className="h-full md:h-[calc(100% div object-keys-length)]" // TODO fix?
                     >
                       <TextBox
                         title={config.name}
