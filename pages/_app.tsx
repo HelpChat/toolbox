@@ -1,5 +1,5 @@
-import type { AppProps } from "next/app";
 import "../styles/global.css";
+import type { AppProps } from "next/app";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
@@ -79,7 +79,7 @@ function Toolbox({ Component, pageProps }: AppProps) {
         ))}
       </div>
       <div className="backdrop-blur-xl relative z-20">
-        <div className="text-white w-full md:px-8 p-2 md:h-14 flex flex-row text-white md:px-8 lg:px-12">
+        <div className="text-white w-full md:px-8 p-2 md:h-14 flex flex-row lg:px-12">
           <div className="flex flex-col md:flex-row w-full">
             <Link href={"/"} prefetch={false} passHref>
               <div className="flex flex-row hover:cursor-pointer m-4 md:m-0">
@@ -112,14 +112,14 @@ function Toolbox({ Component, pageProps }: AppProps) {
               </div>
             </Link>
             <div
-              className={`${
-                navOpen ? "h-max-content" : "h-0"
-              } flex flex-col md:flex-row flex-grow flex-shrink ${
-                !navOpen ? "overflow-hidden md:overflow-visible" : ""
-              }`}
-            >
+      className={`${
+        navOpen ? "h-max-content" : "h-0"
+      } flex flex-col md:flex-row flex-grow flex-shrink ${
+        !navOpen ? "overflow-hidden md:overflow-visible" : ""
+      } md:ml-auto`} // Added md:ml-auto to push the navigation to the right
+    >
               <Link href={"/"} prefetch={false} passHref>
-                <p className="px-3 mx-2 py-2 my-auto md:ml-auto hover:cursor-pointer">
+                <p className="px-3 mx-2 py-2 my-auto hover:cursor-pointer">
                   Home
                 </p>
               </Link>

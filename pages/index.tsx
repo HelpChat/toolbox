@@ -59,6 +59,7 @@ function toolsToCard(tools: ToolboxTool[]) {
   return tools.map((tool) => (
     // eslint-disable-next-line react/jsx-key
     <ToolboxCard
+      key={tool.name}
       name={tool.name}
       icon={tool.icon}
       description={tool.description}
