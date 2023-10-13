@@ -44,18 +44,20 @@ const ChatChatDeluxeChatConverter = new Converter<DeluxeChat,
 
                 (["channel", "prefix", "name", "suffix"] as const).forEach(
                     (segment) => {
-                        let formattedSegment = dcFormat[segment];
+                        let original = dcFormat[segment];
 
-                        if (formattedSegment) {
+                        let formSeg: string[] = [];
+
+                        if (original) {
                             // Add in the click command if it exists
                             let segmentClick =
                                 dcFormat[(segment + "_click_command") as keyof DeluxeChatFormat];
                             if (segmentClick && segmentClick !== "") {
-                                formattedSegment =
+                                original =
                                     "<click:run_command:'" +
                                     segmentClick +
                                     "'>" +
-                                    formattedSegment +
+                                    original +
                                     "</click>";
                             }
                         }
@@ -66,16 +68,21 @@ const ChatChatDeluxeChatConverter = new Converter<DeluxeChat,
                                 dcFormat[(segment + "_tooltip") as keyof DeluxeChatFormat]
                             )).filter((s) => s && s !== "");
                             if (segmentHover && segmentHover.length > 0) {
-                                formattedSegment =
-                                    "<hover:show_text:'" +
-                                    segmentHover.join("<newline>") +
-                                    "'>" +
-                                    formattedSegment +
-                                    "</hover>";
+                                formSeg.push("<hover:show_text:'");
+                                segmentHover.forEach((s) => {
+                                   formSeg.push(s + "<newline>");
+                                });
+                                formSeg.push("'>");
+                                formSeg.push(original);
+                                formSeg.push("</hover>");
                             }
                         }
-                        if (formattedSegment !== "") {
-                            ccFormat.parts[segment] = [MiniMessage(formattedSegment)];
+                        if (formSeg && formSeg.length > 0) {
+                            let tmp: string[] = [];
+                            formSeg.forEach((s) => {
+                                tmp.push(MiniMessage(s));
+                            });
+                            ccFormat.parts[segment] = tmp;
                         }
                     }
                 );
