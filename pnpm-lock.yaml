@@ -68,8 +68,8 @@ devDependencies:
     specifier: 18.15.11
     version: 18.15.11
   '@types/prismjs':
-    specifier: 1.26.1
-    version: 1.26.1
+    specifier: 1.26.6
+    version: 1.26.6
   '@types/react':
     specifier: 18.2.28
     version: 18.2.28
@@ -710,8 +710,8 @@ packages:
   /@types/parse-json@4.0.0:
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==}
 
-  /@types/prismjs@1.26.1:
-    resolution: {integrity: sha512-Q7jDsRbzcNHIQje15CS/piKhu6lMLb9jwjxSfEIi4KcFKXW23GoJMkwQiJ8VObyfx+VmUaDcJxXaWN+cTCjVog==}
+  /@types/prismjs@1.26.6:
+    resolution: {integrity: sha512-vqlvI7qlMvcCBbVe0AKAb4f97//Hy0EBTaiW8AalRnG/xAN5zOiWWyrNqNXeq8+KAuvRewjCVY1+IPxk4RdNYw==}
     dev: true
 
   /@types/prop-types@15.7.8:
